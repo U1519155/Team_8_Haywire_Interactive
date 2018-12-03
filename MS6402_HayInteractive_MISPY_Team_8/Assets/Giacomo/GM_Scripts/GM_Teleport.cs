@@ -21,7 +21,7 @@ public class GM_Teleport : MonoBehaviour
     {
 		if (bl_Teleport == true)
         {
-            go_Player.transform.position = v3_PlayerPos;
+            go_Player.transform.position = new Vector3(v3_PlayerPos.x , v3_PlayerPos.y ,v3_PlayerPos.z);
             bl_Teleport = false;
         }
 	}
