@@ -10,7 +10,7 @@ public class PC_Controller : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Cursor.lockState = CursorLockMode.Locked; //cursor will not move our of screen
+        //Cursor.lockState = CursorLockMode.Locked; //cursor will not move our of screen
         rb_PC = GetComponent<Rigidbody>();
         
 
@@ -27,7 +27,7 @@ public class PC_Controller : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape))//unlock mouse cursor
         {
-            Cursor.lockState = CursorLockMode.None;
+            //Cursor.lockState = CursorLockMode.None;
         }
 
        
