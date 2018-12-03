@@ -18,7 +18,6 @@ public class GM_TriggerChoose : MonoBehaviour
     public bool bl_GameDesigner = false;
     public bool bl_MarineBiologist = false;
     public bool bl_Actor = false;
-
     public int in_IncreasedSuspicion = 1;
 
     //public GameObject go_TriggerQuestion;
@@ -47,6 +46,7 @@ public class GM_TriggerChoose : MonoBehaviour
     // Set active if interacts with the button, deactivate if it exits
     public void OnTriggerEnter(Collider other)
     {
+        
         Debug.Log("Inside");
         if (other.tag == "IdentityHolder")
         {

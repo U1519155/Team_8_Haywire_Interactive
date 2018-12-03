@@ -38,6 +38,9 @@ public class Guard : MonoBehaviour {
 	}
 
 	void Update() {
+
+        Debug.Log(GM_Teleport.bl_Teleport);
+
 		if (CanSeePlayer ()) {
 			playerVisibleTimer += Time.deltaTime;
 		} else {
@@ -46,9 +49,14 @@ public class Guard : MonoBehaviour {
 		playerVisibleTimer = Mathf.Clamp (playerVisibleTimer, 0, timeToSpotPlayer);
 		spotlight.color = Color.Lerp (originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
 
+        if(spotlight.color == Color.red)
+        {
+            GM_Teleport.bl_Teleport = true;
+        }
+
 		if (playerVisibleTimer >= timeToSpotPlayer) {
 			if (OnGuardHasSpottedPlayer != null) {
-                GM_Teleport.bl_Teleport = true;
+                
                 OnGuardHasSpottedPlayer ();
 			}
 		}
