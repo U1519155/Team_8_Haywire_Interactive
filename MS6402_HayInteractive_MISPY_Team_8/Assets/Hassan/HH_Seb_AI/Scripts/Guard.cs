@@ -48,7 +48,8 @@ public class Guard : MonoBehaviour {
 
 		if (playerVisibleTimer >= timeToSpotPlayer) {
 			if (OnGuardHasSpottedPlayer != null) {
-				OnGuardHasSpottedPlayer ();
+                GM_Teleport.bl_Teleport = true;
+                OnGuardHasSpottedPlayer ();
 			}
 		}
 	}
