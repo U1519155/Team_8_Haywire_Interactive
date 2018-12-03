@@ -6,6 +6,7 @@ public class GM_ChangeMaterial : MonoBehaviour
     public Material mt_InitialMaterial;
     public Material mt_ChangingMaterial;
     public float fl_MaximumTimer = 1.5f;
+    public float fl_OnGoing = 1.5f;
     private float fl_RandomValues;
 
     // Use this for initialization
@@ -45,6 +46,6 @@ public class GM_ChangeMaterial : MonoBehaviour
     // This void sets the timer in a random array.
     void SetTimer()
     {
-        fl_MaximumTimer = Random.Range(0f, 1.5f);
+        fl_MaximumTimer = Random.Range(0f, fl_OnGoing);
     }
 }
