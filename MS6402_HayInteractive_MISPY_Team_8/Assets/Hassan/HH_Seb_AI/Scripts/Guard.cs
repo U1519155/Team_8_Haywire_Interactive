@@ -56,10 +56,6 @@ public class Guard : MonoBehaviour {
 
 		if (playerVisibleTimer >= timeToSpotPlayer) {
 			if (OnGuardHasSpottedPlayer != null) {
-<<<<<<< HEAD
-                
-=======
->>>>>>> 26c206e2455f5724d18ae3c4682963032e031f14
                 OnGuardHasSpottedPlayer ();
 			}
 		}

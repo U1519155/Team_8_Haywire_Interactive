@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class GM_Teleport : MonoBehaviour
 {
-<<<<<<< HEAD
-
     public static bool bl_Teleport;
-=======
->>>>>>> 26c206e2455f5724d18ae3c4682963032e031f14
+
     private GameObject go_Player;
     public Vector3 v3_PlayerPos;
 
@@ -23,19 +20,20 @@ public class GM_Teleport : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-<<<<<<< HEAD
         Debug.Log(bl_Teleport + "Hey baby");
 		if (bl_Teleport == true)
-=======
+        {
+            go_Player.transform.position = new Vector3(v3_PlayerPos.x, v3_PlayerPos.y, v3_PlayerPos.z);
+            bl_Teleport = false;
+        }
 
 	}
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
->>>>>>> 26c206e2455f5724d18ae3c4682963032e031f14
         {
-            go_Player.transform.position = new Vector3(v3_PlayerPos.x, v3_PlayerPos.y, v3_PlayerPos.z);
+           // go_Player.transform.position = new Vector3(v3_PlayerPos.x, v3_PlayerPos.y, v3_PlayerPos.z);
         }
     }
 }
