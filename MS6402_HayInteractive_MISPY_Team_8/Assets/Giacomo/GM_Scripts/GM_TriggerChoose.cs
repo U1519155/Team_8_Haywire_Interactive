@@ -21,8 +21,8 @@ public class GM_TriggerChoose : MonoBehaviour
 
     public int in_IncreasedSuspicion = 1;
 
-    public GameObject go_TriggerQuestion;
-    public GameObject go_TriggerIdentity;
+    //public GameObject go_TriggerQuestion;
+    //public GameObject go_TriggerIdentity;
     public GameObject go_ButtonHolder;
     public GameObject go_QuestionMeHolder;
     public GameObject[] go_Questions;
