@@ -4,9 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
+  - Interactable
+=======
   - Waypoint
   - Enemy
   - Breadcrumb
+>>>>>>> 715abb624a46c4855f1f86a5ea8aac08b7e24d6f
   layers:
   - Default
   - TransparentFX
@@ -16,10 +20,17 @@ TagManager:
   - UI
   - 
   - 
+<<<<<<< HEAD
+  - PostProcessing
+  - Interactable
+  - 
+  - 
+=======
   - Player
   - Enemy
   - Breadcrumb
   - Waypoint
+>>>>>>> 715abb624a46c4855f1f86a5ea8aac08b7e24d6f
   - 
   - 
   - 
