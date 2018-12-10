@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GM_TriggerChoose : MonoBehaviour
 {
+    //@Hassan you should lock the character's movement OnTriggerEnter, and then unlock the PC on the ID voids and the Question voids.
     // variables - Attach this script to a trigger childed in front of the pc
     public bool bl_Dhaka = false;
     public bool bl_London = false;
@@ -22,6 +23,7 @@ public class GM_TriggerChoose : MonoBehaviour
 
     //public GameObject go_TriggerQuestion;
     //public GameObject go_TriggerIdentity;
+    public GameObject go_Door;
     public GameObject go_ButtonHolder;
     public GameObject go_QuestionMeHolder;
     public GameObject[] go_Questions;
@@ -63,7 +65,6 @@ public class GM_TriggerChoose : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        Debug.Log("Exit");
         if (other.tag == "IdentityHolder")
         {
             go_ButtonHolder.SetActive(false);
@@ -123,6 +124,11 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("You can pass");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion - in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
+
+            if (go_Door.activeInHierarchy == true)
+            {
+                go_Door.SetActive(false);
+            }
          }
 
          else if (bl_Dhaka == false)
@@ -142,6 +148,11 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("You can pass");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion - in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
+
+            if (go_Door.activeInHierarchy == true)
+            {
+                go_Door.SetActive(false);
+            }
         }
 
         else if (bl_London == false)
@@ -161,6 +172,11 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("You can pass");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion - in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
+
+            if (go_Door.activeInHierarchy == true)
+            {
+                go_Door.SetActive(false);
+            }
         }
 
         else if (bl_Rome == false)

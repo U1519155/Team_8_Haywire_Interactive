@@ -4,41 +4,30 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    
-
-    Vector2 mouseLook; //keeps track of how much movement the mouse has made
-    Vector2 SmoothVector; // smooths movement of mouse
-
-    public float mouseSensitivity = 5.0f;
-    public float smoothing = 2.0f;
     public float MaxRange = 5.0f;
-
-    GameObject go_PC;
-
+    public float outlineSize = 1.3f;
     public Camera cam;
+    public GameObject screw;
+    public GameObject glassCase;
+    public GameObject diamond;
+    
+    public GameObject doorExit;
+    public GameObject doorExitScrew;
+    public GameObject doorEnter;
+
+    public bool bl_Diamond = false;
     // Use this for initialization
     void Start()
     {
-        go_PC = this.transform.parent.gameObject; //sets go_PC to the parent of the camera
-        cam = GetComponent<Camera>();
-        
+
+        cam = Camera.main;
+        doorEnter.SetActive(false);
+        doorExit.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        var mouseChange = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-
-        mouseChange = Vector2.Scale(mouseChange, new Vector2(mouseSensitivity * smoothing, mouseSensitivity * smoothing));
-        SmoothVector.x = Mathf.Lerp(SmoothVector.x, mouseChange.x, 1f / smoothing); // creates smooth movement on the x
-        SmoothVector.y = Mathf.Lerp(SmoothVector.y, mouseChange.y, 1f / smoothing);// creates smooth movement on the y 
-        mouseLook += SmoothVector; //smoothing calculations added to mouselook
-
-        mouseLook.y = Mathf.Clamp(mouseLook.y, -73F, 85f); // a clamp to stop the camera from going upside down
-
-        transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right); // rotates the camera up and down
-        go_PC.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, go_PC.transform.up); //rotates the camera and player left and right
-
         CameraRaycast();
     }
 
@@ -47,17 +36,68 @@ public class CameraController : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, MaxRange))
         {
-           
-            
+
             if (hit.collider.tag == "Interactable")
             {
-                TransformShader.changevalue = 1;
+                TransformShader.changevalue = outlineSize;
             }
             else if (hit.collider.tag != "Interactable" || hit.collider == null)
             {
                 TransformShader.changevalue = 0f;
             }
+            #region screw case Diamond Doors
+            if (hit.collider.name == "Screw")
+            {
+                if (Input.GetKey(KeyCode.F))
+                {
+                    screw.transform.Translate(Vector3.forward * Time.deltaTime);
+                    screw.transform.Rotate(0, 0, 360 * Time.deltaTime);
+                    Destroy(screw, 0.7f);
+                }
+            }
 
+            if(screw == null)
+            {
+                if (glassCase != null)
+                {
+                    glassCase.transform.Translate(Vector3.up * Time.deltaTime);
+                    glassCase.transform.Rotate(-65 * Time.deltaTime, 0, 0);
+                    Destroy(glassCase, 1.7f);
+                }
+
+                
+                if (hit.collider.name == "Diamond")
+                {
+                    if (Input.GetKey(KeyCode.F))
+                    {
+                        Destroy(diamond, 1.2f);
+                        bl_Diamond = true;
+                    }
+                }
+            }
+
+            if (bl_Diamond == true)
+            {
+                doorExit.SetActive(true);
+                doorEnter.SetActive(true);
+
+                if (hit.collider.name == "Door_Screw")
+                {
+                    if (Input.GetKey(KeyCode.F))
+                    {
+                        doorExitScrew.transform.Rotate(360 * Time.deltaTime, 0, 0);
+                        Destroy(doorExitScrew, 3f);
+                    }
+
+                }
+                if (doorExitScrew == null)
+                {
+                    doorExit.transform.Translate(Vector3.right * Time.deltaTime);
+                    doorExit.transform.Rotate(0, -100 * Time.deltaTime, 0);
+                    Destroy(doorExit, 0.8f);
+                }
+            }
+            #endregion
 
             Debug.Log(hit.transform.name);
             Debug.DrawRay(cam.transform.position, transform.forward * MaxRange);
