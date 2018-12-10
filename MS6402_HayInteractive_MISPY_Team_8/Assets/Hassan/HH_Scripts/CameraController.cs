@@ -13,7 +13,9 @@ public class CameraController : MonoBehaviour
     
     public GameObject doorExit;
     public GameObject doorExitScrew;
-    public GameObject doorEnter;
+
+    public GameObject outDoorExitScrew;
+   // public GameObject doorEnter;
 
     public bool bl_Diamond = false;
     // Use this for initialization
@@ -21,8 +23,8 @@ public class CameraController : MonoBehaviour
     {
 
         cam = Camera.main;
-        doorEnter.SetActive(false);
-        doorExit.SetActive(false);
+       // doorEnter.SetActive(false);
+       // doorExit.SetActive(false);
     }
 
     // Update is called once per frame
@@ -76,10 +78,9 @@ public class CameraController : MonoBehaviour
                 }
             }
 
-            if (bl_Diamond == true)
-            {
-                doorExit.SetActive(true);
-                doorEnter.SetActive(true);
+            
+                //doorExit.SetActive(true);
+                //doorEnter.SetActive(true);
 
                 if (hit.collider.name == "Door_Screw")
                 {
@@ -96,7 +97,23 @@ public class CameraController : MonoBehaviour
                     doorExit.transform.Rotate(0, -100 * Time.deltaTime, 0);
                     Destroy(doorExit, 0.8f);
                 }
+
+            if (hit.collider.name == "Door_Screw_out")
+            {
+                if (Input.GetKey(KeyCode.F))
+                {
+                    outDoorExitScrew.transform.Rotate(360 * Time.deltaTime, 0, 0);
+                    Destroy(doorExitScrew, 3f);
+                }
+
             }
+            if (outDoorExitScrew == null)
+            {
+                doorExit.transform.Translate(Vector3.right * Time.deltaTime);
+                doorExit.transform.Rotate(0, 100 * Time.deltaTime, 0);
+                Destroy(doorExit, 0.8f);
+            }
+
             #endregion
 
             Debug.Log(hit.transform.name);

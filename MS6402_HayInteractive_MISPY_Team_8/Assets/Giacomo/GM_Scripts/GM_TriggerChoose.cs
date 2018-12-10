@@ -53,8 +53,9 @@ public class GM_TriggerChoose : MonoBehaviour
         if (other.tag == "IdentityHolder")
         {
             go_ButtonHolder.SetActive(true);
+            //Time.timeScale = 0;
         }
-
+        
         if (other.tag == "QuestionHolder")
         {
             go_QuestionMeHolder.SetActive(true);
@@ -127,6 +128,7 @@ public class GM_TriggerChoose : MonoBehaviour
 
             if (go_Door.activeInHierarchy == true)
             {
+                this.gameObject.SetActive(false);
                 go_Door.SetActive(false);
             }
          }
@@ -136,7 +138,8 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("Dafuq");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
-         }
+            this.gameObject.SetActive(false);
+        }
         
     }
 
@@ -151,6 +154,7 @@ public class GM_TriggerChoose : MonoBehaviour
 
             if (go_Door.activeInHierarchy == true)
             {
+                this.gameObject.SetActive(false);
                 go_Door.SetActive(false);
             }
         }
@@ -160,6 +164,7 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("Dafuq");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
+            this.gameObject.SetActive(false);
         }
 
     }
@@ -176,6 +181,7 @@ public class GM_TriggerChoose : MonoBehaviour
             if (go_Door.activeInHierarchy == true)
             {
                 go_Door.SetActive(false);
+                this.gameObject.SetActive(false);
             }
         }
 
@@ -184,6 +190,7 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("Dafuq");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
+            this.gameObject.SetActive(false);
         }
     }
 }
