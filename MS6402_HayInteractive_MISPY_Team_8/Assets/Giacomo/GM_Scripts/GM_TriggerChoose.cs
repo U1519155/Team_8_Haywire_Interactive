@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GM_TriggerChoose : MonoBehaviour
 {
+    //@Hassan you should lock the character's movement OnTriggerEnter, and then unlock the PC on the ID voids and the Question voids.
     // variables - Attach this script to a trigger childed in front of the pc
     public bool bl_Dhaka = false;
     public bool bl_London = false;
@@ -18,11 +19,11 @@ public class GM_TriggerChoose : MonoBehaviour
     public bool bl_GameDesigner = false;
     public bool bl_MarineBiologist = false;
     public bool bl_Actor = false;
-
     public int in_IncreasedSuspicion = 1;
 
     //public GameObject go_TriggerQuestion;
     //public GameObject go_TriggerIdentity;
+    public GameObject go_Door;
     public GameObject go_ButtonHolder;
     public GameObject go_QuestionMeHolder;
     public GameObject[] go_Questions;
@@ -47,12 +48,14 @@ public class GM_TriggerChoose : MonoBehaviour
     // Set active if interacts with the button, deactivate if it exits
     public void OnTriggerEnter(Collider other)
     {
+        
         Debug.Log("Inside");
         if (other.tag == "IdentityHolder")
         {
             go_ButtonHolder.SetActive(true);
+            //Time.timeScale = 0;
         }
-
+        
         if (other.tag == "QuestionHolder")
         {
             go_QuestionMeHolder.SetActive(true);
@@ -63,7 +66,6 @@ public class GM_TriggerChoose : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        Debug.Log("Exit");
         if (other.tag == "IdentityHolder")
         {
             go_ButtonHolder.SetActive(false);
@@ -123,6 +125,12 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("You can pass");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion - in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
+
+            if (go_Door.activeInHierarchy == true)
+            {
+                this.gameObject.SetActive(false);
+                go_Door.SetActive(false);
+            }
          }
 
          else if (bl_Dhaka == false)
@@ -130,7 +138,8 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("Dafuq");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
-         }
+            this.gameObject.SetActive(false);
+        }
         
     }
 
@@ -142,6 +151,12 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("You can pass");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion - in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
+
+            if (go_Door.activeInHierarchy == true)
+            {
+                this.gameObject.SetActive(false);
+                go_Door.SetActive(false);
+            }
         }
 
         else if (bl_London == false)
@@ -149,6 +164,7 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("Dafuq");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
+            this.gameObject.SetActive(false);
         }
 
     }
@@ -161,6 +177,12 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("You can pass");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion - in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
+
+            if (go_Door.activeInHierarchy == true)
+            {
+                go_Door.SetActive(false);
+                this.gameObject.SetActive(false);
+            }
         }
 
         else if (bl_Rome == false)
@@ -168,6 +190,7 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("Dafuq");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
+            this.gameObject.SetActive(false);
         }
     }
 }
