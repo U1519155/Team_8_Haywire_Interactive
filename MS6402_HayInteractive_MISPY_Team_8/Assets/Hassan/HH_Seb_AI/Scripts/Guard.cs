@@ -41,7 +41,7 @@ public class Guard : MonoBehaviour {
 
 	public void Update() {
 
-        Debug.Log(GM_Teleport.bl_Teleport);
+        //Debug.Log(GM_Teleport.bl_Teleport);
 
 		if (CanSeePlayer ()) {
 			playerVisibleTimer += Time.deltaTime;

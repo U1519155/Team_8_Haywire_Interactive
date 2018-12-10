@@ -29,8 +29,15 @@ public class GM_TriggerChoose : MonoBehaviour
     public GameObject[] go_Questions;
     private int in_IndexQuestion;
 
-	// Set the gameobjects that are parented to the buttons false at the start of the scene. Selects an initial index for the gamobject(parent of the buttons) that gets activated.
-	void Start ()
+   // //More variables LoL
+   // private Quaternion Q_CameraPC;
+   // private Quaternion Q_Cameraparent;
+   // private bool bl_IsFixed = false;
+   // public Camera cam_Camera;
+   // public GameObject go_PC;
+
+    // Set the gameobjects that are parented to the buttons false at the start of the scene. Selects an initial index for the gamobject(parent of the buttons) that gets activated.
+    void Start ()
     {
         go_ButtonHolder.SetActive(false);
         go_QuestionMeHolder.SetActive(false);
@@ -43,17 +50,25 @@ public class GM_TriggerChoose : MonoBehaviour
         {
             GM_Suspicion.in_Suspicion = 0;
         }
+
+       //if (bl_IsFixed == true)
+       //{
+       //    cam_Camera.transform.rotation = Q_CameraPC;
+       //    go_PC.transform.rotation = Q_Cameraparent;
+       //}
     }
 
     // Set active if interacts with the button, deactivate if it exits
     public void OnTriggerEnter(Collider other)
     {
-        
         Debug.Log("Inside");
         if (other.tag == "IdentityHolder")
         {
             go_ButtonHolder.SetActive(true);
-            //Time.timeScale = 0;
+            Time.timeScale = 0;
+            //bl_IsFixed = true;
+           // Q_CameraPC = cam_Camera.transform.rotation;
+           // Q_Cameraparent = go_PC.transform.rotation;
         }
         
         if (other.tag == "QuestionHolder")
@@ -61,6 +76,29 @@ public class GM_TriggerChoose : MonoBehaviour
             go_QuestionMeHolder.SetActive(true);
             go_Questions[in_IndexQuestion].SetActive(true);
             GM_Suspicion.bl_GuardTalk = true;
+
+            //Time.timeScale = 0;
+            //bl_IsFixed = true;
+            // Q_CameraPC = cam_Camera.transform.rotation;
+            // Q_Cameraparent = go_PC.transform.rotation;
+
+          // if (other.gameObject.name == "Questions_Holder")
+          // {
+          //     if (gameObject.GetComponent<Rigidbody>())
+          //     {
+          //         gameObject.transform.parent.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY;
+          //     }
+          //
+          //     else
+          //     {
+          //         print("No Rigidbody on PC");
+          //     }
+          // }
+          //
+          // else
+          // {
+          //     print("Security not found");
+          // }
         }
     }
 
@@ -94,6 +132,7 @@ public class GM_TriggerChoose : MonoBehaviour
         bl_Mason = true;
         bl_Actor = true;
         go_ButtonHolder.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void IDKevin()
@@ -104,6 +143,7 @@ public class GM_TriggerChoose : MonoBehaviour
         bl_Shonibare = true;
         bl_MarineBiologist = true;
         go_ButtonHolder.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void IDKayode()
@@ -114,6 +154,7 @@ public class GM_TriggerChoose : MonoBehaviour
         bl_Hamer = true;
         bl_GameDesigner = true;
         go_ButtonHolder.SetActive(false);
+        Time.timeScale = 1;
     }
 
     // Identity questions - Identified by the QuestionMeHolder gameobject. Increases or decreases suspicion.
@@ -125,11 +166,13 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("You can pass");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion - in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
+            Time.timeScale = 1;
 
             if (go_Door.activeInHierarchy == true)
             {
                 this.gameObject.SetActive(false);
                 go_Door.SetActive(false);
+                Time.timeScale = 1;
             }
          }
 
@@ -139,6 +182,7 @@ public class GM_TriggerChoose : MonoBehaviour
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
             this.gameObject.SetActive(false);
+            Time.timeScale = 1;
         }
         
     }
@@ -151,11 +195,13 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("You can pass");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion - in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
+            Time.timeScale = 1;
 
             if (go_Door.activeInHierarchy == true)
             {
                 this.gameObject.SetActive(false);
                 go_Door.SetActive(false);
+                Time.timeScale = 1;
             }
         }
 
@@ -165,6 +211,7 @@ public class GM_TriggerChoose : MonoBehaviour
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
             this.gameObject.SetActive(false);
+            Time.timeScale = 1;
         }
 
     }
@@ -177,11 +224,13 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("You can pass");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion - in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
+            Time.timeScale = 1;
 
             if (go_Door.activeInHierarchy == true)
             {
                 go_Door.SetActive(false);
                 this.gameObject.SetActive(false);
+                Time.timeScale = 1;
             }
         }
 
@@ -191,6 +240,7 @@ public class GM_TriggerChoose : MonoBehaviour
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
             this.gameObject.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 }

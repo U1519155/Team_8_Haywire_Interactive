@@ -72,7 +72,8 @@ public class CameraController : MonoBehaviour
                 {
                     if (Input.GetKey(KeyCode.F))
                     {
-                        Destroy(diamond, 1.2f);
+                        //Destroy(diamond, 1.2f);
+                        diamond.SetActive(false);
                         bl_Diamond = true;
                     }
                 }
@@ -93,9 +94,12 @@ public class CameraController : MonoBehaviour
                 }
                 if (doorExitScrew == null)
                 {
+                if (doorExit != null)
+                {
                     doorExit.transform.Translate(Vector3.right * Time.deltaTime);
                     doorExit.transform.Rotate(0, -100 * Time.deltaTime, 0);
                     Destroy(doorExit, 0.8f);
+                }
                 }
 
             if (hit.collider.name == "Door_Screw_out")
@@ -109,11 +113,15 @@ public class CameraController : MonoBehaviour
             }
             if (outDoorExitScrew == null)
             {
-                doorExit.transform.Translate(Vector3.right * Time.deltaTime);
-                doorExit.transform.Rotate(0, 100 * Time.deltaTime, 0);
-                Destroy(doorExit, 0.8f);
+                if (doorExit != null)
+                {
+                    doorExit.transform.Translate(Vector3.right * Time.deltaTime);
+                    doorExit.transform.Rotate(0, 100 * Time.deltaTime, 0);
+                    Destroy(doorExit, 0.8f);
+                }
+                
             }
-
+            
             #endregion
 
             Debug.Log(hit.transform.name);
