@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
@@ -55,8 +57,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
-        }
 
+            m_MouseLook.lockCursor = false;
+        }
 
         // Update is called once per frame
         private void Update()
@@ -75,6 +78,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_MoveDir.y = 0f;
                 m_Jumping = false;
             }
+
             if (!m_CharacterController.isGrounded && !m_Jumping && m_PreviouslyGrounded)
             {
                 m_MoveDir.y = 0f;
@@ -240,7 +244,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 
-        private void OnControllerColliderHit(ControllerColliderHit hit)
+            private void OnControllerColliderHit(ControllerColliderHit hit)
         {
             Rigidbody body = hit.collider.attachedRigidbody;
             //dont move the rigidbody if the character is on top of it

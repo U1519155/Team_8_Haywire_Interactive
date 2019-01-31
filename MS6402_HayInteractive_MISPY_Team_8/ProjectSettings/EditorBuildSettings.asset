@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Ashley/AC_Scenes/PoC Scene.unity
+    guid: 950fa3f8e13448f4b86acd636317d173
   m_configObjects: {}

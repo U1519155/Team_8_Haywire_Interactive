@@ -10,6 +10,7 @@ public class Guard : MonoBehaviour {
 	public float waitTime = .3f;
 	public float turnSpeed = 90;
 	public float timeToSpotPlayer = .5f;
+    public bool stopAtPlayer = false;
 
 	public Light spotlight;
 	public float viewDistance;
@@ -21,6 +22,7 @@ public class Guard : MonoBehaviour {
 	public Transform pathHolder;
 	Transform player;
 	Color originalSpotlightColour;
+
 
 	void Start() {
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
@@ -37,53 +39,86 @@ public class Guard : MonoBehaviour {
 
 	}
 
-	void Update() {
+	public void Update() {
+
+        //Debug.Log(GM_Teleport.bl_Teleport);
+
 		if (CanSeePlayer ()) {
 			playerVisibleTimer += Time.deltaTime;
-		} else {
+            stopAtPlayer = true;
+        }
+        else {
 			playerVisibleTimer -= Time.deltaTime;
-		}
+            stopAtPlayer = false;
+        }
+       
+
 		playerVisibleTimer = Mathf.Clamp (playerVisibleTimer, 0, timeToSpotPlayer);
 		spotlight.color = Color.Lerp (originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
 
+        if(spotlight.color == Color.red)
+        {
+            GM_Teleport.bl_Teleport = true;
+        }
+
 		if (playerVisibleTimer >= timeToSpotPlayer) {
 			if (OnGuardHasSpottedPlayer != null) {
-                GM_Teleport.bl_Teleport = true;
                 OnGuardHasSpottedPlayer ();
 			}
 		}
 	}
-
+    void CheckedPlayer()
+    {
+        
+    }
 	bool CanSeePlayer() {
 		if (Vector3.Distance(transform.position,player.position) < viewDistance) {
-			Vector3 dirToPlayer = (player.position - transform.position).normalized;
+
+            
+            Vector3 dirToPlayer = (player.position - transform.position).normalized;
 			float angleBetweenGuardAndPlayer = Vector3.Angle (transform.forward, dirToPlayer);
 			if (angleBetweenGuardAndPlayer < viewAngle / 2f) {
 				if (!Physics.Linecast (transform.position, player.position, viewMask)) {
 					return true;
 				}
 			}
+
 		}
 		return false;
 	}
-
+   
 	IEnumerator FollowPath(Vector3[] waypoints) {
-		transform.position = waypoints [0];
 
-		int targetWaypointIndex = 1;
-		Vector3 targetWaypoint = waypoints [targetWaypointIndex];
-		transform.LookAt (targetWaypoint);
+        transform.position = waypoints[0];
+        int targetWaypointIndex = 1;
+        Vector3 targetWaypoint = waypoints[targetWaypointIndex];
+        if (stopAtPlayer == false)
+        {
+            transform.LookAt(targetWaypoint);
 
-		while (true) {
-			transform.position = Vector3.MoveTowards (transform.position, targetWaypoint, speed * Time.deltaTime);
-			if (transform.position == targetWaypoint) {
-				targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
-				targetWaypoint = waypoints [targetWaypointIndex];
-				yield return new WaitForSeconds (waitTime);
-				yield return StartCoroutine (TurnToFace (targetWaypoint));
-			}
-			yield return null;
-		}
+            while (true)
+            {
+                if (stopAtPlayer == false)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
+                    if (transform.position == targetWaypoint)
+                    {
+                        targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
+                        targetWaypoint = waypoints[targetWaypointIndex];
+                        yield return new WaitForSeconds(waitTime);
+                        yield return StartCoroutine(TurnToFace(targetWaypoint));
+                    }
+                }
+                else
+                {
+                    transform.LookAt(player);   
+                }
+                    yield return null;
+                
+            }
+        }
+        
+            
 	}
 
 	IEnumerator TurnToFace(Vector3 lookTarget) {
