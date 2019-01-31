@@ -50,7 +50,6 @@ public class GM_TriggerChoose : MonoBehaviour
         {
             GM_Suspicion.in_Suspicion = 0;
         }
-
        //if (bl_IsFixed == true)
        //{
        //    cam_Camera.transform.rotation = Q_CameraPC;
