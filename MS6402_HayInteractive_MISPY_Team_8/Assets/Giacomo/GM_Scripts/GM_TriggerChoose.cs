@@ -100,6 +100,19 @@ public class GM_TriggerChoose : MonoBehaviour
             //     print("Security not found");
             // }
         }
+
+        if (other.tag == "RandomQuestion")
+        {
+            int Number = Random.Range(0, 100);
+
+            if (Number <= 50)
+            {
+                go_QuestionMeHolder.SetActive(true);
+                go_Questions[in_IndexQuestion].SetActive(true);
+                GM_Suspicion.bl_GuardTalk = true;
+                gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
+            }
+        }
     }
 
     public void OnTriggerExit(Collider other)

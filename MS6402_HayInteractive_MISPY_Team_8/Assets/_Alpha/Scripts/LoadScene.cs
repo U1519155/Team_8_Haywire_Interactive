@@ -6,13 +6,13 @@ public class LoadScene : MonoBehaviour
 
     public string st_SceneName;
 
-    void StartScene()
+    public void StartScene()
     {
         SceneManager.LoadScene(st_SceneName);
     }
 
-    void QuitGame()
+    public void QuitGame()
     {
-
+        Application.Quit();
     }
 }
