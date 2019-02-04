@@ -19,7 +19,7 @@ public class GC_Planning_manager : MonoBehaviour {
     void Start () {
         in_counter = 0;                                         //variable to keep track of what stage of planning the player is at
         txt_variabletext.text = "Map of the level";             //first state
-        next_button.onClick.AddListener(ClickAction);           //to activate the button functions
+        //next_button.onClick.AddListener(ClickAction);           //to activate the button functions
         go_pictures[1].SetActive(false);                        //hide gadgets and IDs
         go_pictures[2].SetActive(false);
     }
@@ -39,11 +39,30 @@ public class GC_Planning_manager : MonoBehaviour {
             go_pictures[2].SetActive(false);                                //remove gadgets
             Time.timeScale = 1;                                             //reset normal timeflow
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            in_counter++;
+        }
+
+        if (in_counter == 1)
+        {
+            txt_variabletext.text = "Select your ID";                       //second state
+            go_pictures[0].SetActive(false);                                //hide map
+            go_pictures[1].SetActive(true);                                 //show IDs
+
+        }
+        else
+        {
+            txt_variabletext.text = "Select your gadgets";                  //third state
+            go_pictures[1].SetActive(false);                                //hide IDs
+            go_pictures[2].SetActive(true);                                 //show gadgets
+        }
     }
 
-    void ClickAction ()
+    /*void ClickAction ()
     {
-        in_counter++;
+        //in_counter++;
         if (in_counter == 1)
         {
             txt_variabletext.text = "Select your ID";                       //second state
@@ -60,4 +79,5 @@ public class GC_Planning_manager : MonoBehaviour {
         
         
     }
+    */
 }
