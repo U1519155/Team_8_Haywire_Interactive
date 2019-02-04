@@ -8,12 +8,12 @@ public class GC_PC_trespass : MonoBehaviour
     {
         if (other.gameObject.name == "PC")
         {
-            GC_GameManager.bl_PCwanted = true;
+            GM_Suspicion.bl_PCwanted = true;
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        GC_GameManager.bl_PCwanted = false;
+        GM_Suspicion.bl_PCwanted = false;
     }
 }

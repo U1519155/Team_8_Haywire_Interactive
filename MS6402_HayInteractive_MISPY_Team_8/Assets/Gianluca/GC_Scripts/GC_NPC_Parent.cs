@@ -44,7 +44,7 @@ public class GC_NPC_Parent : MonoBehaviour
 
     public void NPC_roam()
     {
-        if (GC_GameManager.bl_PCwanted == false)        //if PC is not in a restricted area
+        if (GM_Suspicion.bl_PCwanted == false)        //if PC is not in a restricted area
         {
             if (!npc_agent.pathPending && npc_agent.remainingDistance < fl_distance)            //if NPC is not calculating new target and he reached the actual target
             {

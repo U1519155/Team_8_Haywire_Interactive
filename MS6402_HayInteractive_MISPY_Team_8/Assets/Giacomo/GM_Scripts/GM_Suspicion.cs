@@ -9,4 +9,7 @@ public static class GM_Suspicion
 
     // Enable if the specific type of guard is talking
     public static bool bl_GuardTalk = false;
+
+    // If PC is trespassing and guards need to investigate (using a gadget included)
+    public static bool bl_PCwanted;
 }
