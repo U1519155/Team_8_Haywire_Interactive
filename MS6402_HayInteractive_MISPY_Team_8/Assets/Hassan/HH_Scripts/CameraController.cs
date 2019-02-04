@@ -7,15 +7,21 @@ public class CameraController : MonoBehaviour
     public float MaxRange = 5.0f;
     public float outlineSize = 1.3f;
     public Camera cam;
+
+    //-------------------
     public GameObject screw;
     public GameObject glassCase;
     public GameObject diamond;
-    
+
     public GameObject doorExit;
     public GameObject doorExitScrew;
 
     public GameObject outDoorExitScrew;
-   // public GameObject doorEnter;
+    //-------------------
+
+
+    public RaycastHit hit;
+    // public GameObject doorEnter;
 
     public bool bl_Diamond = false;
     // Use this for initialization
@@ -23,8 +29,8 @@ public class CameraController : MonoBehaviour
     {
 
         cam = Camera.main;
-       // doorEnter.SetActive(false);
-       // doorExit.SetActive(false);
+        // doorEnter.SetActive(false);
+        // doorExit.SetActive(false);
     }
 
     // Update is called once per frame
@@ -35,98 +41,108 @@ public class CameraController : MonoBehaviour
 
     void CameraRaycast()
     {
-        RaycastHit hit;
-        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, MaxRange))
+
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, MaxRange))
         {
-
-            if (hit.collider.tag == "Interactable")
+            if (hit.collider.gameObject.GetComponent<MovableScrew>())
             {
-                TransformShader.changevalue = outlineSize;
-            }
-            else if (hit.collider.tag != "Interactable" || hit.collider == null)
-            {
-                TransformShader.changevalue = 0f;
-            }
-            #region screw case Diamond Doors
-            if (hit.collider.name == "Screw")
-            {
-                if (Input.GetKey(KeyCode.F))
+                if (Input.GetKey(KeyCode.E))
                 {
-                    screw.transform.Translate(Vector3.forward * Time.deltaTime);
-                    screw.transform.Rotate(0, 0, 360 * Time.deltaTime);
-                    Destroy(screw, 0.7f);
+                    hit.collider.gameObject.GetComponent<MovableScrew>().Rotate();
                 }
             }
+            #region change shader outline POC
+            //if (hit.collider.tag == "Interactable")
+            //{
+            //    TransformShader.changevalue = outlineSize;
+            //}
 
-            if(screw == null)
-            {
-                if (glassCase != null)
-                {
-                    glassCase.transform.Translate(Vector3.up * Time.deltaTime);
-                    glassCase.transform.Rotate(-65 * Time.deltaTime, 0, 0);
-                    Destroy(glassCase, 1.7f);
-                }
+            //else if (hit.collider.tag != "Interactable" || hit.collider == null)
+            //{
+            //    TransformShader.changevalue = 0f;
+            //}
+            #endregion
 
-                
-                if (hit.collider.name == "Diamond")
-                {
-                    if (Input.GetKey(KeyCode.F))
-                    {
-                        //Destroy(diamond, 1.2f);
-                        diamond.SetActive(false);
-                        bl_Diamond = true;
-                    }
-                }
-            }
+            #region screw case Diamond Doors POC
 
-            
-                //doorExit.SetActive(true);
-                //doorEnter.SetActive(true);
+            //if (hit.collider.name == "Screw")
+            //{
+            //    if (Input.GetKey(KeyCode.F))
+            //    {
+            //        screw.transform.Translate(Vector3.forward * Time.deltaTime);
+            //        screw.transform.Rotate(0, 0, 360 * Time.deltaTime);
+            //        Destroy(screw, 0.7f);
+            //    }
+            //}
 
-                if (hit.collider.name == "Door_Screw")
-                {
-                    if (Input.GetKey(KeyCode.F))
-                    {
-                        doorExitScrew.transform.Rotate(360 * Time.deltaTime, 0, 0);
-                        Destroy(doorExitScrew, 3f);
-                    }
+            //if (screw == null)
+            //{
+            //    if (glassCase != null)
+            //    {
+            //        glassCase.transform.Translate(Vector3.up * Time.deltaTime);
+            //        glassCase.transform.Rotate(-65 * Time.deltaTime, 0, 0);
+            //        Destroy(glassCase, 1.7f);
+            //    }
 
-                }
-                if (doorExitScrew == null)
-                {
-                if (doorExit != null)
-                {
-                    doorExit.transform.Translate(Vector3.right * Time.deltaTime);
-                    doorExit.transform.Rotate(0, -100 * Time.deltaTime, 0);
-                    Destroy(doorExit, 0.8f);
-                }
-                }
+            //    if (hit.collider.name == "Diamond")
+            //    {
+            //        if (Input.GetKey(KeyCode.F))
+            //        {
+            //            //Destroy(diamond, 1.2f);
+            //            diamond.SetActive(false);
+            //            bl_Diamond = true;
+            //        }
+            //    }
+            //}
 
-            if (hit.collider.name == "Door_Screw_out")
-            {
-                if (Input.GetKey(KeyCode.F))
-                {
-                    outDoorExitScrew.transform.Rotate(360 * Time.deltaTime, 0, 0);
-                    Destroy(doorExitScrew, 3f);
-                }
+            ////doorExit.SetActive(true);
+            ////doorEnter.SetActive(true);
 
-            }
-            if (outDoorExitScrew == null)
-            {
-                if (doorExit != null)
-                {
-                    doorExit.transform.Translate(Vector3.right * Time.deltaTime);
-                    doorExit.transform.Rotate(0, 100 * Time.deltaTime, 0);
-                    Destroy(doorExit, 0.8f);
-                }
-                
-            }
-            
+            //if (hit.collider.name == "Door_Screw")
+            //{
+            //    if (Input.GetKey(KeyCode.F))
+            //    {
+            //        doorExitScrew.transform.Rotate(360 * Time.deltaTime, 0, 0);
+            //        Destroy(doorExitScrew, 3f);
+            //    }
+
+            //}
+
+            //if (doorExitScrew == null)
+            //{
+            //    if (doorExit != null)
+            //    {
+            //        doorExit.transform.Translate(Vector3.right * Time.deltaTime);
+            //        doorExit.transform.Rotate(0, -100 * Time.deltaTime, 0);
+            //        Destroy(doorExit, 0.8f);
+            //    }
+            //}
+
+            //if (hit.collider.name == "Door_Screw_out")
+            //{
+            //    if (Input.GetKey(KeyCode.F))
+            //    {
+            //        outDoorExitScrew.transform.Rotate(360 * Time.deltaTime, 0, 0);
+            //        Destroy(doorExitScrew, 3f);
+            //    }
+            //}
+
+            //if (outDoorExitScrew == null)
+            //{
+            //    if (doorExit != null)
+            //    {
+            //        doorExit.transform.Translate(Vector3.right * Time.deltaTime);
+            //        doorExit.transform.Rotate(0, 100 * Time.deltaTime, 0);
+            //        Destroy(doorExit, 0.8f);
+            //    }
+            //}
+
             #endregion
 
             Debug.Log(hit.transform.name);
             Debug.DrawRay(cam.transform.position, transform.forward * MaxRange);
-        }
 
+           
+        }
     }
 }
