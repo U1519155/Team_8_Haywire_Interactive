@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+
 
 
 public class Player_StateManager : MonoBehaviour
@@ -14,7 +14,7 @@ public class Player_StateManager : MonoBehaviour
         pc_Watch,
         pc_Cigar
     }
-    public PC_different_states pc_State = PC_different_states.pc_normal;
+    public static PC_different_states pc_State = PC_different_states.pc_normal;
     // Start is called before the first frame update
     void Start()
     {
