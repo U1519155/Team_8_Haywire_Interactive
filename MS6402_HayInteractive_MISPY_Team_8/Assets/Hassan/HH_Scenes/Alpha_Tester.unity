@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -181,6 +181,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &234212013
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100008, guid: e1dc0a00cf4ba484a8cd576f67b9653d, type: 3}
+      propertyPath: m_Name
+      value: DoorFinished
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: e1dc0a00cf4ba484a8cd576f67b9653d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.3355083
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: e1dc0a00cf4ba484a8cd576f67b9653d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: e1dc0a00cf4ba484a8cd576f67b9653d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.014491
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: e1dc0a00cf4ba484a8cd576f67b9653d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: e1dc0a00cf4ba484a8cd576f67b9653d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710707
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: e1dc0a00cf4ba484a8cd576f67b9653d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: e1dc0a00cf4ba484a8cd576f67b9653d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710653
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: e1dc0a00cf4ba484a8cd576f67b9653d, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: e1dc0a00cf4ba484a8cd576f67b9653d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: e1dc0a00cf4ba484a8cd576f67b9653d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: e1dc0a00cf4ba484a8cd576f67b9653d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: e1dc0a00cf4ba484a8cd576f67b9653d, type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e1dc0a00cf4ba484a8cd576f67b9653d, type: 3}
 --- !u!1 &502546566 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1711354540253823555, guid: 00c6f9edccb89a74c9ce0c636bea4fe0,
@@ -314,14 +375,14 @@ PrefabInstance:
       propertyPath: m_HeadBob.Bobcurve.m_Curve.Array.data[2].outWeight
       value: 0.15962312
       objectReference: {fileID: 0}
+    - target: {fileID: 879231231, guid: 3709ec4e199a8504e9d7bd73a905dd94, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3701616109222763880, guid: 3709ec4e199a8504e9d7bd73a905dd94,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 879231231, guid: 3709ec4e199a8504e9d7bd73a905dd94, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3709ec4e199a8504e9d7bd73a905dd94, type: 3}

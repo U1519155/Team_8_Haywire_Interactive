@@ -42,6 +42,7 @@ public class HH_Window : MonoBehaviour
         {
             // DO SOMETHING TO THE WINDOW
             Debug.Log("hellow you opended the windo");
+            gameObject.SetActive(false);
             
             windowOpened = true;
         }
