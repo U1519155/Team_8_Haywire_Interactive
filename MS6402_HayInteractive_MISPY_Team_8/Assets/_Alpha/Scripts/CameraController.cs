@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float MaxRange = 5.0f;
+    float MaxRange = 2.0f;
     public float outlineSize = 1.3f;
     public Camera cam;
+
+    
 
     //-------------------
     #region POC stuff
@@ -27,13 +29,17 @@ public class CameraController : MonoBehaviour
     #endregion
 
 
-    [Header("Gadget Swap")]
+    [Header("----- Gadget Swap -----")]
     public Transform[] weapons; // Screwdriver, watch, Cigar, normal
     public int currentWeapon;
 
+    [Header("----- Screaming Grape -----")]
+    public GameObject GO_ScreamingGrape;
+    int SpawnedGrapes;
+
     //-----------------
 
-    
+
     [HideInInspector]
     public RaycastHit hit;
     // public GameObject doorEnter;
@@ -54,6 +60,8 @@ public class CameraController : MonoBehaviour
         CameraRaycast();
         InputWeapon();
     }
+
+    #region Weapon Swap
     //-------
     public void SwapWeapon(int num) // weapon switcher
     {
@@ -66,6 +74,8 @@ public class CameraController : MonoBehaviour
                 weapons[i].gameObject.SetActive(false);
         }
     }
+
+    
     public void InputWeapon()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))//screw driver
@@ -92,25 +102,42 @@ public class CameraController : MonoBehaviour
             Player_StateManager.pc_State = Player_StateManager.PC_different_states.pc_normal;
             Debug.Log(Player_StateManager.pc_State);
         }
-    } 
+    }
+    #endregion
 
     void CameraRaycast()
     {
+        int layerMask = 1 << 9;
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, MaxRange))
+        layerMask = ~layerMask;
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, MaxRange, layerMask))
         {
-            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_screwDriver)// Screwdriver
+            // Screwdriver
+            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_screwDriver)
             {
                 if (hit.collider.gameObject.GetComponent<MovableScrew>())
                 {
-                    if (Input.GetKey(KeyCode.E))
+                    if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
                     {
                         hit.collider.gameObject.GetComponent<MovableScrew>().Rotate();
                     }
                 }
             }
 
-            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_Cigar)// Cigar
+            // no gadgets
+            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_normal)
+            {
+
+
+
+
+            }
+        }
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 50, layerMask))
+        {
+
+            // Cigar
+            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_Cigar)
             {
                 //hit marker sleep dart sound for NPC
                 if (hit.collider.gameObject.GetComponent<Guard>())
@@ -119,30 +146,39 @@ public class CameraController : MonoBehaviour
                 }
                 else if (!hit.collider.gameObject.GetComponent<Guard>())
                 {
-                    //spawn screaming grape for a couple of seconds at endpoint of ray
+                    if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
+                    {
+                        //spawn screaming grape for a couple of seconds at endpoint of ray
+                        if (SpawnedGrapes < 1)
+                        {
+                            Instantiate(GO_ScreamingGrape, hit.point, Quaternion.identity);
+                            SpawnedGrapes++;
+                            StartCoroutine(SpawntimerGrape());
+                        }
+                    }
                 }
             }
 
-            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_Watch)// EMP Watch
+            // EMP Watch
+            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_Watch)
             {
-
+                
                 //find objects to disable on hit: camera
+                if (hit.collider.gameObject.GetComponent<SecurityCamera>())
+                {
+                    if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
+                    {
+                        hit.collider.gameObject.GetComponent<SecurityCamera>().StartCameraCooldown(); // turns off camera for a couple of seconds
+                    }
+                }
 
               //find NPC with card, check if player is close enough to
 
-
                 // turn off tvs and other sutff just for
 
-
             }
 
-            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_normal)// no gadgets
-            {
 
-
-
-
-            }
 
             #region change shader outline POC
             //if (hit.collider.tag == "Interactable")
@@ -232,10 +268,18 @@ public class CameraController : MonoBehaviour
 
             #endregion
 
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
             Debug.DrawRay(cam.transform.position, transform.forward * MaxRange);
 
            
         }
+    }
+    IEnumerator SpawntimerGrape()
+    {
+        yield return new WaitForSeconds(3);
+        SpawnedGrapes--;
+        ScreamingGrape.GrapeDestroy();
+
+
     }
 }
