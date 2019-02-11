@@ -9,22 +9,37 @@ public class CameraController : MonoBehaviour
     public Camera cam;
 
     //-------------------
+    #region POC stuff
+    [Header("PoC Stuff")]
+    [HideInInspector]
     public GameObject screw;
+    [HideInInspector]
     public GameObject glassCase;
+    [HideInInspector]
     public GameObject diamond;
-
+    [HideInInspector]
     public GameObject doorExit;
+    [HideInInspector]
     public GameObject doorExitScrew;
-
+    [HideInInspector]
     public GameObject outDoorExitScrew;
     //-------------------
+    #endregion
 
 
+    [Header("Gadget Swap")]
+    public Transform[] weapons; // 1st normal, 2nd Screwdriver,  3rd watch,  4th Cigar
+    public int currentWeapon;
+
+    //-----------------
+
+    
+    [HideInInspector]
     public RaycastHit hit;
     // public GameObject doorEnter;
-
     public bool bl_Diamond = false;
     // Use this for initialization
+
     void Start()
     {
 
@@ -38,19 +53,76 @@ public class CameraController : MonoBehaviour
     {
         CameraRaycast();
     }
+    //-------
+    public void SwapWeapon(int num) // weapon switcher
+    {
+        currentWeapon = num;
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            if (i == num)
+                weapons[i].gameObject.SetActive(true);
+            else
+                weapons[i].gameObject.SetActive(false);
+        }
+    }
+    public void InputWeapon()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SwapWeapon(1);
+        }
+    } 
 
     void CameraRaycast()
     {
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, MaxRange))
         {
-            if (hit.collider.gameObject.GetComponent<MovableScrew>())
+            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_screwDriver)// Screwdriver
             {
-                if (Input.GetKey(KeyCode.E))
+                if (hit.collider.gameObject.GetComponent<MovableScrew>())
                 {
-                    hit.collider.gameObject.GetComponent<MovableScrew>().Rotate();
+                    if (Input.GetKey(KeyCode.E))
+                    {
+                        hit.collider.gameObject.GetComponent<MovableScrew>().Rotate();
+                    }
                 }
             }
+
+            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_Cigar)// Cigar
+            {
+                //hit marker sleep dart sound for NPC
+                if (hit.collider.gameObject.GetComponent<Guard>())
+                {
+                    //CHANGE guard state to sleep for 30 seconds
+                }
+                else if (!hit.collider.gameObject.GetComponent<Guard>())
+                {
+                    //spawn screaming grape for a couple of seconds at endpoint of ray
+                }
+            }
+
+            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_Watch)// EMP Watch
+            {
+
+                //find objects to disable on hit: camera
+
+              //find NPC with card, check if player is close enough to
+
+
+                // turn off tvs and other sutff just for
+
+
+            }
+
+            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_normal)// no gadgets
+            {
+
+
+
+
+            }
+
             #region change shader outline POC
             //if (hit.collider.tag == "Interactable")
             //{

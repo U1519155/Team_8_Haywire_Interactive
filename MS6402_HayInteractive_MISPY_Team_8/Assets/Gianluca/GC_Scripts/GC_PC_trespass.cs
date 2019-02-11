@@ -8,12 +8,21 @@ public class GC_PC_trespass : MonoBehaviour
     {
         if (other.gameObject.name == "PC")
         {
-            GM_Suspicion.bl_PCwanted = true;
+            if (Player_StateManager.pc_State != Player_StateManager.PC_different_states.pc_restricted)
+            {
+                Player_StateManager.pc_State = Player_StateManager.PC_different_states.pc_restricted;
+                GM_Suspicion.bl_PCwanted = true;
+            }
+            if(Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_restricted)
+            {
+
+            }
+
         }
     }
 
-    public void OnTriggerExit(Collider other)
-    {
-        GM_Suspicion.bl_PCwanted = false;
-    }
+    //public void OnTriggerExit(Collider other)
+    //{
+    //    GM_Suspicion.bl_PCwanted = false;
+    //}
 }
