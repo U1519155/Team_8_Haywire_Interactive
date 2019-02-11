@@ -1,0 +1,175 @@
+fileFormatVersion: 2
+guid: 26949f0b9296ddf419026111f16143c7
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Armature.001
+    100002: BowtieLoose
+    100004: BowtieScrew
+    100006: Camera
+    100008: Cube.001
+    100010: Cube.004
+    100012: //RootNode
+    100014: Fingers01.L
+    100016: Fingers01.R
+    100018: Fingers02.L
+    100020: Fingers02.L_end
+    100022: Fingers02.R
+    100024: Fingers02.R_end
+    100026: Hand.L
+    100028: Hand.R
+    100030: Lower Arm.L
+    100032: Lower Arm.R
+    100034: Thumb01.L
+    100036: Thumb01.R
+    100038: Thumb02.L
+    100040: Thumb02.L_end
+    100042: Thumb02.R
+    100044: Thumb02.R_end
+    100046: Upper Arm.L
+    100048: Upper Arm.R
+    400000: Armature.001
+    400002: BowtieLoose
+    400004: BowtieScrew
+    400006: Camera
+    400008: Cube.001
+    400010: Cube.004
+    400012: //RootNode
+    400014: Fingers01.L
+    400016: Fingers01.R
+    400018: Fingers02.L
+    400020: Fingers02.L_end
+    400022: Fingers02.R
+    400024: Fingers02.R_end
+    400026: Hand.L
+    400028: Hand.R
+    400030: Lower Arm.L
+    400032: Lower Arm.R
+    400034: Thumb01.L
+    400036: Thumb01.R
+    400038: Thumb02.L
+    400040: Thumb02.L_end
+    400042: Thumb02.R
+    400044: Thumb02.R_end
+    400046: Upper Arm.L
+    400048: Upper Arm.R
+    2000000: Camera
+    2100000: Material.001
+    2100002: Material.003
+    2100004: Character
+    2300000: BowtieLoose
+    2300002: BowtieScrew
+    2300004: Cube.004
+    3300000: BowtieLoose
+    3300002: BowtieScrew
+    3300004: Cube.004
+    4300000: BowtieLoose
+    4300002: Cube.004
+    4300004: BowtieScrew
+    4300006: Cube.001
+    7400000: BowtieLoose|BowtieLooseAction
+    7400002: BowtieLoose|BowtieScrewAction
+    7400004: BowtieLoose|Cube.004Action
+    7400006: Cube.004|BowtieLooseAction
+    7400008: Cube.004|BowtieScrewAction
+    7400010: Cube.004|Cube.004Action
+    7400012: BowtieScrew|BowtieLooseAction
+    7400014: BowtieScrew|BowtieScrewAction
+    7400016: BowtieScrew|Cube.004Action
+    7400018: Armature.001|Armature.001Action
+    7400020: Armature.001|BowtieLooseAction
+    7400022: Armature.001|BowtieScrewAction
+    7400024: Armature.001|Cube.004Action
+    7400026: Armature.001|Raise Hands
+    7400028: Armature.001|RaiseScrewdriver
+    7400030: Armature.001|Thumbsup
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Cube.001
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
