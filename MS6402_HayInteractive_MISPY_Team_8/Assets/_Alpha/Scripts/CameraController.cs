@@ -28,7 +28,11 @@ public class CameraController : MonoBehaviour
 
 
     [Header("Gadget Swap")]
+<<<<<<< HEAD:MS6402_HayInteractive_MISPY_Team_8/Assets/Hassan/HH_Scripts/CameraController.cs
+    public Transform[] weapons; // 1st normal, 2nd Screwdriver,  3rd watch,  4th Cigar
+=======
     public Transform[] weapons; // Screwdriver, watch, Cigar, normal
+>>>>>>> f511b5ff5d2a0b70f3371ea67656d153055b6d31:MS6402_HayInteractive_MISPY_Team_8/Assets/_Alpha/Scripts/CameraController.cs
     public int currentWeapon;
 
     //-----------------
@@ -68,6 +72,11 @@ public class CameraController : MonoBehaviour
     }
     public void InputWeapon()
     {
+<<<<<<< HEAD:MS6402_HayInteractive_MISPY_Team_8/Assets/Hassan/HH_Scripts/CameraController.cs
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SwapWeapon(1);
+=======
         if (Input.GetKeyDown(KeyCode.Alpha1))//screw driver
         {
             SwapWeapon(1);
@@ -91,6 +100,7 @@ public class CameraController : MonoBehaviour
             SwapWeapon(4);
             Player_StateManager.pc_State = Player_StateManager.PC_different_states.pc_normal;
             Debug.Log(Player_StateManager.pc_State);
+>>>>>>> f511b5ff5d2a0b70f3371ea67656d153055b6d31:MS6402_HayInteractive_MISPY_Team_8/Assets/_Alpha/Scripts/CameraController.cs
         }
     } 
 
