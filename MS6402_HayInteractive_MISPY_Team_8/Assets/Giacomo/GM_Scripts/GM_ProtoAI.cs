@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.AI;
 
 public class GM_ProtoAI : MonoBehaviour
@@ -90,6 +92,24 @@ public class GM_ProtoAI : MonoBehaviour
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * LengthRaycast, Color.yellow);
         }
     }
+
+    public void StartSleepTimer()
+    {
+        StartCoroutine(SleepAI());
+    }
+    IEnumerator SleepAI ()
+    {
+       // Agent_Self.speed = 0;
+        Agent_Self.enabled = false;
+        print(Agent_Self.enabled);
+        //Agent_Self.destination = Agent_Self.transform.position;
+        yield return new WaitForSeconds(20);
+       // Agent_Self.speed = 5;
+        Agent_Self.enabled = true;
+        print(Agent_Self.enabled);
+        
+    }
+
 
     private void Unstop()
     {

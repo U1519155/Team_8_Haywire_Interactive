@@ -50,6 +50,7 @@ public class CameraController : MonoBehaviour
     {
 
         cam = Camera.main;
+        SwapWeapon(4);
         // doorEnter.SetActive(false);
         // doorExit.SetActive(false);
     }
@@ -141,9 +142,13 @@ public class CameraController : MonoBehaviour
             if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_Cigar)
             {
                 //hit marker sleep dart sound for NPC
-                if (hit.collider.gameObject.GetComponent<Guard>())
+                if (hit.collider.gameObject.GetComponent<Guard>() || hit.collider.gameObject.GetComponent<GM_ProtoAI>())
                 {
-                    //CHANGE guard state to sleep for 30 seconds
+                    if(Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
+                    {
+                        hit.collider.gameObject.GetComponent<GM_ProtoAI>().StartSleepTimer();
+                        //CHANGE guard state to sleep for 30 seconds
+                    }
                 }
                 else if (!hit.collider.gameObject.GetComponent<Guard>())
                 {
