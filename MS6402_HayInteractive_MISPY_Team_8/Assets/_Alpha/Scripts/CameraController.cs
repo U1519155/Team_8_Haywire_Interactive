@@ -134,7 +134,7 @@ public class CameraController : MonoBehaviour
 
             }
         }
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 50, layerMask))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, Mathf.Infinity, layerMask))
         {
 
             // Cigar
@@ -175,7 +175,7 @@ public class CameraController : MonoBehaviour
 
               //find NPC with card, check if player is close enough to
 
-                // turn off tvs and other sutff just for
+                // turn off tvs and other sutff just for funb
 
             }
 

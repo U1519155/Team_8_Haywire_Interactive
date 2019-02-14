@@ -43,7 +43,6 @@ public class HH_Window : MonoBehaviour
                     }
                 }
             }
-
             if (Screwss.Count == 0)
             {
                 print("No More Screws Left");
