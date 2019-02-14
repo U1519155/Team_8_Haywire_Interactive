@@ -1,27 +1,32 @@
 fileFormatVersion: 2
-guid: bfd58776acfc093409c1b5d3b35aad68
+guid: c75c90c07da6a234c8e0991bb6a015bc
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Cube.001
-    100004: Cube.003
-    100006: Cube.004
-    400000: //RootNode
-    400002: Cube.001
-    400004: Cube.003
-    400006: Cube.004
-    2100000: Material.001
-    2100002: Material.003
+    100000: Cube.001
+    100002: //RootNode
+    400000: Cube.001
+    400002: //RootNode
+    2100000: Character
+    2100002: WatchClasp
+    2100004: WatchStrap
+    2100006: WatchFace
+    2100008: WatchTick
     2300000: Cube.001
-    2300002: Cube.003
-    2300004: Cube.004
     3300000: Cube.001
-    3300002: Cube.003
-    3300004: Cube.004
-    4300000: Cube.003
-    4300002: Cube.001
-    4300004: Cube.004
+    4300000: Cube.001
+    7400000: Armature.001|Armature.001|Armature.001|Raise Screwdriver Addendum|Armature.0
+    7400002: Armature.001|BowtieLoose|BowtieLoose|BowtieLooseAction|BowtieLoose|BowtieLoo
+    7400004: Armature.001|BowtieLoose|BowtieLoose|BowtieScrewAction|BowtieLoose|BowtieScr
+    7400006: Armature.001|BowtieLoose|BowtieLoose|Cube.004Action|BowtieLoose|Cube.004Acti
+    7400008: Armature.001|BowtieScrew|BowtieScrew|BowtieLooseAction|BowtieScrew|BowtieLoo
+    7400010: Armature.001|BowtieScrew|BowtieScrew|BowtieScrewAction|BowtieScrew|BowtieScr
+    7400012: Armature.001|BowtieScrew|BowtieScrew|Cube.004Action|BowtieScrew|Cube.004Acti
+    7400014: Armature.001|BowtieScrew|BowtieScrew|Raise Hands|BowtieScrew|Raise Hands
+    7400016: Armature.001|Cube.004|Cube.004|BowtieLooseAction|Cube.004|BowtieLooseAction
+    7400018: Armature.001|Cube.004|Cube.004|BowtieScrewAction|Cube.004|BowtieScrewAction
+    7400020: Armature.001|Cube.004|Cube.004|Cube.004Action|Cube.004|Cube.004Action
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -74,8 +79,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -102,7 +107,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
