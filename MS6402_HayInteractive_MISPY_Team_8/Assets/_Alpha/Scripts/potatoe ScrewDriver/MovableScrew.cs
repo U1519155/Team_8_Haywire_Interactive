@@ -10,18 +10,19 @@ public class MovableScrew : MonoBehaviour
      Vector3 endPos;
     [SerializeField]
      Vector3 goalPos;
-    
+
+    public float maxMovement = 6;
 
      void Start()
     {
-        startPos = gameObject.transform.position;
-        goalPos = startPos + Vector3.forward/2;
+        startPos = gameObject.transform.localPosition;
+        goalPos = startPos + Vector3.forward * maxMovement;
     }
 
     // Update is called once per frame
     void Update()
     {
-        endPos = gameObject.transform.position;
+        endPos = gameObject.transform.localPosition;
         
     }
 
@@ -35,7 +36,7 @@ public class MovableScrew : MonoBehaviour
 
         }
         transform.Rotate(0, 0, 20);
-        transform.position += Vector3.forward / Mathf.Exp(5); 
+        transform.localPosition += Vector3.forward *3* Time.deltaTime;
 
         
        
