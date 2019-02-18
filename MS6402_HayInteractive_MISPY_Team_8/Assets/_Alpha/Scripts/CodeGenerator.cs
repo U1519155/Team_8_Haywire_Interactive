@@ -25,22 +25,15 @@ public class CodeGenerator : MonoBehaviour
     //Public Variables
     public GameObject[] SpheresClues;
     public GameObject go_Movable;
-    [SerializeField]
     public static GameObject go_Keypad;
-<<<<<<< HEAD
-   // public static GameObject go_KeypadHolder;
-=======
     public static string st_PlayerInput;
     public static bool bl_TriggerKeypad = false;
     public static bool bl_PressEKeypad = false;
     public static bool bl_DisableGUI = false;
->>>>>>> 38f2d95824e4bae5f6b54abe78d616bd731d02e5
 
     void Start()
     {
         go_Keypad = GameObject.Find("Keypad");
-     //   go_KeypadHolder = GameObject.Find("KeypadHolder");
-       // go_KeypadHolder.SetActive(false);
 
         // Generates the 3 digits for the code and translates it to a string. 
         in_First = Random.Range(0, 9);
@@ -55,7 +48,6 @@ public class CodeGenerator : MonoBehaviour
         //Gets the Text component in every gameObject. Adds one if it is missing.
         foreach (GameObject i in SpheresClues)
         {
-            
             i.GetComponentInChildren<Text>(true);
 
             if (i.GetComponentInChildren<Text>(true) != true)
@@ -68,24 +60,6 @@ public class CodeGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
-        if (FindClues.bl_NearKeypad == true)
-        {
-          //  go_KeypadHolder.SetActive(true);
-            if (Input.anyKeyDown)
-            {
-                go_Keypad.GetComponentInChildren<Text>().text = "" + Input.anyKeyDown;
-                Debug.Log(go_Keypad.GetComponentInChildren<Text>().text);
-
-                if (go_Keypad.GetComponentInChildren<Text>().text == st_Value)
-                {
-                    go_Movable.transform.position = new Vector3(1, 0, 0) * Time.deltaTime;
-                }
-            }
-        }
-
-=======
->>>>>>> 38f2d95824e4bae5f6b54abe78d616bd731d02e5
         //Disables 2 of the 5 random locations for the digits to be spawned in. It gives each a digit. In order to work, the length
         //of the array has to be 5 and the text childed to the GameObjects has to be empty.
         if (bl_AnotherOne == true)
