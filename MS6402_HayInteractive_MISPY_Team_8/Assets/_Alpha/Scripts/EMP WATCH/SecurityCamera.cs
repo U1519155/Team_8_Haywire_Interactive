@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class SecurityCamera : MonoBehaviour
 {
-     public GameObject Patricle;
+    public GameObject Patricle;
+    
+   
+    
     // Start is called before the first frame update
     void Start()
     {
         Patricle.SetActive(false);
+        
+
+
     }
 
     // Update is called once per frame
@@ -20,6 +26,7 @@ public class SecurityCamera : MonoBehaviour
     { 
         StartCoroutine(CameraCooldown());
     }
+
      IEnumerator CameraCooldown()
     {
 

@@ -168,15 +168,19 @@ public class CameraController : MonoBehaviour
             // EMP Watch
             if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_Watch)
             {
+
                 
-                //find objects to disable on hit: camera
                 if (hit.collider.gameObject.GetComponent<SecurityCamera>())
                 {
+  
                     if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
                     {
                         hit.collider.gameObject.GetComponent<SecurityCamera>().StartCameraCooldown(); // turns off camera for a couple of seconds
+                        
                     }
                 }
+                 
+               
 
               //find NPC with card, check if player is close enough to
 
@@ -274,7 +278,7 @@ public class CameraController : MonoBehaviour
 
             #endregion
 
-            //Debug.Log(hit.transform.name);
+            Debug.Log(hit.transform.name);
             Debug.DrawRay(cam.transform.position, transform.forward * MaxRange);
 
            
