@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float MaxRange = 5.0f;
+    float MaxRange = 2.0f;
     public float outlineSize = 1.3f;
     public Camera cam;
+
+    
 
     //-------------------
     #region POC stuff
@@ -27,17 +29,17 @@ public class CameraController : MonoBehaviour
     #endregion
 
 
-    [Header("Gadget Swap")]
-<<<<<<< HEAD:MS6402_HayInteractive_MISPY_Team_8/Assets/Hassan/HH_Scripts/CameraController.cs
-    public Transform[] weapons; // 1st normal, 2nd Screwdriver,  3rd watch,  4th Cigar
-=======
+    [Header("----- Gadget Swap -----")]
     public Transform[] weapons; // Screwdriver, watch, Cigar, normal
->>>>>>> f511b5ff5d2a0b70f3371ea67656d153055b6d31:MS6402_HayInteractive_MISPY_Team_8/Assets/_Alpha/Scripts/CameraController.cs
     public int currentWeapon;
+
+    [Header("----- Screaming Grape -----")]
+    public GameObject GO_ScreamingGrape;
+    int SpawnedGrapes;
 
     //-----------------
 
-    
+
     [HideInInspector]
     public RaycastHit hit;
     // public GameObject doorEnter;
@@ -48,6 +50,7 @@ public class CameraController : MonoBehaviour
     {
 
         cam = Camera.main;
+        SwapWeapon(4);
         // doorEnter.SetActive(false);
         // doorExit.SetActive(false);
     }
@@ -58,6 +61,8 @@ public class CameraController : MonoBehaviour
         CameraRaycast();
         InputWeapon();
     }
+
+    #region Weapon Swap
     //-------
     public void SwapWeapon(int num) // weapon switcher
     {
@@ -70,13 +75,10 @@ public class CameraController : MonoBehaviour
                 weapons[i].gameObject.SetActive(false);
         }
     }
+
+    
     public void InputWeapon()
     {
-<<<<<<< HEAD:MS6402_HayInteractive_MISPY_Team_8/Assets/Hassan/HH_Scripts/CameraController.cs
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SwapWeapon(1);
-=======
         if (Input.GetKeyDown(KeyCode.Alpha1))//screw driver
         {
             SwapWeapon(1);
@@ -100,59 +102,92 @@ public class CameraController : MonoBehaviour
             SwapWeapon(4);
             Player_StateManager.pc_State = Player_StateManager.PC_different_states.pc_normal;
             Debug.Log(Player_StateManager.pc_State);
->>>>>>> f511b5ff5d2a0b70f3371ea67656d153055b6d31:MS6402_HayInteractive_MISPY_Team_8/Assets/_Alpha/Scripts/CameraController.cs
         }
-    } 
+    }
+    #endregion
 
     void CameraRaycast()
     {
+        int layerMask = 1 << 9;
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, MaxRange))
+        layerMask = ~layerMask;
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, MaxRange, layerMask))
         {
-            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_screwDriver)// Screwdriver
+            // Screwdriver
+            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_screwDriver)
             {
                 if (hit.collider.gameObject.GetComponent<MovableScrew>())
                 {
-                    if (Input.GetKey(KeyCode.E))
+                    if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
                     {
                         hit.collider.gameObject.GetComponent<MovableScrew>().Rotate();
                     }
                 }
             }
 
-            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_Cigar)// Cigar
+            // no gadgets
+            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_normal)
+            {
+
+                //player can flip sWITCH
+
+
+
+            }
+        }
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, Mathf.Infinity, layerMask))
+        {
+
+            // Cigar
+            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_Cigar)
             {
                 //hit marker sleep dart sound for NPC
-                if (hit.collider.gameObject.GetComponent<Guard>())
+                if (hit.collider.gameObject.GetComponent<Guard>() || hit.collider.gameObject.GetComponent<GM_ProtoAI>())
                 {
-                    //CHANGE guard state to sleep for 30 seconds
+                    if(Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
+                    {
+                        hit.collider.gameObject.GetComponent<GM_ProtoAI>().StartSleepTimer();
+                        //CHANGE guard state to sleep for 30 seconds
+                    }
                 }
                 else if (!hit.collider.gameObject.GetComponent<Guard>())
                 {
-                    //spawn screaming grape for a couple of seconds at endpoint of ray
+                    if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
+                    {
+                        //spawn screaming grape for a couple of seconds at endpoint of ray
+                        if (SpawnedGrapes < 1)
+                        {
+                            Instantiate(GO_ScreamingGrape, hit.point, Quaternion.identity);
+                            SpawnedGrapes++;
+                            StartCoroutine(SpawntimerGrape());
+                        }
+                    }
                 }
             }
 
-            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_Watch)// EMP Watch
+            // EMP Watch
+            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_Watch)
             {
-
-                //find objects to disable on hit: camera
+                
+                if (hit.collider.gameObject.GetComponent<SecurityCamera>())
+                {
+                    hit.collider.gameObject.GetComponent<SecurityCamera>().Highlighted(true);
+                    if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
+                    {
+                        hit.collider.gameObject.GetComponent<SecurityCamera>().StartCameraCooldown(); // turns off camera for a couple of seconds
+                        hit.collider.gameObject.GetComponent<SecurityCamera>().Highlighted(false);
+                    }
+                }
+                 
+               
 
               //find NPC with card, check if player is close enough to
 
-
-                // turn off tvs and other sutff just for
-
+                // turn off tvs and other sutff just for funb
 
             }
 
-            if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_normal)// no gadgets
-            {
 
-
-
-
-            }
 
             #region change shader outline POC
             //if (hit.collider.tag == "Interactable")
@@ -247,5 +282,13 @@ public class CameraController : MonoBehaviour
 
            
         }
+    }
+    IEnumerator SpawntimerGrape()
+    {
+        yield return new WaitForSeconds(3);
+        SpawnedGrapes--;
+        ScreamingGrape.GrapeDestroy();
+
+
     }
 }
