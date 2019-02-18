@@ -172,11 +172,11 @@ public class CameraController : MonoBehaviour
                 
                 if (hit.collider.gameObject.GetComponent<SecurityCamera>())
                 {
-                    hit.collider.gameObject.GetComponent<SecurityCamera>().StartHighlightTimer();
+  
                     if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
                     {
                         hit.collider.gameObject.GetComponent<SecurityCamera>().StartCameraCooldown(); // turns off camera for a couple of seconds
-                        hit.collider.gameObject.GetComponent<SecurityCamera>().StopHighlightTimer();
+                        
                     }
                 }
                  
