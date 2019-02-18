@@ -27,11 +27,15 @@ public class CodeGenerator : MonoBehaviour
     //Public Variables
     public GameObject[] SpheresClues;
     public GameObject go_Movable;
+    [SerializeField]
     public static GameObject go_Keypad;
+   // public static GameObject go_KeypadHolder;
 
     void Start()
     {
         go_Keypad = GameObject.Find("Keypad");
+     //   go_KeypadHolder = GameObject.Find("KeypadHolder");
+       // go_KeypadHolder.SetActive(false);
 
         // Generates the 3 digits for the code and translates it to a string. 
         in_First = Random.Range(0, 9);
@@ -46,6 +50,7 @@ public class CodeGenerator : MonoBehaviour
         //Gets the Text component in every gameObject. Adds one if it is missing.
         foreach (GameObject i in SpheresClues)
         {
+            
             i.GetComponentInChildren<Text>(true);
 
             if (i.GetComponentInChildren<Text>(true) != true)
@@ -60,6 +65,7 @@ public class CodeGenerator : MonoBehaviour
     {
         if (FindClues.bl_NearKeypad == true)
         {
+          //  go_KeypadHolder.SetActive(true);
             if (Input.anyKeyDown)
             {
                 go_Keypad.GetComponentInChildren<Text>().text = "" + Input.anyKeyDown;
