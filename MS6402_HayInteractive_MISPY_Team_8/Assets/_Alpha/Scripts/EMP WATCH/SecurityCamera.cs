@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class SecurityCamera : MonoBehaviour
 {
-     public GameObject Patricle;
+    public GameObject Patricle;
+    
+    public  GameObject highlightedParticle;
+    
     // Start is called before the first frame update
     void Start()
     {
         Patricle.SetActive(false);
+        Highlighted(false);
+        
     }
 
     // Update is called once per frame
@@ -20,6 +25,12 @@ public class SecurityCamera : MonoBehaviour
     { 
         StartCoroutine(CameraCooldown());
     }
+
+    public void Highlighted(bool particleIsOn)
+    {
+        highlightedParticle.SetActive(particleIsOn);
+    }
+
      IEnumerator CameraCooldown()
     {
 
