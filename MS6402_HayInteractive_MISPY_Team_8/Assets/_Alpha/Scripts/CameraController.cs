@@ -168,14 +168,15 @@ public class CameraController : MonoBehaviour
             // EMP Watch
             if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_Watch)
             {
+
                 
                 if (hit.collider.gameObject.GetComponent<SecurityCamera>())
                 {
-                    hit.collider.gameObject.GetComponent<SecurityCamera>().Highlighted(true);
+                    hit.collider.gameObject.GetComponent<SecurityCamera>().StartHighlightTimer();
                     if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
                     {
                         hit.collider.gameObject.GetComponent<SecurityCamera>().StartCameraCooldown(); // turns off camera for a couple of seconds
-                        hit.collider.gameObject.GetComponent<SecurityCamera>().Highlighted(false);
+                        hit.collider.gameObject.GetComponent<SecurityCamera>().StopHighlightTimer();
                     }
                 }
                  

@@ -26,11 +26,26 @@ public class SecurityCamera : MonoBehaviour
         StartCoroutine(CameraCooldown());
     }
 
-    public void Highlighted(bool particleIsOn)
+    public void StartHighlightTimer()
     {
-        highlightedParticle.SetActive(particleIsOn);
+        StartCoroutine(TimerHighlight());
+    }
+    public void StopHighlightTimer()
+    {
+        StopCoroutine(TimerHighlight());
     }
 
+
+
+    IEnumerator TimerHighlight()
+    {
+        highlightedParticle.SetActive(true);
+        if(highlightedParticle == true)
+        {
+            yield return new WaitForSeconds(1);
+            Patricle.SetActive(false);
+        }
+    }
      IEnumerator CameraCooldown()
     {
 
