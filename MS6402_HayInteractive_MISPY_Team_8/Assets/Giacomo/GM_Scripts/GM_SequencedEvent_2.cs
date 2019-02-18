@@ -4,16 +4,20 @@ public class GM_SequencedEvent_2 : MonoBehaviour
 {
 
     //Public Variables
+    [Header("----Audio Clip----")]
     public AudioClip ac_Wrong;
     public AudioClip ac_Success;
     public AudioClip ac_Right;
     public AudioClip ac_OpenDoorSound;
+    
     public static GameObject go_PressE;
+    [Header("----buttons----")]
     public GameObject go_1Button;
     public GameObject go_2Button;
     public GameObject go_3Button;
     public GameObject go_4Button;
     public GameObject go_Block;
+    [Header("----Materials----")]
     public Material m_Button1;
     public Material m_Button2;
     public Material m_Button3;
