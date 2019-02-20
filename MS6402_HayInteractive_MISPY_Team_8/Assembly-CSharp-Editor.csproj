@@ -61,9 +61,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\[Asset] Customizable_Furnture\Editor\Customizable_Furniture\EditorCleanUpAll.cs" />
-    <Compile Include="Assets\[Asset] Customizable_Furnture\Editor\Customizable_Furniture\EditorOptionsDisplay.cs" />
-    <Compile Include="Assets\[Asset] Customizable_Furnture\Editor\Customizable_Furniture\EditorSimpleSwitchMaterial.cs" />
+    <Compile Include="Assets\[Asset]bedroom_Furnture\Editor\Customizable_Furniture\EditorCleanUpAll.cs" />
+    <Compile Include="Assets\[Asset]bedroom_Furnture\Editor\Customizable_Furniture\EditorOptionsDisplay.cs" />
+    <Compile Include="Assets\[Asset]bedroom_Furnture\Editor\Customizable_Furniture\EditorSimpleSwitchMaterial.cs" />
     <Compile Include="Assets\[Asset]Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
       <HintPath>C:/Users/Hassan Hamid/Documents/GitHub/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
