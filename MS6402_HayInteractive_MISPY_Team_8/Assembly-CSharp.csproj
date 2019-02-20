@@ -62,17 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\[Asset] QuickOutline\Scripts\Outline.cs" />
-    <Compile Include="Assets\[Asset]bedroom_Furnture\Source\Scripts\CleanUpAll.cs" />
-    <Compile Include="Assets\[Asset]bedroom_Furnture\Source\Scripts\Clock\AnalogicClock.cs" />
-    <Compile Include="Assets\[Asset]bedroom_Furnture\Source\Scripts\Clock\ClockTimer.cs" />
-    <Compile Include="Assets\[Asset]bedroom_Furnture\Source\Scripts\Clock\DigitalClock.cs" />
-    <Compile Include="Assets\[Asset]bedroom_Furnture\Source\Scripts\Clock\DigitalClockValue.cs" />
-    <Compile Include="Assets\[Asset]bedroom_Furnture\Source\Scripts\DisplayFrame.cs" />
-    <Compile Include="Assets\[Asset]bedroom_Furnture\Source\Scripts\DisplaySelectedObject.cs" />
-    <Compile Include="Assets\[Asset]bedroom_Furnture\Source\Scripts\OptionsDisplay.cs" />
-    <Compile Include="Assets\[Asset]bedroom_Furnture\Source\Scripts\OptionsDisplaySaveVar.cs" />
-    <Compile Include="Assets\[Asset]bedroom_Furnture\Source\Scripts\PlayVideo.cs" />
-    <Compile Include="Assets\[Asset]bedroom_Furnture\Source\Scripts\SimpleSwitchMaterial.cs" />
     <Compile Include="Assets\[Asset]Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
     <Compile Include="Assets\[Asset]Standard Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
     <Compile Include="Assets\[Asset]Standard Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
@@ -157,7 +146,6 @@
     <None Include="Assets\[Asset] Workplace Tools\README.txt" />
     <None Include="Assets\Hassan\HH_Shaders\OutlinedObject.shader" />
     <None Include="Assets\[Asset]Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
-    <None Include="Assets\[Asset]bedroom_Furnture\Readme\Readme.txt" />
     <None Include="Assets\[Asset] QuickOutline\Resources\Shaders\OutlineMask.shader" />
     <None Include="Assets\[Asset]Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
