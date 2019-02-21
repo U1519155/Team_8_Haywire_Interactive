@@ -78,7 +78,6 @@
     <Compile Include="Assets\Plugins\Ink\Editor\Tools\InkEditorUtils.cs" />
     <None Include="Assets\Plugins\Ink\Editor\Resources\InkDefaultTemplate.txt" />
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
-<<<<<<< HEAD
       <HintPath>D:/u1609669/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProGrids">
@@ -98,27 +97,6 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/u1609669/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-=======
-      <HintPath>D:/u1609231/GitHub/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProGrids">
-      <HintPath>D:/u1609231/GitHub/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProGrids.Editor">
-      <HintPath>D:/u1609231/GitHub/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/u1609231/GitHub/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>D:/u1609231/GitHub/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/u1609231/GitHub/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/u1609231/GitHub/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
->>>>>>> f7d6fce32fe7cf09bf79ed84f5a7a6a047c95e0c
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -330,6 +308,12 @@
     <Reference Include="UnityEditor.Networking">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="Vuforia.UnityExtensions.Editor">
+      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Editor/Vuforia.UnityExtensions.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Vuforia.UnityExtensions">
+      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.GoogleAudioSpatializer">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
     </Reference>
@@ -361,7 +345,6 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="AssetIdRemapUtility">
-<<<<<<< HEAD
       <HintPath>D:/u1609669/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/PackageCache/com.unity.probuilder@3.0.9/ProBuilder/AssetIdRemapUtility/Editor/AssetIdRemapUtility.dll</HintPath>
     </Reference>
     <Reference Include="ProBuilderCore">
@@ -381,27 +364,6 @@
     </Reference>
     <Reference Include="ProBuilderEditor">
       <HintPath>D:/u1609669/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/PackageCache/com.unity.probuilder@3.0.9/ProBuilder/Editor/ProBuilderEditor.dll</HintPath>
-=======
-      <HintPath>D:/u1609231/GitHub/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/PackageCache/com.unity.probuilder@3.0.9/ProBuilder/AssetIdRemapUtility/Editor/AssetIdRemapUtility.dll</HintPath>
-    </Reference>
-    <Reference Include="ProBuilderCore">
-      <HintPath>D:/u1609231/GitHub/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/PackageCache/com.unity.probuilder@3.0.9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
-    </Reference>
-    <Reference Include="ProBuilderMeshOps">
-      <HintPath>D:/u1609231/GitHub/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/PackageCache/com.unity.probuilder@3.0.9/ProBuilder/Classes/ProBuilderMeshOps.dll</HintPath>
-    </Reference>
-    <Reference Include="KdTreeLib">
-      <HintPath>D:/u1609231/GitHub/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/PackageCache/com.unity.probuilder@3.0.9/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
-    </Reference>
-    <Reference Include="pb_Stl">
-      <HintPath>D:/u1609231/GitHub/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/PackageCache/com.unity.probuilder@3.0.9/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
-    </Reference>
-    <Reference Include="Poly2Tri">
-      <HintPath>D:/u1609231/GitHub/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/PackageCache/com.unity.probuilder@3.0.9/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
-    </Reference>
-    <Reference Include="ProBuilderEditor">
-      <HintPath>D:/u1609231/GitHub/Team_8_Haywire_Interactive/MS6402_HayInteractive_MISPY_Team_8/Library/PackageCache/com.unity.probuilder@3.0.9/ProBuilder/Editor/ProBuilderEditor.dll</HintPath>
->>>>>>> f7d6fce32fe7cf09bf79ed84f5a7a6a047c95e0c
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll</HintPath>
