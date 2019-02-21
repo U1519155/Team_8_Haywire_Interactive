@@ -8,6 +8,9 @@ public class CameraController : MonoBehaviour
     public float outlineSize = 1.3f;
     public Camera cam;
 
+    public int in_PCcurrentID;
+    private float fl_copytime;
+    public float fl_timetocopy = 5;
     
 
     //-------------------
@@ -179,10 +182,26 @@ public class CameraController : MonoBehaviour
                         
                     }
                 }
-                 
-               
+         
+                if (hit.collider.gameObject.GetComponent<GC_GuardsID>() && hit.distance <= 5 )
+                {
+                    fl_copytime += Time.deltaTime;
+                    if (fl_copytime >= fl_timetocopy)
+                    {
+                        in_PCcurrentID = hit.collider.GetComponent<GC_GuardsID>().in_IDcode;
+                        Debug.Log("id copied");
+                    }
+                    //wow it actually works
+                }
+                else
+                {
+                    fl_copytime = 0;
+                }
 
-              //find NPC with card, check if player is close enough to
+
+
+
+                //find NPC with card, check if player is close enough to
 
                 // turn off tvs and other sutff just for funb
 
@@ -280,8 +299,11 @@ public class CameraController : MonoBehaviour
 
             Debug.Log(hit.transform.name);
             Debug.DrawRay(cam.transform.position, transform.forward * MaxRange);
+            //Debug.Log(fl_copytime);
 
-           
+            
+
+
         }
     }
     IEnumerator SpawntimerGrape()
