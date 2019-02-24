@@ -132,7 +132,7 @@ public class Guard : MonoBehaviour {
 		}
 	}
 
-	void OnDrawGizmos() {
+	/*void OnDrawGizmos() {
 		Vector3 startPosition = pathHolder.GetChild (0).position;
 		Vector3 previousPosition = startPosition;
 
@@ -146,5 +146,5 @@ public class Guard : MonoBehaviour {
 		Gizmos.color = Color.red;
 		Gizmos.DrawRay (transform.position, transform.forward * viewDistance);
 	}
-
+*/
 }
