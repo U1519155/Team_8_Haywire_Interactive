@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class CameraController : MonoBehaviour
     public float outlineSize = 1.3f;
     public Camera cam;
 
+    [Header("------TEXT-----")]
+    public Text Txt_Interaction;
+
+    [Header("-----ID------")]
     public int in_PCcurrentID;
     private float fl_copytime;
     public float fl_timetocopy = 5;
@@ -54,6 +59,8 @@ public class CameraController : MonoBehaviour
 
         cam = Camera.main;
         SwapWeapon(4);
+        Txt_Interaction.text = "";
+
         // doorEnter.SetActive(false);
         // doorExit.SetActive(false);
     }
@@ -63,6 +70,7 @@ public class CameraController : MonoBehaviour
     {
         CameraRaycast();
         InputWeapon();
+        
     }
 
     #region Weapon Swap
@@ -112,21 +120,30 @@ public class CameraController : MonoBehaviour
     void CameraRaycast()
     {
         int layerMask = 1 << 9;
-
         layerMask = ~layerMask;
+
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, MaxRange, layerMask))
         {
+            
             // Screwdriver
             if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_screwDriver)
             {
+                
                 if (hit.collider.gameObject.GetComponent<MovableScrew>())
                 {
+                    Txt_Interaction.text = "Press 'E' or 'mouse 1' to Unscrew";
                     if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
                     {
                         hit.collider.gameObject.GetComponent<MovableScrew>().Rotate();
                     }
                 }
+                if(hit.collider == null || !hit.collider.gameObject.GetComponent<MovableScrew>())
+                {
+                    Txt_Interaction.text = "";
+                }
+                
             }
+            
 
             // no gadgets
             if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_normal)
@@ -134,7 +151,7 @@ public class CameraController : MonoBehaviour
 
                 //player can flip sWITCH
 
-
+                Txt_Interaction.text = "";
 
             }
         }
@@ -147,7 +164,8 @@ public class CameraController : MonoBehaviour
                 //hit marker sleep dart sound for NPC
                 if (hit.collider.gameObject.GetComponent<Guard>() || hit.collider.gameObject.GetComponent<GM_ProtoAI>())
                 {
-                    if(Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
+                   
+                    if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
                     {
                         hit.collider.gameObject.GetComponent<GM_ProtoAI>().StartSleepTimer();
                         //CHANGE guard state to sleep for 30 seconds
@@ -171,31 +189,38 @@ public class CameraController : MonoBehaviour
             // EMP Watch
             if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_Watch)
             {
-
-                
+ 
                 if (hit.collider.gameObject.GetComponent<SecurityCamera>())
                 {
-  
+                    Txt_Interaction.text = "Press 'E' or 'mouse 1' to 'disable'";
                     if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
                     {
                         hit.collider.gameObject.GetComponent<SecurityCamera>().StartCameraCooldown(); // turns off camera for a couple of seconds
                         
                     }
                 }
-         
+
+                if(hit.collider == null || !hit.collider.gameObject.GetComponent<SecurityCamera>())
+                {
+                    Txt_Interaction.text = "";
+                }
+
                 if (hit.collider.gameObject.GetComponent<GC_GuardsID>() && hit.distance <= 5 )
                 {
+                    Txt_Interaction.text = "Downloading ID...";
                     fl_copytime += Time.deltaTime;
                     if (fl_copytime >= fl_timetocopy)
                     {
                         in_PCcurrentID = hit.collider.GetComponent<GC_GuardsID>().in_IDcode;
                         Debug.Log("id copied");
+                        Txt_Interaction.text = "ID copied";
                     }
                     //wow it actually works
                 }
                 else
                 {
                     fl_copytime = 0;
+                    
                 }
 
 
