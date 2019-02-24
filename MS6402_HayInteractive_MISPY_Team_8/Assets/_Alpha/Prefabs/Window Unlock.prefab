@@ -484,15 +484,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6905798129740102648}
     m_Modifications:
-    - target: {fileID: 9090803146953702776, guid: 0952c3c4b2ac10348a60312d726e7121,
-        type: 3}
-      propertyPath: m_Name
-      value: Screwcross (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 9090803146953702779, guid: 0952c3c4b2ac10348a60312d726e7121,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.4868393
+      value: -0.4924
       objectReference: {fileID: 0}
     - target: {fileID: 9090803146953702779, guid: 0952c3c4b2ac10348a60312d726e7121,
         type: 3}
@@ -559,6 +554,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 83.0701
       objectReference: {fileID: 0}
+    - target: {fileID: 9090803146953702776, guid: 0952c3c4b2ac10348a60312d726e7121,
+        type: 3}
+      propertyPath: m_Name
+      value: Screwcross (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0952c3c4b2ac10348a60312d726e7121, type: 3}
 --- !u!4 &8730243437541118068 stripped
@@ -574,15 +574,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6905798129740102648}
     m_Modifications:
-    - target: {fileID: 9090803146953702776, guid: 0952c3c4b2ac10348a60312d726e7121,
-        type: 3}
-      propertyPath: m_Name
-      value: Screwcross (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 9090803146953702779, guid: 0952c3c4b2ac10348a60312d726e7121,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.4803238
+      value: 0.4901371
       objectReference: {fileID: 0}
     - target: {fileID: 9090803146953702779, guid: 0952c3c4b2ac10348a60312d726e7121,
         type: 3}
@@ -649,6 +644,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 83.07027
       objectReference: {fileID: 0}
+    - target: {fileID: 9090803146953702776, guid: 0952c3c4b2ac10348a60312d726e7121,
+        type: 3}
+      propertyPath: m_Name
+      value: Screwcross (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0952c3c4b2ac10348a60312d726e7121, type: 3}
 --- !u!4 &4942119188199897860 stripped
@@ -664,15 +664,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6905798129740102648}
     m_Modifications:
-    - target: {fileID: 9090803146953702776, guid: 0952c3c4b2ac10348a60312d726e7121,
-        type: 3}
-      propertyPath: m_Name
-      value: Screwcross (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 9090803146953702779, guid: 0952c3c4b2ac10348a60312d726e7121,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.4803257
+      value: 0.48763657
       objectReference: {fileID: 0}
     - target: {fileID: 9090803146953702779, guid: 0952c3c4b2ac10348a60312d726e7121,
         type: 3}
@@ -739,6 +734,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 83.07043
       objectReference: {fileID: 0}
+    - target: {fileID: 9090803146953702776, guid: 0952c3c4b2ac10348a60312d726e7121,
+        type: 3}
+      propertyPath: m_Name
+      value: Screwcross (3)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0952c3c4b2ac10348a60312d726e7121, type: 3}
 --- !u!4 &4093081178998129617 stripped
@@ -754,11 +754,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6905798129740102648}
     m_Modifications:
-    - target: {fileID: 9090803146953702776, guid: 0952c3c4b2ac10348a60312d726e7121,
-        type: 3}
-      propertyPath: m_Name
-      value: Screwcross
-      objectReference: {fileID: 0}
     - target: {fileID: 9090803146953702779, guid: 0952c3c4b2ac10348a60312d726e7121,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -828,6 +823,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 83.06995
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090803146953702776, guid: 0952c3c4b2ac10348a60312d726e7121,
+        type: 3}
+      propertyPath: m_Name
+      value: Screwcross
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0952c3c4b2ac10348a60312d726e7121, type: 3}

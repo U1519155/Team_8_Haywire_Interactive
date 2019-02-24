@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 92246962}
   - component: {fileID: 92246961}
+  - component: {fileID: 1861148727716221476}
   m_Layer: 0
   m_Name: Door Locked
   m_TagString: Untagged
@@ -52,6 +53,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1861148727716221476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92246960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93b804e230a33e4ba4bc89ad2c7ef6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitScrew: 0
 --- !u!1 &594238654568681156
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,7 +78,6 @@ GameObject:
   - component: {fileID: 2960607398695821878}
   - component: {fileID: 2131572745097693250}
   - component: {fileID: 2664051469404926921}
-  - component: {fileID: 3132060333913112919}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -144,19 +157,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3132060333913112919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 594238654568681156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93b804e230a33e4ba4bc89ad2c7ef6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitScrew: 0
 --- !u!1001 &4431225591497479895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164,11 +164,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 92246962}
     m_Modifications:
-    - target: {fileID: 9090803146953702776, guid: 0952c3c4b2ac10348a60312d726e7121,
-        type: 3}
-      propertyPath: m_Name
-      value: Screwcross
-      objectReference: {fileID: 0}
     - target: {fileID: 9090803146953702779, guid: 0952c3c4b2ac10348a60312d726e7121,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -238,6 +233,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 10.00004
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090803146953702776, guid: 0952c3c4b2ac10348a60312d726e7121,
+        type: 3}
+      propertyPath: m_Name
+      value: Screwcross
       objectReference: {fileID: 0}
     - target: {fileID: 360960084, guid: 0952c3c4b2ac10348a60312d726e7121, type: 3}
       propertyPath: m_IsActive
