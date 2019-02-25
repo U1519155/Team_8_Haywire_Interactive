@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Ashley/AC_Scenes/PoC Scene.unity
-    guid: 950fa3f8e13448f4b86acd636317d173
+    path: Assets/_Alpha/Scenes/Start_Menu.unity
+    guid: 78f0226c1eca3e648ad6c1dd0dddfe2b
+  - enabled: 1
+    path: Assets/_Alpha/Scenes/Planning Phase.unity
+    guid: 31c2a851bbdd8df4bb6c665c7c7c4987
+  - enabled: 1
+    path: Assets/_Alpha/Scenes/Whiteboxing.unity
+    guid: e9a0fa3a84ae63b4c85c4e7059f36820
   m_configObjects: {}

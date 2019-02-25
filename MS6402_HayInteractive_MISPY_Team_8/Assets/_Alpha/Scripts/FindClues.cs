@@ -77,10 +77,10 @@ public class FindClues : MonoBehaviour
         }
 
         //Sequenced Event functions
-        GM_SequencedEvent_2.go_PressE.SetActive(false);
-        GM_SequencedEvent_2.bl_In1Button = false;
-        GM_SequencedEvent_2.bl_In4Button = false;
-        GM_SequencedEvent_2.bl_In2Button = false;
-        GM_SequencedEvent_2.bl_In3Button = false;
+        //GM_SequencedEvent_2.go_PressE.SetActive(false);
+        //GM_SequencedEvent_2.bl_In1Button = false;
+        //GM_SequencedEvent_2.bl_In4Button = false;
+        //GM_SequencedEvent_2.bl_In2Button = false;
+        //GM_SequencedEvent_2.bl_In3Button = false;
     }
 }
