@@ -8,9 +8,15 @@ public class GM_SequencedEvent_2 : MonoBehaviour
     public AudioClip ac_Wrong;
     public AudioClip ac_Success;
     public AudioClip ac_Right;
+<<<<<<< HEAD
     public AudioClip ac_OpenDoorSound;    
     public static GameObject go_PressE;
 
+=======
+    public AudioClip ac_OpenDoorSound;
+    
+    public static GameObject go_PressE;
+>>>>>>> 465e6ad7cce271917b2d8b1451a80d5e2f16c400
     [Header("----buttons----")]
     public GameObject go_1Button;
     public GameObject go_2Button;

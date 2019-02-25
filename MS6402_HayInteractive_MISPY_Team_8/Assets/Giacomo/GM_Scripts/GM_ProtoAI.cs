@@ -70,11 +70,16 @@ public class GM_ProtoAI : MonoBehaviour
                     Unstop();
                 }
             }
+<<<<<<< HEAD
             //Tells the NPC to go to the set destination.            
             if (Agent_Self.destination != null)
             {
                 Agent_Self.destination = Goals[in_Number].position;
             }
+=======
+            //Tells the NPC to go to the set destination.
+            Agent_Self.destination = Goals[in_Number].position;
+>>>>>>> 465e6ad7cce271917b2d8b1451a80d5e2f16c400
         }
         else if (Vector3.Distance(transform.position, grape.transform.position) < 3)
         {
