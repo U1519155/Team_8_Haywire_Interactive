@@ -183,6 +183,7 @@ public class CameraController : MonoBehaviour
                
 
               //find NPC with card, check if player is close enough to
+<<<<<<< HEAD
 
 <<<<<<< HEAD
                 // turn off tvs and other sutff just for funb
@@ -212,6 +213,10 @@ public class CameraController : MonoBehaviour
 
                     // turn off tvs and other sutff just for funb
 >>>>>>> parent of ea29469... Merge branch 'master' of https://github.com/U1519155/Team_8_Haywire_Interactive
+=======
+
+                // turn off tvs and other sutff just for funb
+>>>>>>> parent of b05a167... Commit
 
             }
 
