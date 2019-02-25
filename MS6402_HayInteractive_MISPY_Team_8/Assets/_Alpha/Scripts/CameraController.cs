@@ -184,7 +184,34 @@ public class CameraController : MonoBehaviour
 
               //find NPC with card, check if player is close enough to
 
+<<<<<<< HEAD
                 // turn off tvs and other sutff just for funb
+=======
+                if (hit.collider.gameObject.GetComponent<GC_GuardsID>() && hit.distance <= 5 )
+                {
+                    Txt_Interaction.text = "Downloading ID...";
+                    fl_copytime += Time.deltaTime;
+                    if (fl_copytime >= fl_timetocopy)
+                    {
+                        in_PCcurrentID = hit.collider.GetComponent<GC_GuardsID>().in_IDcode;
+                        Debug.Log("id copied");
+                        Txt_Interaction.text = "ID copied";
+                    }
+                    //wow it actually works
+                }
+                else
+                {
+                    fl_copytime = 0;
+                    
+                }
+
+
+
+
+                //find NPC with card, check if player is close enough to
+
+                    // turn off tvs and other sutff just for funb
+>>>>>>> parent of ea29469... Merge branch 'master' of https://github.com/U1519155/Team_8_Haywire_Interactive
 
             }
 

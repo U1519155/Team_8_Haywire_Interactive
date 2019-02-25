@@ -7,8 +7,15 @@ public class GM_SequencedEvent_2 : MonoBehaviour
     public AudioClip ac_Wrong;
     public AudioClip ac_Success;
     public AudioClip ac_Right;
+<<<<<<< HEAD
     public AudioClip ac_OpenDoorSound;
     public static GameObject go_PressE;
+=======
+    public AudioClip ac_OpenDoorSound;    
+    public static GameObject go_PressE;
+
+    [Header("----buttons----")]
+>>>>>>> parent of ea29469... Merge branch 'master' of https://github.com/U1519155/Team_8_Haywire_Interactive
     public GameObject go_1Button;
     public GameObject go_2Button;
     public GameObject go_3Button;

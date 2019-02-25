@@ -45,7 +45,23 @@ public class GM_ProtoAI : MonoBehaviour
         {
             fl_Overtime += Time.deltaTime;
 
+<<<<<<< HEAD
             if (fl_Overtime >= fl_WaitTime)
+=======
+            if (bl_Stop == true)
+            {
+                fl_Stop += Time.deltaTime;
+
+                if (fl_Stop >= fl_WaitStopped)
+                {
+                    bl_IsStopped = true;
+                    bl_Stop = false;
+                    Unstop();
+                }
+            }
+            //Tells the NPC to go to the set destination.            
+            if (Agent_Self.destination != null)
+>>>>>>> parent of ea29469... Merge branch 'master' of https://github.com/U1519155/Team_8_Haywire_Interactive
             {
                 bl_Time = false;
             }
