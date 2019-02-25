@@ -23,7 +23,7 @@ public class GM_TriggerChoose : MonoBehaviour
 
     //public GameObject go_TriggerQuestion;
     //public GameObject go_TriggerIdentity;
-    public GameObject go_Door;
+    //public GameObject go_Door;
     public GameObject go_ButtonHolder;
     public GameObject go_QuestionMeHolder;
     public GameObject[] go_Questions;
@@ -184,11 +184,11 @@ public class GM_TriggerChoose : MonoBehaviour
             go_QuestionMeHolder.SetActive(false);
             gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
 
-            if (go_Door.activeInHierarchy == true)
-            {
-                this.gameObject.SetActive(false);
-                go_Door.SetActive(false);
-            }
+           // if (go_Door.activeInHierarchy == true)
+         //   {
+                //this.gameObject.SetActive(false);
+         //       go_Door.SetActive(false);
+        //    }
          }
 
          else if (bl_Dhaka == false)
@@ -196,7 +196,7 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("Dafuq");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
-            this.gameObject.SetActive(false);
+       //     this.gameObject.SetActive(false);
             gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
         }
         
@@ -212,11 +212,11 @@ public class GM_TriggerChoose : MonoBehaviour
             go_QuestionMeHolder.SetActive(false);
             gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
 
-            if (go_Door.activeInHierarchy == true)
-            {
-                this.gameObject.SetActive(false);
-                go_Door.SetActive(false);
-            }
+    //        if (go_Door.activeInHierarchy == true)
+     //       {
+    //            this.gameObject.SetActive(false);
+    //            go_Door.SetActive(false);
+    //        }
         }
 
         else if (bl_London == false)
@@ -224,7 +224,7 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("Dafuq");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
-            this.gameObject.SetActive(false);
+    //        this.gameObject.SetActive(false);
             gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
         }
 
@@ -240,12 +240,12 @@ public class GM_TriggerChoose : MonoBehaviour
             go_QuestionMeHolder.SetActive(false);
             gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
 
-            if (go_Door.activeInHierarchy == true)
-            {
-                go_Door.SetActive(false);
-                this.gameObject.SetActive(false);
+      //      if (go_Door.activeInHierarchy == true)
+      //      {
+     //           go_Door.SetActive(false);
+     //           this.gameObject.SetActive(false);
 
-            }
+      //      }
         }
 
         else if (bl_Rome == false)
@@ -253,7 +253,7 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("Dafuq");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
-            this.gameObject.SetActive(false);
+       //     this.gameObject.SetActive(false);
             gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
         }
     }

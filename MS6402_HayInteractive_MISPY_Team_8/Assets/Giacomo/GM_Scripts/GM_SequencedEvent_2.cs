@@ -4,28 +4,20 @@ public class GM_SequencedEvent_2 : MonoBehaviour
 {
 
     //Public Variables
+    [Header("----Audio Clip----")]
     public AudioClip ac_Wrong;
     public AudioClip ac_Success;
     public AudioClip ac_Right;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public AudioClip ac_OpenDoorSound;
-    public static GameObject go_PressE;
-=======
     public AudioClip ac_OpenDoorSound;    
     public static GameObject go_PressE;
 
     [Header("----buttons----")]
->>>>>>> parent of ea29469... Merge branch 'master' of https://github.com/U1519155/Team_8_Haywire_Interactive
-=======
-    public AudioClip ac_OpenDoorSound;
-    public static GameObject go_PressE;
->>>>>>> parent of b05a167... Commit
     public GameObject go_1Button;
     public GameObject go_2Button;
     public GameObject go_3Button;
     public GameObject go_4Button;
     public GameObject go_Block;
+    [Header("----Materials----")]
     public Material m_Button1;
     public Material m_Button2;
     public Material m_Button3;
@@ -46,13 +38,21 @@ public class GM_SequencedEvent_2 : MonoBehaviour
 
     void Start()
     {
-        as_AudioSource = GetComponent<AudioSource>();
+        as_AudioSource = GetComponent<AudioSource>(); 
+
+        go_PressE = GameObject.Find("Press_E");
+
+        if (go_PressE == null)
+        {
+            Debug.Log("Press_E not found");
+        }
+
         go_PressE.SetActive(false);
+
         go_1Button.GetComponent<Renderer>().material = m_Button1;
         go_2Button.GetComponent<Renderer>().material = m_Button2;
         go_3Button.GetComponent<Renderer>().material = m_Button3;
         go_4Button.GetComponent<Renderer>().material = m_Button4;
-        go_PressE = GameObject.Find("Press_E");
     }
 
     // If the booleans are true, their colour changes from red to green.
@@ -186,5 +186,42 @@ public class GM_SequencedEvent_2 : MonoBehaviour
         go_Block.SetActive(false);
         as_AudioSource.clip = ac_Success;
         as_AudioSource.PlayOneShot(as_AudioSource.clip);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Button1")
+        {
+            bl_In1Button = true;
+            go_PressE.SetActive(true);
+        }
+
+        if (other.tag == "Button2")
+        {
+            bl_In2Button = true;
+            go_PressE.SetActive(true);
+        }
+
+        if (other.tag == "Button3")
+        {
+            bl_In3Button = true;
+            go_PressE.SetActive(true);
+        }
+
+        if (other.tag == "Button4")
+        {
+            bl_In4Button = true;
+            go_PressE.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        bl_In1Button = false;
+        bl_In2Button = false;
+        bl_In3Button = false;
+        bl_In4Button = false;
+        bl_In1Button = false;
+        go_PressE.SetActive(false);
     }
 }

@@ -118,7 +118,6 @@ MonoBehaviour:
   bl_MarineBiologist: 0
   bl_Actor: 0
   in_IncreasedSuspicion: 1
-  go_Door: {fileID: 0}
   go_ButtonHolder: {fileID: 0}
   go_QuestionMeHolder: {fileID: 0}
   go_Questions:
@@ -524,6 +523,10 @@ GameObject:
   - component: {fileID: 5169076188138154267}
   - component: {fileID: 6123600792876633632}
   - component: {fileID: 3735468670734816486}
+  - component: {fileID: 6023635692189669255}
+  - component: {fileID: 5594575850051790810}
+  - component: {fileID: 3871373657528108180}
+  - component: {fileID: 7892227946337564296}
   m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
@@ -570,6 +573,175 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62653fcd135b3094d8ae3c69ec725ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &6023635692189669255
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3053610282765743851}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!82 &5594575850051790810
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3053610282765743851}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &3871373657528108180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3053610282765743851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376aa12dce72d464ba6b0f21aa236ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bl_Dhaka: 0
+  bl_London: 0
+  bl_Rome: 0
+  bl_Kayode: 0
+  bl_Kevin: 0
+  bl_Richard: 0
+  bl_Hamer: 0
+  bl_Mason: 0
+  bl_Shonibare: 0
+  bl_GameDesigner: 0
+  bl_MarineBiologist: 0
+  bl_Actor: 0
+  in_IncreasedSuspicion: 1
+  go_ButtonHolder: {fileID: 0}
+  go_QuestionMeHolder: {fileID: 0}
+  go_Questions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &7892227946337564296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3053610282765743851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5668526926087a45b47cc40bff073a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ac_Wrong: {fileID: 8300000, guid: 024209ad093fc9c42894f76d19f9961e, type: 3}
+  ac_Success: {fileID: 8300000, guid: 9ddf6e595dff80a44a4b952b36c0cc84, type: 3}
+  ac_Right: {fileID: 8300000, guid: 0de6b1530f09bb24990fa28f2509bba5, type: 3}
+  ac_OpenDoorSound: {fileID: 8300000, guid: 4e8c9d48f1376f24fb76586277bc6474, type: 3}
+  go_1Button: {fileID: 0}
+  go_2Button: {fileID: 0}
+  go_3Button: {fileID: 0}
+  go_4Button: {fileID: 0}
+  go_Block: {fileID: 0}
+  m_Button1: {fileID: 2100000, guid: e39c55cb6e14c2846ad30dd36ee5eab5, type: 2}
+  m_Button2: {fileID: 2100000, guid: 63199b166c14f564e940a830c3ef00c3, type: 2}
+  m_Button3: {fileID: 2100000, guid: d09509ddc9a027d438d264252afffef5, type: 2}
+  m_Button4: {fileID: 2100000, guid: e73d757943da48c41a34db08abe8cda2, type: 2}
 --- !u!1 &3854154535127541067
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +926,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineSize: 1.3
   cam: {fileID: 0}
+  Txt_Interaction: {fileID: 0}
+  in_PCcurrentID: 0
+  fl_timetocopy: 5
   screw: {fileID: 0}
   glassCase: {fileID: 0}
   diamond: {fileID: 0}

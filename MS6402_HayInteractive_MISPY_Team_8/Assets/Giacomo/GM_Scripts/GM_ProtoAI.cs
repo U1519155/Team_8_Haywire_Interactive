@@ -18,6 +18,10 @@ public class GM_ProtoAI : MonoBehaviour
     private float fl_Stop;
     public float fl_WaitStopped = 10f;
 
+    public GameObject grape;
+    public float fl_maxdistance = 20;
+    
+
     // Use this for initialization
     void Start()
     {
@@ -32,23 +36,29 @@ public class GM_ProtoAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Sets a goal for the NPC.
-        if (bl_Time == false)
+        
+        grape =  GameObject.Find("Screaming Ball(Clone)");
+        if (grape == null)
         {
-            in_Number = Random.Range(0, Goals.Length);
-            bl_Time = true;
-            fl_Overtime = 0;
-        }
+            //Sets a goal for the NPC.
+            if (bl_Time == false)
+            {
+                in_Number = Random.Range(0, Goals.Length);
+                bl_Time = true;
+                fl_Overtime = 0;
+            }
 
-        //Waits a set amount of seconds (fl_WaitTime) before setting the next destination.
-        if (bl_Time == true)
-        {
-            fl_Overtime += Time.deltaTime;
+            //Waits a set amount of seconds (fl_WaitTime) before setting the next destination.
+            if (bl_Time == true)
+            {
+                fl_Overtime += Time.deltaTime;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-            if (fl_Overtime >= fl_WaitTime)
-=======
+                if (fl_Overtime >= fl_WaitTime)
+                {
+                    bl_Time = false;
+                }
+            }
+
             if (bl_Stop == true)
             {
                 fl_Stop += Time.deltaTime;
@@ -62,29 +72,15 @@ public class GM_ProtoAI : MonoBehaviour
             }
             //Tells the NPC to go to the set destination.            
             if (Agent_Self.destination != null)
->>>>>>> parent of ea29469... Merge branch 'master' of https://github.com/U1519155/Team_8_Haywire_Interactive
-=======
-            if (fl_Overtime >= fl_WaitTime)
->>>>>>> parent of b05a167... Commit
             {
-                bl_Time = false;
+                Agent_Self.destination = Goals[in_Number].position;
             }
         }
-
-        if (bl_Stop == true)
+        else if (Vector3.Distance(transform.position, grape.transform.position) < 3)
         {
-            fl_Stop += Time.deltaTime;
-
-            if (fl_Stop >= fl_WaitStopped)
-            {
-                bl_IsStopped = true;
-                bl_Stop = false;
-                Unstop();
-            }
+            Agent_Self.destination = grape.transform.position;
         }
 
-        //Tells the NPC to go to the set destination.
-        Agent_Self.destination = Goals[in_Number].position;
 
         //Declaring a variable to make sure the Raycast turns red once Layer 9 is hit --> Set the Player (Capsule) as Layer 9.
         int layermask = 1 << 9;
