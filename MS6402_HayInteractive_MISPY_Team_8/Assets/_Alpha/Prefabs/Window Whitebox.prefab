@@ -205,7 +205,6 @@ GameObject:
   - component: {fileID: 3699998873532073334}
   - component: {fileID: 7147378449739343994}
   - component: {fileID: 3921619431660549757}
-  - component: {fileID: 6195616051549994513}
   m_Layer: 0
   m_Name: Window Whitebox
   m_TagString: Untagged
@@ -293,19 +292,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6195616051549994513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3365380373314373920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93b804e230a33e4ba4bc89ad2c7ef6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitScrew: 0
 --- !u!1 &4178982153427487670
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,6 +491,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5652977167123027175, guid: bbf4d150d84ad9142aa4461312c34774,
+        type: 3}
+      propertyPath: m_Name
+      value: Window Whitebox
+      objectReference: {fileID: 0}
     - target: {fileID: 1762655018621490982, guid: bbf4d150d84ad9142aa4461312c34774,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -559,11 +550,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5652977167123027175, guid: bbf4d150d84ad9142aa4461312c34774,
-        type: 3}
-      propertyPath: m_Name
-      value: Window Whitebox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbf4d150d84ad9142aa4461312c34774, type: 3}

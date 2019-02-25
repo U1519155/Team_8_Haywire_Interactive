@@ -28,17 +28,14 @@ public class Guard : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		viewAngle = spotlight.spotAngle;
 		originalSpotlightColour = spotlight.color;
-        if (pathHolder != null)
-        {
-            Vector3[] waypoints = new Vector3[pathHolder.childCount];
-            for (int i = 0; i < waypoints.Length; i++)
-            {
-                waypoints[i] = pathHolder.GetChild(i).position;
-                waypoints[i] = new Vector3(waypoints[i].x, transform.position.y, waypoints[i].z);
-            }
 
-            StartCoroutine(FollowPath(waypoints));
-        }
+		Vector3[] waypoints = new Vector3[pathHolder.childCount];
+		for (int i = 0; i < waypoints.Length; i++) {
+			waypoints [i] = pathHolder.GetChild (i).position;
+			waypoints [i] = new Vector3 (waypoints [i].x, transform.position.y, waypoints [i].z);
+		}
+
+		StartCoroutine (FollowPath (waypoints));
 
 	}
 
@@ -135,7 +132,7 @@ public class Guard : MonoBehaviour {
 		}
 	}
 
-	/*void OnDrawGizmos() {
+	void OnDrawGizmos() {
 		Vector3 startPosition = pathHolder.GetChild (0).position;
 		Vector3 previousPosition = startPosition;
 
@@ -149,5 +146,5 @@ public class Guard : MonoBehaviour {
 		Gizmos.color = Color.red;
 		Gizmos.DrawRay (transform.position, transform.forward * viewDistance);
 	}
-*/
+
 }

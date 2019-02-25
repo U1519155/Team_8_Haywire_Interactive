@@ -87,12 +87,6 @@ public class GC_NPC_Parent : MonoBehaviour
         }
     }
 
-    public void Patrol ()
-    {
-
-    }
-
-
     public bool Find_Players ()
     {
         float _dist = Mathf.Infinity;

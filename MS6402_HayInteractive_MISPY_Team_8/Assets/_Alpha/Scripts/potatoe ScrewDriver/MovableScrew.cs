@@ -10,44 +10,33 @@ public class MovableScrew : MonoBehaviour
      Vector3 endPos;
     [SerializeField]
      Vector3 goalPos;
-
-    public Transform TargetVector;
-    public float screwSpeed = 0.3f ;
-
-   // public float maxMovement = 0;
+    
 
      void Start()
     {
-       // startPos = gameObject.transform.position;
-       // goalPos = startPos + transform.forward; // Vector3.forward; //* maxMovement;
+        startPos = gameObject.transform.position;
+        goalPos = startPos + Vector3.forward/2;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //endPos = gameObject.transform.position;
+        endPos = gameObject.transform.position;
         
     }
 
     public void Rotate()
     {
         // Do your thing.
-        //if (endPos == goalPos)
-        //{
-        //    Debug.Log("YOU HAVE REACHED YOUR DESTINY");
-        //    gameObject.SetActive(false);
-
-        //}
-        transform.Rotate(0, 0, 20);
-      //transform.position += transform.forward * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(gameObject.transform.position, TargetVector.position, screwSpeed * Time.deltaTime);
-
-        if (Vector3.Distance(gameObject.transform.position, TargetVector.position) < 0.01)
+        if (endPos.z > goalPos.z)
         {
             Debug.Log("YOU HAVE REACHED YOUR DESTINY");
             gameObject.SetActive(false);
+
         }
-        
+        transform.Rotate(0, 0, 20);
+        transform.position += Vector3.forward / Mathf.Exp(5); 
+
         
        
         
