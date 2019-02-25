@@ -222,14 +222,6 @@ public class CameraController : MonoBehaviour
                     fl_copytime = 0;
                     
                 }
-<<<<<<< HEAD
-=======
-
-
-
-
-                //find NPC with card, check if player is close enough to
->>>>>>> 465e6ad7cce271917b2d8b1451a80d5e2f16c400
 
 
 
