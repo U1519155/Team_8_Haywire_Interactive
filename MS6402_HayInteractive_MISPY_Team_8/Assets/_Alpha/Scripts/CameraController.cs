@@ -59,7 +59,10 @@ public class CameraController : MonoBehaviour
 
         cam = Camera.main;
         SwapWeapon(4);
-        Txt_Interaction.text = "";
+        if (Txt_Interaction != null)
+        {
+            Txt_Interaction.text = "";
+        }
 
         // doorEnter.SetActive(false);
         // doorExit.SetActive(false);
