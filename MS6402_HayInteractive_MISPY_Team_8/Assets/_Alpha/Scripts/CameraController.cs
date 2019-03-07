@@ -161,6 +161,7 @@ public class CameraController : MonoBehaviour
             // Cigar
             if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_Cigar)
             {
+                Txt_Interaction.text = "";
                 //hit marker sleep dart sound for NPC
                 if (hit.collider.gameObject.GetComponent<Guard>() || hit.collider.gameObject.GetComponent<GM_ProtoAI>())
                 {
@@ -220,7 +221,8 @@ public class CameraController : MonoBehaviour
                 else
                 {
                     fl_copytime = 0;
-                    
+                    Txt_Interaction.text = "";
+
                 }
 
 

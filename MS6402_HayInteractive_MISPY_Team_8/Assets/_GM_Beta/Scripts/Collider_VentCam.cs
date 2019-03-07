@@ -8,6 +8,7 @@ public class Collider_VentCam : MonoBehaviour
     public GameObject go_StartTriggerGround;
     public GameObject go_EndTriggerGround;
     public GameObject go_Player;
+    public Camera Cam_Parent;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,7 @@ public class Collider_VentCam : MonoBehaviour
             Debug.Log("Start_Collider");
             go_Player.transform.position = go_StartTriggerGround.transform.position + new Vector3(+1, 0, 0);
             go_Player.SetActive(true);
-            gameObject.SetActive(false);
+            Cam_Parent.gameObject.SetActive(false);
         }
 
         if(other.name == "End_Collider")
@@ -36,7 +37,7 @@ public class Collider_VentCam : MonoBehaviour
             Debug.Log("EndCollider");
             go_Player.transform.position = go_EndTriggerGround.transform.position + new Vector3(-1, 0, 0);
             go_Player.SetActive(true);
-            gameObject.SetActive(false);
+            Cam_Parent.gameObject.SetActive(false);
         }
     }
 }

@@ -28,6 +28,7 @@ public class Vent_Move : MonoBehaviour
             other.gameObject.SetActive(false);
             Cam_VentSystem.transform.position = go_CamPosition.transform.position;
             go_VentSystem.SetActive(true);
+            Cam_VentSystem.gameObject.SetActive(true);
         }
     }
 }
