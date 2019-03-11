@@ -11,23 +11,27 @@ public class HH_Prison_GameManager : MonoBehaviour
     public GameObject exitDoor;
 
     [Header("--Bools--")]
-    public bool meetToni = false;
-    public bool hasEscaped = false;
+    public bool metToni = false;    
+    public static bool hasEscaped;
 
     [Header("--Ints--")]
     public int caughtCounter;
     public int escapeCounter;
 
+
     // Start is called before the first frame update
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+    
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         CaughtCounterChecker();
+        print("LOL i escape? = "+hasEscaped);
     }
 
     public void CaughtCounterChecker()
@@ -38,23 +42,25 @@ public class HH_Prison_GameManager : MonoBehaviour
                 switch (escapeCounter)
                 {
                     case 0:
-                        if (meetToni == true)
+                        if (metToni == true)
                         {
                             caughtCounter++;
+                            SceneManager.LoadScene("Beta_LevelMap");
                         }
+
                         if (hasEscaped == true)
                         {
                             escapeCounter++;
-
+                            SceneManager.LoadScene("Beta_LevelMap");
                         }
 
                         break;
 
                     case 1:
-                        if (meetToni == false)
+                        if (metToni == false)
                         {
-                            meetToni = true;
-
+                            metToni = true;
+                            caughtCounter++;
                         }
                         break;
                 }
