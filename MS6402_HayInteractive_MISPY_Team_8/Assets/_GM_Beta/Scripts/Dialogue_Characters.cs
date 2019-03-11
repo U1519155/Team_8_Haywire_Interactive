@@ -5,7 +5,7 @@ using UnityEngine;
 public class Dialogue_Characters : MonoBehaviour
 {
     //Variables
-    private GameObject go_Player;
+    public GameObject go_Player;
     public float fl_Distance = 12f;
     public AudioClip ac_Audio;
     private AudioSource as_Source;
