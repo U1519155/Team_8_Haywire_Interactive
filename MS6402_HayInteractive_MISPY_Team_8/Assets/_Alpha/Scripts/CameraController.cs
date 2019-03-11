@@ -73,7 +73,7 @@ public class CameraController : MonoBehaviour
     {
         CameraRaycast();
         InputWeapon();
-        
+       
     }
 
     #region Weapon Swap
@@ -134,7 +134,10 @@ public class CameraController : MonoBehaviour
                 
                 if (hit.collider.gameObject.GetComponent<MovableScrew>())
                 {
-                    Txt_Interaction.text = "Press 'E' or 'mouse 1' to Unscrew";
+                    
+                        Txt_Interaction.text = "Press 'E' or 'mouse 1' to Unscrew";
+                    
+
                     if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
                     {
                         hit.collider.gameObject.GetComponent<MovableScrew>().Rotate();
@@ -142,7 +145,9 @@ public class CameraController : MonoBehaviour
                 }
                 if(hit.collider == null || !hit.collider.gameObject.GetComponent<MovableScrew>())
                 {
-                    Txt_Interaction.text = "";
+                    
+                        Txt_Interaction.text = "";
+                    
                 }
                 
             }
@@ -153,18 +158,23 @@ public class CameraController : MonoBehaviour
             {
 
                 //player can flip sWITCH
-
-                Txt_Interaction.text = "";
+                
+                    Txt_Interaction.text = "";
+                
 
             }
-        }
+        }//------------------
+
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, Mathf.Infinity, layerMask))
         {
 
             // Cigar
             if (Player_StateManager.pc_State == Player_StateManager.PC_different_states.pc_Cigar)
             {
-                Txt_Interaction.text = "";
+                
+                    Txt_Interaction.text = "";
+               
+                
                 //hit marker sleep dart sound for NPC
                 if (hit.collider.gameObject.GetComponent<Guard>() || hit.collider.gameObject.GetComponent<GM_ProtoAI>())
                 {
@@ -196,7 +206,10 @@ public class CameraController : MonoBehaviour
  
                 if (hit.collider.gameObject.GetComponent<SecurityCamera>())
                 {
-                    Txt_Interaction.text = "Press 'E' or 'mouse 1' to 'disable'";
+                    
+                   Txt_Interaction.text = "Press 'E' or 'mouse 1' to 'disable'";
+                    
+
                     if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
                     {
                         hit.collider.gameObject.GetComponent<SecurityCamera>().StartCameraCooldown(); // turns off camera for a couple of seconds
@@ -206,25 +219,36 @@ public class CameraController : MonoBehaviour
 
                 if(hit.collider == null || !hit.collider.gameObject.GetComponent<SecurityCamera>())
                 {
-                    Txt_Interaction.text = "";
+                    
+                        Txt_Interaction.text = "";
+                    
                 }
 
                 if (hit.collider.gameObject.GetComponent<GC_GuardsID>() && hit.distance <= 5 )
                 {
-                    Txt_Interaction.text = "Downloading ID...";
+
+                    
+                        Txt_Interaction.text = "Downloading ID...";
+                    
+
                     fl_copytime += Time.deltaTime;
                     if (fl_copytime >= fl_timetocopy)
                     {
                         in_PCcurrentID = hit.collider.GetComponent<GC_GuardsID>().in_IDcode;
                         Debug.Log("id copied");
-                        Txt_Interaction.text = "ID copied";
+
+                        
+                            Txt_Interaction.text = "ID copied";
+                        
                     }
                     //wow it actually works
                 }
                 else
                 {
                     fl_copytime = 0;
-                    Txt_Interaction.text = "";
+                    
+                        Txt_Interaction.text = "";
+                    
 
                 }
 

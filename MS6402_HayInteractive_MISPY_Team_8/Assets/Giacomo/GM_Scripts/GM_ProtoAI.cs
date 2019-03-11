@@ -37,7 +37,7 @@ public class GM_ProtoAI : MonoBehaviour
     void Update()
     {
         
-        grape =  GameObject.Find("Screaming Ball(Clone)");
+        grape = GameObject.Find("Screaming Ball(Clone)");
         if (grape == null)
         {
             //Sets a goal for the NPC.
