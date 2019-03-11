@@ -9,6 +9,12 @@ TagManager:
   - Interactable
   - Clue
   - Keypad
+  - Button4
+  - Button1
+  - Button2
+  - Button3
+  - StartTrigger
+  - EndTrigger
   layers:
   - Default
   - TransparentFX
