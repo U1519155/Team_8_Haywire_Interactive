@@ -7,6 +7,9 @@ public class GC_AI_Alpha : MonoBehaviour
 {
     public enum npc_states { patrol, investigate, search, sleeping };
     public npc_states states = npc_states.patrol;
+    public GameObject go_alertsign;
+    public GameObject go_sleepsign;
+    public GameObject go_searchsign;
     public Transform[] destinations;
     private NavMeshAgent npc_agent;
     public int in_destpoint;
@@ -17,17 +20,14 @@ public class GC_AI_Alpha : MonoBehaviour
     public Transform tempdest;
     public float fl_losttime = 2.5f;
     public float fl_losing;
-    public GameObject go_alert;
-    public float fl_minsearchrange = 1.8f;
-    public float fl_maxsearchrange = 3.8f ;
     public float fl_searchtime = 10;
     public float fl_searching;
+    public float fl_searchrange = 8;
     public float fl_sleeptime = 15;
     public float fl_sleeping;
-    //public GameObject go_sleeping;
 
-    //npc stops when looking at pc and resumes normal path if pc gets out of sight before fl_detecting > fl_detecttime
-    //if npc is following pc, fl_losing only decreases when npc looks at walls
+
+    //starting to work on trigger, can't communicate when trigger gets player to parent npc
 
 
     // Start is called before the first frame update
@@ -35,7 +35,9 @@ public class GC_AI_Alpha : MonoBehaviour
     {
         npc_agent = GetComponent<NavMeshAgent>();
         Npc_patrol();
-
+        go_alertsign.SetActive(false);
+        go_searchsign.SetActive(false);
+        go_sleepsign.SetActive(false);
     }
 
     // Update is called once per frame
@@ -63,30 +65,6 @@ public class GC_AI_Alpha : MonoBehaviour
                 Npc_Sleeping();
                 break;
         }
-        
-        /*if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, fl_RaycastLenght))
-        {
-            if (hit.collider.gameObject.GetComponent<CharacterController>())
-            {
-                 fl_detecting += Time.deltaTime;
-                npc_agent.isStopped = true;
-                if (fl_detecting >= fl_detecttime)
-                {
-
-                  //npc_agent.destination = hit.rigidbody.position;
-                tempdest = hit.transform;
-                states = npc_states.investigate;
-
-                }
-            }
-            else
-            {
-                fl_detecting = 0;
-                npc_agent.isStopped = false;
-            }
-        }
-        */
-        //print(npc_agent.isStopped);
     }
 
 
@@ -94,7 +72,8 @@ public class GC_AI_Alpha : MonoBehaviour
     {
         Debug.Log("patrol");
         tempdest = null;
-        //go_sleeping.SetActive(false);
+        go_sleepsign.SetActive(false);
+        fl_searching = 0;
         fl_losing = 0;
         if (!npc_agent.pathPending && npc_agent.remainingDistance < 0.2f)       //needed for the agent to move smoothly from one point to another
         {
@@ -102,6 +81,14 @@ public class GC_AI_Alpha : MonoBehaviour
 
             in_destpoint = (in_destpoint + 1) % destinations.Length;        //restart arrays after reaching last position
         }
+
+        /*
+        if (gameObject.GetComponent<GC_TriggerAI>().bl_pcinrange == true)       //CHANGES for trigger
+        {
+            Debug.Log("jackpot");
+        }
+        Debug.Log(GetComponent<GC_TriggerAI>().bl_pcinrange);
+        */
 
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, fl_RaycastLenght))
         {
@@ -111,7 +98,7 @@ public class GC_AI_Alpha : MonoBehaviour
                 npc_agent.isStopped = true;
                 tempdest = hit.transform;
                 npc_agent.transform.LookAt(tempdest);       //npc keeps looking at the pc
-                go_alert.SetActive(true);                   //show exclamation point as visual feedback
+                go_alertsign.SetActive(true);                   //show exclamation point as visual feedback
                 if (fl_detecting >= fl_detecttime)      //if the pc stayed too long in sight
                 {
 
@@ -125,7 +112,7 @@ public class GC_AI_Alpha : MonoBehaviour
             {
                 fl_detecting = 0;       //reset detecting timer
                 npc_agent.isStopped = false;        //resume walking
-                go_alert.SetActive(false);      //remove exclamation point
+                go_alertsign.SetActive(false);      //remove exclamation point
             }
         }
 
@@ -164,15 +151,16 @@ public class GC_AI_Alpha : MonoBehaviour
         //go_sleeping.SetActive(false);
         if (fl_searching >= fl_searchtime)
         {
+            go_searchsign.SetActive(false);
             states = npc_states.patrol;
         }
         else
         {
-            fl_searching += Time.deltaTime * 2;
+            fl_searching += Time.deltaTime;
+            go_searchsign.SetActive(true);
             if (!npc_agent.pathPending && npc_agent.remainingDistance < 0.2f)
             {
-                
-                npc_agent.destination = transform.position + new Vector3(Random.Range(-fl_minsearchrange, fl_maxsearchrange), 0, Random.Range(-fl_minsearchrange, fl_maxsearchrange));
+                npc_agent.destination = transform.position + new Vector3(Random.Range(-fl_searchrange, fl_searchrange), 0, Random.Range(-fl_searchrange, fl_searchrange));
             }
         }
     }
@@ -180,17 +168,18 @@ public class GC_AI_Alpha : MonoBehaviour
     void Npc_Sleeping()
     {
         Debug.Log("sleeping");
-        //go_sleeping.SetActive(true);
         if (fl_sleeping < fl_sleeptime)
         {
             npc_agent.destination = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             fl_sleeping += Time.deltaTime;
+            go_sleepsign.SetActive(true);
         }
         else
         {
+            go_sleepsign.SetActive(false);
             states = npc_states.search;
         }
-        go_alert.SetActive(false);
+        go_alertsign.SetActive(false);
     }
 
     void Npc_wakeup()
@@ -216,6 +205,7 @@ public class GC_AI_Alpha : MonoBehaviour
     void Npc_Wakeupself ()
     {
         Debug.Log("waking up");
+        go_sleepsign.SetActive(false);
         states = npc_states.search;
     }
 }

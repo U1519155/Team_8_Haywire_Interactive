@@ -16,7 +16,7 @@ public class HH_Prison_Trigger : MonoBehaviour
     {
        if (other.gameObject.GetComponent<CharacterController>())
         {
-            HH_Prison_GameManager.hasEscaped = true;
+            //_Prison_GameManager.hasEscaped = true;
         }
     }
 }
