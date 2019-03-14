@@ -26,8 +26,11 @@ public class GC_AI_Alpha : MonoBehaviour
     public float fl_sleeptime = 15;
     public float fl_sleeping;
 
+    public Vector3 pc_position;
 
-    //starting to work on trigger, can't communicate when trigger gets player to parent npc
+
+    //raycast from trigger is ofset and doesn't look at player
+    //also needs to add a case for npc going from search to investigate  SEE AAAAAAAAAAAAAA
 
 
     // Start is called before the first frame update
@@ -83,11 +86,17 @@ public class GC_AI_Alpha : MonoBehaviour
         }
 
         /*
-        if (gameObject.GetComponent<GC_TriggerAI>().bl_pcinrange == true)       //CHANGES for trigger
+        if (gameObject.GetComponentInChildren<GC_TriggerAI>().bl_pcinrange == true)       //CHANGES for trigger
         {
             Debug.Log("jackpot");
+            Debug.Log(GetComponentInChildren<GC_TriggerAI>().bl_pcinrange);
+            pc_position = GetComponentInChildren<GC_TriggerAI>().v_position;
+            if (Physics.Raycast(transform.position, pc_position, out hit, fl_RaycastLenght))
+            {
+                Debug.Log("jackpot2");
+            }
         }
-        Debug.Log(GetComponent<GC_TriggerAI>().bl_pcinrange);
+        Debug.Log(GetComponentInChildren<GC_TriggerAI>().bl_pcinrange);
         */
 
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, fl_RaycastLenght))
@@ -148,7 +157,7 @@ public class GC_AI_Alpha : MonoBehaviour
     {
         Debug.Log("search");
         fl_sleeping = 0;
-        //go_sleeping.SetActive(false);
+        go_alertsign.SetActive(false);
         if (fl_searching >= fl_searchtime)
         {
             go_searchsign.SetActive(false);
@@ -161,6 +170,12 @@ public class GC_AI_Alpha : MonoBehaviour
             if (!npc_agent.pathPending && npc_agent.remainingDistance < 0.2f)
             {
                 npc_agent.destination = transform.position + new Vector3(Random.Range(-fl_searchrange, fl_searchrange), 0, Random.Range(-fl_searchrange, fl_searchrange));
+                /*if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, fl_RaycastLenght))
+                {
+                    states = npc_states.investigate;
+                }
+                */      //changes to search to investigate    AAAAAAAAAAAAAAAAA    
+                
             }
         }
     }
