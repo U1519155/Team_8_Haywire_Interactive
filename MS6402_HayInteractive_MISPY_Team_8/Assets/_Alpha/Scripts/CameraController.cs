@@ -176,12 +176,12 @@ public class CameraController : MonoBehaviour
                
                 
                 //hit marker sleep dart sound for NPC
-                if (hit.collider.gameObject.GetComponent<Guard>() || hit.collider.gameObject.GetComponent<GM_ProtoAI>())
+                if (hit.collider.gameObject.GetComponent<Guard>() || hit.collider.gameObject.GetComponent<GC_AI_Alpha>())
                 {
                    
                     if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
                     {
-                        hit.collider.gameObject.GetComponent<GM_ProtoAI>().StartSleepTimer();
+                        hit.collider.gameObject.GetComponent<GC_AI_Alpha>().states = GC_AI_Alpha.npc_states.sleeping;
                         //CHANGE guard state to sleep for 30 seconds
                     }
                 }
