@@ -20,6 +20,7 @@ public class Vent_Move : MonoBehaviour
     {
         if (bl_InRangeStart == true)
         {
+            go_Press_E.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 go_Player.gameObject.SetActive(false);
@@ -32,6 +33,7 @@ public class Vent_Move : MonoBehaviour
 
         if (bl_InRangeEnd == true)
         {
+            go_Press_E.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 go_Player.gameObject.SetActive(false);
@@ -47,13 +49,11 @@ public class Vent_Move : MonoBehaviour
     {
         if(other.tag == "StartTrigger")
         {
-            go_Press_E.SetActive(true);
             bl_InRangeStart = true;
         }
 
         if (other.tag == "EndTrigger")
         {
-            go_Press_E.SetActive(true);
             bl_InRangeEnd = true;
         }
     }

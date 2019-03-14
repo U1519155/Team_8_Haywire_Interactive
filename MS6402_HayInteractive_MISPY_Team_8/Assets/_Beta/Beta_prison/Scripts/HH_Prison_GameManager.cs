@@ -17,7 +17,11 @@ namespace CaughtCounter
         public int caughtCounter;
         public int escapeCounter;
 
-
+        [Header("--Transform--")]
+        public Transform player;
+        public Transform escapePoint;
+        public Transform ballRoomTeleport;
+        public Transform kickedOutPoint;
         // Start is called before the first frame update
         void Awake()
         {
@@ -37,40 +41,43 @@ namespace CaughtCounter
         {
             switch (caughtCounter)
             {
-                case 0:
+                case 0: //player has not been caught
                     switch (escapeCounter)
                     {
-                        case 0:
-                            if (metToni == true)
+
+                        case 0: //player did not already escape
+                            if (metToni == true) //toni met with player before he escaped
                             {
+                                player.position = ballRoomTeleport.position;
                                 caughtCounter++;
-                                SceneManager.LoadScene("Beta_LevelMap");
                             }
 
                             if (hasEscaped == true)
                             {
-                                escapeCounter++;
-                                SceneManager.LoadScene("Beta_LevelMap");
+                                player.position = escapePoint.position;
+                                escapeCounter++;   
                             }
 
                             break;
 
-                        case 1:
+                        case 1: // player has already escaped
                             if (metToni == false)
                             {
                                 metToni = true;
-                                caughtCounter++;
+                                player.position = ballRoomTeleport.position;
+                                caughtCounter++;  
                             }
                             break;
+
                     }
                     break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
+
+                case 1: //player has been caught
+                    player.position = kickedOutPoint.position;
                     break;
 
+                case 2: //player loses game
+                    break;
 
             }
         }
