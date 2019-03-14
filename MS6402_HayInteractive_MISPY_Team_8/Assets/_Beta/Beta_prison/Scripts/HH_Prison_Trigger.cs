@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CaughtCounter;
 
 public class HH_Prison_Trigger : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class HH_Prison_Trigger : MonoBehaviour
        if (other.gameObject.GetComponent<CharacterController>())
         {
             HH_Prison_GameManager.hasEscaped = true;
+            
         }
     }
 }
