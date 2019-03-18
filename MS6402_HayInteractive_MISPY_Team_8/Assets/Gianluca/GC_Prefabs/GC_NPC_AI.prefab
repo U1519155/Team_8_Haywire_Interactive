@@ -158,13 +158,15 @@ MonoBehaviour:
   fl_detecttime: 2.5
   fl_detecting: 0
   tempdest: {fileID: 0}
-  fl_losttime: 2.5
+  fl_losttime: 5
   fl_losing: 0
   fl_searchtime: 10
   fl_searching: 0
   fl_searchrange: 8
-  fl_sleeptime: 15
+  fl_sleeptime: 45
   fl_sleeping: 0
+  go_grape: {fileID: 0}
+  pc_position: {x: 0, y: 0, z: 0}
 --- !u!1 &6245940876657036003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,7 +1100,7 @@ GameObject:
   - component: {fileID: 6245940877907930206}
   - component: {fileID: 6245940877907930205}
   - component: {fileID: 6245940877907930209}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -585,6 +585,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 879231231, guid: 3709ec4e199a8504e9d7bd73a905dd94, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3053610282765743851, guid: 3709ec4e199a8504e9d7bd73a905dd94,
         type: 3}
       propertyPath: m_Layer
@@ -594,10 +598,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 879231231, guid: 3709ec4e199a8504e9d7bd73a905dd94, type: 3}
-      propertyPath: m_Layer
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3709ec4e199a8504e9d7bd73a905dd94, type: 3}
@@ -943,11 +943,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6245940876578282959, guid: 0db9349a42c787642843f0b119780259,
         type: 3}
-      propertyPath: destinations.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6245940876578282959, guid: 0db9349a42c787642843f0b119780259,
-        type: 3}
       propertyPath: destinations.Array.data[0]
       value: 
       objectReference: {fileID: 2006015995}
@@ -956,26 +951,6 @@ PrefabInstance:
       propertyPath: destinations.Array.data[1]
       value: 
       objectReference: {fileID: 2015672991}
-    - target: {fileID: 6245940876578282959, guid: 0db9349a42c787642843f0b119780259,
-        type: 3}
-      propertyPath: fl_sleeptime
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 6245940876578282959, guid: 0db9349a42c787642843f0b119780259,
-        type: 3}
-      propertyPath: states
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6245940877907930204, guid: 0db9349a42c787642843f0b119780259,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6245940877907930204, guid: 0db9349a42c787642843f0b119780259,
-        type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0db9349a42c787642843f0b119780259, type: 3}
 --- !u!1 &987933253
@@ -1442,6 +1417,7 @@ MonoBehaviour:
   fl_searchrange: 8
   fl_sleeptime: 45
   fl_sleeping: 0
+  go_grape: {fileID: 0}
   pc_position: {x: 0, y: 0, z: 0}
 --- !u!195 &1234525373
 NavMeshAgent:
@@ -2415,6 +2391,16 @@ PrefabInstance:
       propertyPath: destinations.Array.data[1]
       value: 
       objectReference: {fileID: 2015672991}
+    - target: {fileID: 6245940876578282959, guid: 0db9349a42c787642843f0b119780259,
+        type: 3}
+      propertyPath: fl_searchtime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245940876578282959, guid: 0db9349a42c787642843f0b119780259,
+        type: 3}
+      propertyPath: states
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6245940877907930204, guid: 0db9349a42c787642843f0b119780259,
         type: 3}
       propertyPath: m_IsActive

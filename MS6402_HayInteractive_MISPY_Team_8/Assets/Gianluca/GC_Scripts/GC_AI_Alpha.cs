@@ -26,7 +26,9 @@ public class GC_AI_Alpha : MonoBehaviour
     public float fl_sleeptime = 15;
     public float fl_sleeping;
 
+    public GameObject go_grape;
     public Vector3 pc_position;
+    public float fl_grapedistance = 10;
 
 
     //raycast from trigger is ofset and doesn't look at player
@@ -46,6 +48,7 @@ public class GC_AI_Alpha : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        go_grape = GameObject.Find("Screaming Ball(Clone)");
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * fl_RaycastLenght, Color.green);
         switch (states)
         {
@@ -68,6 +71,7 @@ public class GC_AI_Alpha : MonoBehaviour
                 Npc_Sleeping();
                 break;
         }
+        
     }
 
 
@@ -78,12 +82,22 @@ public class GC_AI_Alpha : MonoBehaviour
         go_sleepsign.SetActive(false);
         fl_searching = 0;
         fl_losing = 0;
+
+        if (go_grape != null)
+        {
+            if (Vector3.Distance(gameObject.transform.position, go_grape.transform.position) < fl_grapedistance)
+            {
+                tempdest = go_grape.transform;
+                states = npc_states.investigate;
+            }
+        }
         if (!npc_agent.pathPending && npc_agent.remainingDistance < 0.2f)       //needed for the agent to move smoothly from one point to another
         {
             npc_agent.destination = destinations[in_destpoint].position;
 
             in_destpoint = (in_destpoint + 1) % destinations.Length;        //restart arrays after reaching last position
         }
+        
 
         /*
         if (gameObject.GetComponentInChildren<GC_TriggerAI>().bl_pcinrange == true)       //CHANGES for trigger
@@ -98,6 +112,11 @@ public class GC_AI_Alpha : MonoBehaviour
         }
         Debug.Log(GetComponentInChildren<GC_TriggerAI>().bl_pcinrange);
         */
+
+       /* if (go_grape != null)
+        {
+            npc_agent.destination = go_grape.transform.position;
+        }*/
 
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, fl_RaycastLenght))
         {
@@ -132,6 +151,8 @@ public class GC_AI_Alpha : MonoBehaviour
         Debug.Log("investigate");
         npc_agent.isStopped = false;            //resume walking, towards PC
         npc_agent.destination = tempdest.position;
+        go_searchsign.SetActive(false);
+        go_alertsign.SetActive(true);
         fl_detecting = 0;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, fl_RaycastLenght))
         {       //if npc is not looking at PC - this will be changed with proper cone + raycast
@@ -142,7 +163,6 @@ public class GC_AI_Alpha : MonoBehaviour
                 if (fl_losing >= fl_losttime)
                 {
                     Debug.Log("pc lost");
-                    //states = npc_states.patrol;
                     states = npc_states.search;
                 }
             }
@@ -151,12 +171,17 @@ public class GC_AI_Alpha : MonoBehaviour
                 //fl_losing = 0;        change this later with finished AI 
             }
         }
+        if (npc_agent.remainingDistance == 0)
+        {
+            states = npc_states.search;
+        }
     }
 
     void Npc_search ()
     {
         Debug.Log("search");
         fl_sleeping = 0;
+        fl_losing = 0;
         go_alertsign.SetActive(false);
         if (fl_searching >= fl_searchtime)
         {
@@ -170,12 +195,14 @@ public class GC_AI_Alpha : MonoBehaviour
             if (!npc_agent.pathPending && npc_agent.remainingDistance < 0.2f)
             {
                 npc_agent.destination = transform.position + new Vector3(Random.Range(-fl_searchrange, fl_searchrange), 0, Random.Range(-fl_searchrange, fl_searchrange));
-                /*if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, fl_RaycastLenght))
+            }
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, fl_RaycastLenght))
+            {
+                if (hit.collider.gameObject.GetComponent<CharacterController>())
                 {
+                    tempdest = hit.transform;
                     states = npc_states.investigate;
                 }
-                */      //changes to search to investigate    AAAAAAAAAAAAAAAAA    
-                
             }
         }
     }
