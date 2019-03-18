@@ -15,6 +15,10 @@ TagManager:
   - Button3
   - StartTrigger
   - EndTrigger
+  - StartTrigger1
+  - EndTrigger2
+  - EndTrigger1
+  - StartTrigger2
   layers:
   - Default
   - TransparentFX
