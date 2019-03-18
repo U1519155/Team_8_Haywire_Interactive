@@ -15,13 +15,22 @@ public class GC_TriggerAI : MonoBehaviour
         go_player = GameObject.FindGameObjectWithTag("Player"); 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject == go_player)
         {
-            Debug.Log("PC in trigger");
+            //Debug.Log("PC in trigger")
             bl_pcinrange = true;
-            v_position = other.transform.position;
+            v_position = go_player.transform.position;
+        }
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == go_player)
+        {
+            bl_pcinrange = false;
+            v_position=  Vector3.zero;
         }
     }
 }

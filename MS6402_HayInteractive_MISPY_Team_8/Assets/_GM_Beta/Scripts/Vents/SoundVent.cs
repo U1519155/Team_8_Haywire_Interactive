@@ -6,8 +6,8 @@ public class SoundVent : MonoBehaviour
     public AudioSource as_Source;
     public AudioClip ac_Clip;
     public GameObject[] go_Camera_Systems;
-    public GameObject Cam_End;
-    public GameObject Cam_Start;
+    //public GameObject Cam_End;
+    //public GameObject Cam_Start;
 
     // Update is called once per frame
     void Update()
@@ -30,14 +30,14 @@ public class SoundVent : MonoBehaviour
             }
         }
 
-        if (Cam_End.activeInHierarchy == true)
-        {
-            Cam_Start.SetActive(false);
-        }
+        //if (Cam_End.activeInHierarchy == true)
+        //{
+        //    Cam_Start.SetActive(false);
+        //}
 
-        if (Cam_Start.activeInHierarchy == true)
-        {
-            Cam_End.SetActive(false);
-        }
+        //if (Cam_Start.activeInHierarchy == true)
+        //{
+        //    Cam_End.SetActive(false);
+        //}
     }
 }

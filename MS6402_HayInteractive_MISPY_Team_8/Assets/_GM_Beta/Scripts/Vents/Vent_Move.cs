@@ -20,6 +20,7 @@ public class Vent_Move : MonoBehaviour
     {
         if (bl_InRangeStart == true)
         {
+            bl_InRangeEnd = false;
             go_Press_E.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -33,6 +34,7 @@ public class Vent_Move : MonoBehaviour
 
         if (bl_InRangeEnd == true)
         {
+
             go_Press_E.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -50,11 +52,13 @@ public class Vent_Move : MonoBehaviour
         if(other.tag == "StartTrigger")
         {
             bl_InRangeStart = true;
+            bl_InRangeEnd = false;
         }
 
         if (other.tag == "EndTrigger")
         {
             bl_InRangeEnd = true;
+            bl_InRangeStart = false;
         }
     }
 
