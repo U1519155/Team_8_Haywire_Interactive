@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 389009929517318853}
   - component: {fileID: 389009929517318852}
   - component: {fileID: 389009929517318851}
+  - component: {fileID: 555229378}
   m_Layer: 0
   m_Name: EndTriggerGround
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389009929517318849}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6465893, y: 81.2084, z: -63.262917}
+  m_LocalPosition: {x: -27.999102, y: 1.3243177, z: 3.5128975}
   m_LocalScale: {x: 0.5415, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2995869514727048857}
@@ -91,6 +92,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &555229378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389009929517318849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be863906e5aee5245a777d292cf3de3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go_VentSystem: {fileID: 0}
+  go_CamStartingPosition: {fileID: 0}
+  Cam_VentSystem: {fileID: 0}
+  Cam_OpposingCam: {fileID: 0}
+  go_Press_E: {fileID: 0}
 --- !u!1 &389009929599010188
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,6 +121,7 @@ GameObject:
   - component: {fileID: 389009929599010176}
   - component: {fileID: 389009929599010191}
   - component: {fileID: 389009929599010190}
+  - component: {fileID: 1056886021}
   m_Layer: 0
   m_Name: StartTriggerGround
   m_TagString: Untagged
@@ -118,7 +137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389009929599010188}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.68251, y: 81.084076, z: -63.255817}
+  m_LocalPosition: {x: 20.33, y: 1.2, z: 3.52}
   m_LocalScale: {x: 0.30060455, y: 0.6994395, z: 1.8987142}
   m_Children: []
   m_Father: {fileID: 2995869514727048857}
@@ -182,6 +201,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1056886021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389009929599010188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be863906e5aee5245a777d292cf3de3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go_VentSystem: {fileID: 0}
+  go_CamStartingPosition: {fileID: 0}
+  Cam_VentSystem: {fileID: 0}
+  Cam_OpposingCam: {fileID: 0}
+  go_Press_E: {fileID: 0}
 --- !u!1 &1758250557914138631
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,8 +299,7 @@ MonoBehaviour:
   ac_Clip: {fileID: 8300000, guid: c6e2e02f428f1c24e90c981fa2ea18e3, type: 3}
   go_Camera_Systems:
   - {fileID: 0}
-  Cam_End: {fileID: 0}
-  Cam_Start: {fileID: 0}
+  - {fileID: 0}
 --- !u!82 &7117847790341441119
 AudioSource:
   m_ObjectHideFlags: 0

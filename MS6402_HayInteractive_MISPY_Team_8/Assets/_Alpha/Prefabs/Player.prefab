@@ -527,7 +527,6 @@ GameObject:
   - component: {fileID: 5594575850051790810}
   - component: {fileID: 3871373657528108180}
   - component: {fileID: 7892227946337564296}
-  - component: {fileID: 8726069153897003293}
   m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
@@ -743,25 +742,6 @@ MonoBehaviour:
   m_Button2: {fileID: 2100000, guid: 63199b166c14f564e940a830c3ef00c3, type: 2}
   m_Button3: {fileID: 2100000, guid: d09509ddc9a027d438d264252afffef5, type: 2}
   m_Button4: {fileID: 2100000, guid: e73d757943da48c41a34db08abe8cda2, type: 2}
---- !u!114 &8726069153897003293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3053610282765743851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be863906e5aee5245a777d292cf3de3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  go_VentSystem: {fileID: 0}
-  go_Player: {fileID: 2422447539492006954}
-  go_StartCamPosition: {fileID: 0}
-  go_EndCamPosition: {fileID: 0}
-  Cam_StartVentSystem: {fileID: 0}
-  Cam_EndVentSystem: {fileID: 0}
-  go_Press_E: {fileID: 0}
 --- !u!1 &3854154535127541067
 GameObject:
   m_ObjectHideFlags: 0
