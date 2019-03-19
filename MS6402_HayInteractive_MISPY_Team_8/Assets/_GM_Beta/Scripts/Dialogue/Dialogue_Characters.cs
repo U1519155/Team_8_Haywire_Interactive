@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Dialogue_Characters : MonoBehaviour
 {
+    // This is a script to attach to an empty GameObject. It will create the ambience of people talking in the background.
     //Variables
     public GameObject go_Player;
     public float fl_Distance = 12f;
