@@ -130,15 +130,16 @@ public class GC_AI_trigger : MonoBehaviour
 
                     }
                 }
-                else
-                {
-                    fl_detecting = 0;       //reset detecting timer
-                    npc_agent.isStopped = false;        //resume walking
-                    go_alertsign.SetActive(false);      //remove exclamation point
-                }
             }
+            
         }
-        
+        else
+        {
+            fl_detecting = 0;       //reset detecting timer
+            npc_agent.isStopped = false;        //resume walking
+            go_alertsign.SetActive(false);
+        }
+
 
         /*
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, fl_RaycastLenght))
@@ -314,6 +315,7 @@ public class GC_AI_trigger : MonoBehaviour
                 {
                     go_wakeuptarget.SendMessage("Npc_Wakeupself", SendMessageOptions.DontRequireReceiver);
                     GetComponentInChildren<GC_TriggerAI>().go_guard = null;
+                    go_wakeuptarget = null;
                 }
             }
         }
