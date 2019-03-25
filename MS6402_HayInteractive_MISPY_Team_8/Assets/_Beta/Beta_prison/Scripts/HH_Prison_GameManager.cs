@@ -13,7 +13,6 @@ namespace CaughtCounter
         public bool metToni = false;
         public bool hasEscaped;
         public bool gotCaught;
-       
 
         [Header("--Ints--")]
         public int caughtCounter;
@@ -30,13 +29,11 @@ namespace CaughtCounter
         public GameObject ballRoomTeleport;
         [Tooltip("GameObject Must Be Named: Kicked_Out_Point")]
         public GameObject kickedOutPoint;
+        [Tooltip("GameObject Must Be Named: Toni")]
+        public GameObject Toni;
+
+
         // Start is called before the first frame update
-        void Awake()
-        {
-
-
-
-        }
 
         // Update is called once per frame
         void Update()
@@ -55,50 +52,48 @@ namespace CaughtCounter
         {
             switch (caughtCounter)
             {
-                case 0: 
-                    
+                case 0:                    
                     break;
 
                 case 1: //player has been caught
-                    
-
+                    if (gotCaught == true && escapeCounter == 0)
+                    {
+                        player.transform.position = playerJailPoint.transform.position;
+                        gotCaught = false;
+                        escapeCounter++;
+                    }
+                    if (gotCaught == true && escapeCounter >= 1)
+                    {
+                        player.transform.position = playerJailPoint.transform.position;
+                        gotCaught = false;
+                    }
                     switch (escapeCounter)
                     {
+                        case 1: //player did not already escape
+                            
+                            StartCoroutine(ToniIsComming());
 
-                        case 0: //player did not already escape
-                            if (gotCaught == true)
-                            {
-                                player.transform.position = playerJailPoint.transform.position;
-                                gotCaught = false;
-                            }
                             if (metToni == true) //toni met with player before he escaped
                             {
                                 player.transform.position = ballRoomTeleport.transform.position;
                                 caughtCounter++;
                             }
 
-                            if (hasEscaped == true)
+                            if (hasEscaped == true) //player escaped 
                             { 
-                                player.transform.position = escapePoint.transform.position;
+                                //player.transform.position = escapePoint.transform.position;
                                 escapeCounter++;
                             }
 
                             break;
 
-                        case 1: // player has already escaped
-
-                            if (gotCaught == true)
-                            {
-                                player.transform.position = playerJailPoint.transform.position;
+                        case 2: //player has already escaped
+                            
                                 if (metToni == false)
                                 {
                                     //"play cutscene"
-                                    StartCoroutine(EscapedAndMeetToni());
-
+                                    StartCoroutine(MeetToni());
                                 }
-                                gotCaught = false;
-
-                            }
 
                             break;
                     }
@@ -111,8 +106,8 @@ namespace CaughtCounter
                         caughtCounter++;
                         gotCaught = false;
                     }
-
                     break;
+
                 case 3:
                     if (gotCaught == true)
                     {
@@ -121,13 +116,24 @@ namespace CaughtCounter
                         gotCaught = false;
                     }
                     break;
-
             }
         }
 
-        IEnumerator EscapedAndMeetToni()
+        IEnumerator ToniIsComming()
         {
-            yield return new WaitForSeconds(5);
+            
+            yield return new WaitForSeconds(40);
+            if (hasEscaped == false)
+            {
+                StartCoroutine(MeetToni());
+            }
+        }
+
+        IEnumerator MeetToni()
+        {
+            //transform player infront of Toni
+
+            yield return new WaitForSeconds(10); // timer for dialog
             player.transform.position = ballRoomTeleport.transform.position;
             caughtCounter++;
             metToni = true;
