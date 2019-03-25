@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 92246962}
   - component: {fileID: 92246961}
   - component: {fileID: 1861148727716221476}
+  - component: {fileID: 1292371732654444626}
   m_Layer: 0
   m_Name: Door Locked
   m_TagString: Untagged
@@ -66,6 +67,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitScrew: 0
+--- !u!208 &1292371732654444626
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92246960}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.365, y: 2.505, z: 1.515}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 2.23, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &594238654568681156
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +181,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 92246962}
     m_Modifications:
+    - target: {fileID: 9090803146953702776, guid: 0952c3c4b2ac10348a60312d726e7121,
+        type: 3}
+      propertyPath: m_Name
+      value: Screwcross
+      objectReference: {fileID: 0}
     - target: {fileID: 9090803146953702779, guid: 0952c3c4b2ac10348a60312d726e7121,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -233,11 +255,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 10.00004
-      objectReference: {fileID: 0}
-    - target: {fileID: 9090803146953702776, guid: 0952c3c4b2ac10348a60312d726e7121,
-        type: 3}
-      propertyPath: m_Name
-      value: Screwcross
       objectReference: {fileID: 0}
     - target: {fileID: 360960084, guid: 0952c3c4b2ac10348a60312d726e7121, type: 3}
       propertyPath: m_IsActive
