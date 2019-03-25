@@ -9,11 +9,18 @@ public class Collider_VentCam : MonoBehaviour
     public GameObject go_EndTriggerGround;
     public GameObject go_Player;
     public Camera Cam_Parent;
+    private GameObject go_Roof;
+
+    private void Awake()
+    {
+        go_Roof = GameObject.Find("Main Roof");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.name == "Start_Collider")
         {
+            go_Roof.SetActive(true);
             Debug.Log("Start_Collider");
             go_Player.transform.position = go_StartTriggerGround.transform.position + new Vector3(+1, 0, 0);
             go_Player.SetActive(true);
@@ -22,6 +29,7 @@ public class Collider_VentCam : MonoBehaviour
 
         if(other.name == "End_Collider")
         {
+            go_Roof.SetActive(true);
             Debug.Log("EndCollider");
             go_Player.transform.position = go_EndTriggerGround.transform.position + new Vector3(-1, 0, 0);
             go_Player.SetActive(true);

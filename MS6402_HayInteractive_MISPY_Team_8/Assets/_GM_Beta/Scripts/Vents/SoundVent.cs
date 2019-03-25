@@ -7,6 +7,14 @@ public class SoundVent : MonoBehaviour
     public AudioClip ac_Clip;
     public GameObject[] go_Camera_Systems;
 
+    private void Start()
+    {
+        foreach (GameObject i in go_Camera_Systems)
+        {
+            i.SetActive(false);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

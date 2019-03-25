@@ -12,6 +12,12 @@ public class Vent_Move : MonoBehaviour
     public GameObject go_Press_E;
     private bool bl_InRangeStart = false;
     private GameObject go_Player = null;
+    private GameObject go_Roof;
+
+    private void Start()
+    {
+        go_Roof = GameObject.Find("Main Roof");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -36,6 +42,7 @@ public class Vent_Move : MonoBehaviour
             go_Press_E.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
+                go_Roof.SetActive(false);
                 Cam_OpposingCam.gameObject.SetActive(false);
                 go_Player.gameObject.SetActive(false);
                 Cam_VentSystem.transform.position = go_CamStartingPosition.transform.position;
