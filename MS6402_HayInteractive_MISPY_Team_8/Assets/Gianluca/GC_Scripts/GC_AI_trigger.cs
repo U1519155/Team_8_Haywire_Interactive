@@ -282,6 +282,7 @@ public class GC_AI_trigger : MonoBehaviour
             states = npc_states.search;
         }
         go_alertsign.SetActive(false);
+        go_searchsign.SetActive(false);
     }
 
     void Npc_wakeup()
