@@ -50,7 +50,7 @@ public class GC_AI_Alpha : MonoBehaviour
     void Update()
     {
         go_grape = GameObject.Find("Screaming Ball(Clone)");
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * fl_RaycastLenght, Color.green);
+        //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * fl_RaycastLenght, Color.green);
         switch (states)
         {
             case npc_states.patrol:

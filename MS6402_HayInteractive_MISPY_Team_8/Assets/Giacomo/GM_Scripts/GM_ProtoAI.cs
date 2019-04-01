@@ -31,15 +31,17 @@ public class GM_ProtoAI : MonoBehaviour
         {
             Agent_Self.gameObject.AddComponent<NavMeshAgent>();
         }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        grape = GameObject.Find("Screaming Ball(Clone)");
+        //take me out of the update loop
+       // grape = GameObject.Find("Screaming Ball(Clone)");
         if (grape == null)
         {
+            //grape = GameObject.Find("Screaming Ball(Clone)");
             //Sets a goal for the NPC.
             if (bl_Time == false)
             {

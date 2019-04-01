@@ -38,11 +38,35 @@ namespace CaughtCounter
         // Update is called once per frame
         void Update()
         {
-            player = GameObject.Find("Player");
-            playerJailPoint = GameObject.Find("Prison_Jail_Point");
-            escapePoint = GameObject.Find("Escape_Point");
-            ballRoomTeleport = GameObject.Find("Ball_Room_Teleport");
-            kickedOutPoint = GameObject.Find("Kicked_Out_Point");
+            if (player == null)
+            {
+                player = GameObject.Find("Player");
+            }
+
+            if (playerJailPoint == null)
+            {
+                playerJailPoint = GameObject.Find("Prison_Jail_Point");
+            }
+            if (escapePoint == null)
+            {
+                escapePoint = GameObject.Find("Escape_Point");
+            }
+            if (ballRoomTeleport == null)
+            {
+                ballRoomTeleport = GameObject.Find("Ball_Room_Teleport");
+            }
+            if (player == null)
+            {
+                player = GameObject.Find("Player");
+            }
+            if (kickedOutPoint == null)
+            {
+                kickedOutPoint = GameObject.Find("Kicked_Out_Point");
+            }
+           // playerJailPoint = GameObject.Find("Prison_Jail_Point");
+           // escapePoint = GameObject.Find("Escape_Point");
+           // ballRoomTeleport = GameObject.Find("Ball_Room_Teleport");
+           // kickedOutPoint = GameObject.Find("Kicked_Out_Point");
            
             CaughtCounterChecker();
             //print("LOL i escape? = " + hasEscaped);
@@ -138,5 +162,7 @@ namespace CaughtCounter
             caughtCounter++;
             metToni = true;
         }
+
+
     }
 }
