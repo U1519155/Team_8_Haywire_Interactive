@@ -237,9 +237,9 @@ public class GC_AI_trigger : MonoBehaviour
         {
             fl_searching += Time.deltaTime;
             go_searchsign.SetActive(true);
-            if (!npc_agent.pathPending && npc_agent.remainingDistance < 0.2f)
+           if (!npc_agent.pathPending && npc_agent.remainingDistance < 0.2f)
             {
-                npc_agent.destination = transform.position + new Vector3(Random.Range(-fl_searchrange, fl_searchrange), 0, Random.Range(-fl_searchrange, fl_searchrange));
+                npc_agent.destination = transform.position+ new Vector3(Random.Range(-fl_searchrange, fl_searchrange), 0, Random.Range(-fl_searchrange, fl_searchrange));
             }
             /*if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, fl_RaycastLenght))
             {
