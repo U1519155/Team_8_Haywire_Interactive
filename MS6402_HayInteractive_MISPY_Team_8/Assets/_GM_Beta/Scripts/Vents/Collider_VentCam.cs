@@ -9,11 +9,11 @@ public class Collider_VentCam : MonoBehaviour
     public GameObject go_EndTriggerGround;
     public GameObject go_Player;
     public Camera Cam_Parent;
-    private GameObject go_Roof;
+    public GameObject go_Roof;
 
     private void Awake()
     {
-        go_Roof = GameObject.Find("Main Roof");
+        //go_Roof = GameObject.Find("Main Roof");
     }
 
     private void OnTriggerEnter(Collider other)

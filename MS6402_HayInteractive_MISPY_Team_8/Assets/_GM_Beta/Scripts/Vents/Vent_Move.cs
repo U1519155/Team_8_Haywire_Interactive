@@ -12,11 +12,11 @@ public class Vent_Move : MonoBehaviour
     public GameObject go_Press_E;
     private bool bl_InRangeStart = false;
     private GameObject go_Player = null;
-    private GameObject go_Roof;
+    public GameObject go_Roof;
 
     private void Start()
     {
-        go_Roof = GameObject.Find("Main Roof");
+        //go_Roof = GameObject.Find("Main Roof");
     }
 
     private void OnTriggerEnter(Collider other)
