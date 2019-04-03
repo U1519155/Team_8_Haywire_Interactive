@@ -23,8 +23,8 @@ namespace CaughtCounter
         public GameObject player;
         [Tooltip("GameObject Must Be Named: Prison_Jail_Point")]
         public GameObject playerJailPoint;
-        [Tooltip("GameObject Must Be Named: Escape_Point")]
-        public GameObject escapePoint;
+        //[Tooltip("GameObject Must Be Named: Escape_Point")]
+        //public GameObject escapePoint;
         [Tooltip("GameObject Must Be Named: Ball_Room_Teleport")]
         public GameObject ballRoomTeleport;
         [Tooltip("GameObject Must Be Named: Kicked_Out_Point")]
@@ -47,10 +47,10 @@ namespace CaughtCounter
             {
                 playerJailPoint = GameObject.Find("Prison_Jail_Point");
             }
-            if (escapePoint == null)
-            {
-                escapePoint = GameObject.Find("Escape_Point");
-            }
+            //if (escapePoint == null)
+            //{
+            //    escapePoint = GameObject.Find("Escape_Point");
+            //}
             if (ballRoomTeleport == null)
             {
                 ballRoomTeleport = GameObject.Find("Ball_Room_Teleport");
