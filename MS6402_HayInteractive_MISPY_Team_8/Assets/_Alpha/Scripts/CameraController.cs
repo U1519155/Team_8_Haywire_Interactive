@@ -218,8 +218,7 @@ public class CameraController : MonoBehaviour
                 }
 
                 if(hit.collider == null || !hit.collider.gameObject.GetComponent<SecurityCamera>())
-                {
-                    
+                {   
                         Txt_Interaction.text = "";
                     
                 }
@@ -248,12 +247,7 @@ public class CameraController : MonoBehaviour
                     fl_copytime = 0;
                     
                         Txt_Interaction.text = "";
-                    
-
                 }
-
-
-
 
                 //find NPC with card, check if player is close enough to
 
@@ -350,14 +344,6 @@ public class CameraController : MonoBehaviour
             //}
 
             #endregion
-
-            Debug.Log(hit.transform.name);
-            Debug.DrawRay(cam.transform.position, transform.forward * MaxRange);
-            //Debug.Log(fl_copytime);
-
-            
-
-
         }
     }
     IEnumerator SpawntimerGrape()
