@@ -119,12 +119,12 @@ public class GM_ProtoAI : MonoBehaviour
     {
        // Agent_Self.speed = 0;
         Agent_Self.enabled = false;
-        print(Agent_Self.enabled);
+        //print(Agent_Self.enabled);
         //Agent_Self.destination = Agent_Self.transform.position;
         yield return new WaitForSeconds(20);
        // Agent_Self.speed = 5;
         Agent_Self.enabled = true;
-        print(Agent_Self.enabled);
+        //print(Agent_Self.enabled);
         
     }
 
