@@ -28,7 +28,8 @@ public class GC_TriggerAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<GC_AI_trigger>().states == GC_AI_trigger.npc_states.sleeping)
+        //if (other.gameObject.GetComponent<GC_AI_trigger>().states == GC_AI_trigger.npc_states.sleeping)
+        if (other.gameObject.GetComponent<GC_Sleeping>())   //
         {
             go_guard = other.gameObject;
         }

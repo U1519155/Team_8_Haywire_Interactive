@@ -34,6 +34,9 @@ public class GC_AI_trigger : MonoBehaviour
     public GameObject go_guard;
     public GameObject go_wakeuptarget;
 
+    public GameObject go_sleeptarget;
+    public float fl_distace;
+
 
     //raycast from trigger is ofset and doesn't look at player
     //also needs to add a case for npc going from search to investigate  SEE AAAAAAAAAAAAAA
@@ -47,6 +50,7 @@ public class GC_AI_trigger : MonoBehaviour
         go_alertsign.SetActive(false);
         go_searchsign.SetActive(false);
         go_sleepsign.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -75,7 +79,7 @@ public class GC_AI_trigger : MonoBehaviour
                 Npc_Sleeping();
                 break;
         }
-
+        fl_distace = npc_agent.remainingDistance;
     }
 
 
@@ -141,33 +145,6 @@ public class GC_AI_trigger : MonoBehaviour
         }
 
 
-        /*
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, fl_RaycastLenght))
-        {
-            if (hit.collider.gameObject.GetComponent<CharacterController>())
-            {
-                fl_detecting += Time.deltaTime;     //if the PC stays in sight of the agent for long enough, he becomes the target
-                npc_agent.isStopped = true;
-                tempdest = hit.transform;
-                npc_agent.transform.LookAt(tempdest);       //npc keeps looking at the pc
-                go_alertsign.SetActive(true);                   //show exclamation point as visual feedback
-                if (fl_detecting >= fl_detecttime)      //if the pc stayed too long in sight
-                {
-
-                    //npc_agent.destination = hit.rigidbody.position;
-                    // tempdest = hit.transform;
-                    states = npc_states.investigate;
-
-                }
-            }
-            else
-            {
-                fl_detecting = 0;       //reset detecting timer
-                npc_agent.isStopped = false;        //resume walking
-                go_alertsign.SetActive(false);      //remove exclamation point
-            }
-        }
-        */
     }
     
     void Npc_investigate()
@@ -178,27 +155,7 @@ public class GC_AI_trigger : MonoBehaviour
         go_searchsign.SetActive(false);
         go_alertsign.SetActive(true);
         fl_detecting = 0;
-        /*if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, fl_RaycastLenght))
-        {       //if npc is not looking at PC - this will be changed with proper cone + raycast
-            if (!hit.collider.gameObject.GetComponent<CharacterController>())
-            {
-
-                fl_losing += Time.deltaTime;
-                if (fl_losing >= fl_losttime)
-                {
-                    Debug.Log("pc lost");
-                    states = npc_states.search;
-                }
-            }
-            else
-            {
-                //fl_losing = 0;        change this later with finished AI 
-            }
-        }
-        if (npc_agent.remainingDistance == 0)
-        {
-            states = npc_states.search;
-        }*/
+        
         if (gameObject.GetComponentInChildren<GC_TriggerAI>().bl_pcinrange == false)       //CHANGES for trigger
         {
             fl_losing += Time.deltaTime;
@@ -241,14 +198,7 @@ public class GC_AI_trigger : MonoBehaviour
             {
                 npc_agent.destination = transform.position + new Vector3(Random.Range(-fl_searchrange, fl_searchrange), 0, Random.Range(-fl_searchrange, fl_searchrange));
             }
-            /*if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, fl_RaycastLenght))
-            {
-                if (hit.collider.gameObject.GetComponent<CharacterController>())
-                {
-                    tempdest = hit.transform;
-                    states = npc_states.investigate;
-                }
-            }*/
+            
             if (gameObject.GetComponentInChildren<GC_TriggerAI>().bl_pcinrange == true)
             {
                 go_player = GetComponentInChildren<GC_TriggerAI>().go_player;
@@ -270,6 +220,8 @@ public class GC_AI_trigger : MonoBehaviour
     void Npc_Sleeping()
     {
         //Debug.Log("sleeping");
+        go_sleeptarget.SetActive(true); //
+
         if (fl_sleeping < fl_sleeptime)
         {
             npc_agent.destination = new Vector3(transform.position.x, transform.position.y, transform.position.z);
@@ -279,6 +231,7 @@ public class GC_AI_trigger : MonoBehaviour
         else
         {
             go_sleepsign.SetActive(false);
+            go_sleeptarget.SetActive(false);    //
             states = npc_states.search;
         }
         go_alertsign.SetActive(false);
@@ -287,22 +240,6 @@ public class GC_AI_trigger : MonoBehaviour
 
     void Npc_wakeup()
     {
-        
-        //GameObject go_wakeuptarget;
-        /*if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, fl_RaycastLenght))
-        {
-            if (hit.collider.gameObject.GetComponent<GC_AI_trigger>().states == npc_states.sleeping)
-            {
-                Debug.Log("going to wake up");
-                go_wakeuptarget = hit.collider.gameObject;
-                npc_agent.destination = go_wakeuptarget.transform.position;
-                if (npc_agent.remainingDistance < 1f)
-                {
-                    go_wakeuptarget.SendMessage("Npc_Wakeupself", SendMessageOptions.DontRequireReceiver);
-                }
-            }
-        }*/
-
         if (gameObject.GetComponentInChildren<GC_TriggerAI>().go_guard != null)
         {
             //Debug.Log("detected sleeping");
@@ -312,10 +249,12 @@ public class GC_AI_trigger : MonoBehaviour
             {
                 //Debug.Log("going to wake up");
                 npc_agent.destination = go_wakeuptarget.transform.position;
-                if (npc_agent.remainingDistance < 1)
+                if (npc_agent.remainingDistance < 2)
                 {
-                    go_wakeuptarget.SendMessage("Npc_Wakeupself", SendMessageOptions.DontRequireReceiver);
+                    //go_wakeuptarget.SendMessage("Npc_Wakeupself", SendMessageOptions.DontRequireReceiver);
                     GetComponentInChildren<GC_TriggerAI>().go_guard = null;
+                    go_wakeuptarget.SendMessageUpwards("Npc_Wakeupself", SendMessageOptions.DontRequireReceiver);   //
+                    go_wakeuptarget.GetComponent<GC_AI_trigger>().go_sleeptarget.SetActive(false);  //
                     go_wakeuptarget = null;
                 }
             }
