@@ -14,8 +14,6 @@ GameObject:
   - component: {fileID: 7524073039949113947}
   - component: {fileID: 3009765037517610599}
   - component: {fileID: 5868627110737667396}
-  - component: {fileID: 135002214168427062}
-  - component: {fileID: 2005751859}
   - component: {fileID: 2005751851}
   m_Layer: 0
   m_Name: GC_NPC_AI_trigger
@@ -123,7 +121,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 2005751850}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
@@ -136,55 +134,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &135002214168427062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005751850}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92701e034d22123458ded5319dd739c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  states: 0
-  go_alertsign: {fileID: 1775294685}
-  go_sleepsign: {fileID: 1795199777}
-  go_searchsign: {fileID: 2035049330}
-  destinations:
-  - {fileID: 0}
-  in_destpoint: 0
-  fl_RaycastLenght: 50
-  fl_detecttime: 2.5
-  fl_detecting: 0
-  tempdest: {fileID: 0}
-  fl_losttime: 5
-  fl_losing: 0
-  fl_searchtime: 10
-  fl_searching: 0
-  fl_searchrange: 8
-  fl_sleeptime: 45
-  fl_sleeping: 0
-  go_grape: {fileID: 0}
-  pc_position: {x: 0, y: 0, z: 0}
-  fl_grapedistance: 10
---- !u!54 &2005751859
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005751850}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &2005751851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +151,7 @@ MonoBehaviour:
   go_sleepsign: {fileID: 1795199777}
   go_searchsign: {fileID: 2035049330}
   destinations:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   in_destpoint: 0
@@ -222,6 +172,8 @@ MonoBehaviour:
   go_player: {fileID: 0}
   go_guard: {fileID: 0}
   go_wakeuptarget: {fileID: 0}
+  go_sleeptarget: {fileID: 0}
+  fl_distace: 0
 --- !u!1001 &1341613811764939373
 PrefabInstance:
   m_ObjectHideFlags: 0
