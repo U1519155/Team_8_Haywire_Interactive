@@ -81,7 +81,7 @@ public class GC_AI_trigger : MonoBehaviour
 
     void Npc_patrol()
     {
-        Debug.Log("patrol");
+        //Debug.Log("patrol");
         tempdest = null;
         go_sleepsign.SetActive(false);
         fl_searching = 0;
@@ -172,7 +172,7 @@ public class GC_AI_trigger : MonoBehaviour
     
     void Npc_investigate()
     {
-        Debug.Log("investigate");
+        //Debug.Log("investigate");
         npc_agent.isStopped = false;            //resume walking, towards PC
         npc_agent.destination = tempdest.position;
         go_searchsign.SetActive(false);
@@ -204,7 +204,7 @@ public class GC_AI_trigger : MonoBehaviour
             fl_losing += Time.deltaTime;
             if (fl_losing >= fl_losttime)
             {
-                Debug.Log("pc lost");
+                //Debug.Log("pc lost");
                 states = npc_states.search;
             }
         }
@@ -224,7 +224,7 @@ public class GC_AI_trigger : MonoBehaviour
 
     void Npc_search()
     {
-        Debug.Log("search");
+        //Debug.Log("search");
         fl_sleeping = 0;
         fl_losing = 0;
         go_alertsign.SetActive(false);
@@ -269,7 +269,7 @@ public class GC_AI_trigger : MonoBehaviour
 
     void Npc_Sleeping()
     {
-        Debug.Log("sleeping");
+        //Debug.Log("sleeping");
         if (fl_sleeping < fl_sleeptime)
         {
             npc_agent.destination = new Vector3(transform.position.x, transform.position.y, transform.position.z);
@@ -305,12 +305,12 @@ public class GC_AI_trigger : MonoBehaviour
 
         if (gameObject.GetComponentInChildren<GC_TriggerAI>().go_guard != null)
         {
-            Debug.Log("detected sleeping");
+            //Debug.Log("detected sleeping");
             go_wakeuptarget = GetComponentInChildren<GC_TriggerAI>().go_guard;
             gameObject.transform.LookAt(go_wakeuptarget.transform);
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, fl_RaycastLenght))
             {
-                Debug.Log("going to wake up");
+                //Debug.Log("going to wake up");
                 npc_agent.destination = go_wakeuptarget.transform.position;
                 if (npc_agent.remainingDistance < 1)
                 {
@@ -324,7 +324,7 @@ public class GC_AI_trigger : MonoBehaviour
 
     void Npc_Wakeupself()
     {
-        Debug.Log("waking up");
+        //Debug.Log("waking up");
         go_sleepsign.SetActive(false);
         states = npc_states.search;
     }
