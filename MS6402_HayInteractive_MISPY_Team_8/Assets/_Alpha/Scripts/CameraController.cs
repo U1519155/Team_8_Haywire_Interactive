@@ -244,7 +244,7 @@ public class CameraController : MonoBehaviour
                 }
                 else
                 {
-                    fl_copytime = 0;
+                    //fl_copytime = 0;          
                     
                         Txt_Interaction.text = "";
                 }
