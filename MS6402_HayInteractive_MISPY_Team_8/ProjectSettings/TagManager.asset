@@ -19,6 +19,9 @@ TagManager:
   - EndTrigger2
   - EndTrigger1
   - StartTrigger2
+  - Clue1
+  - Clue2
+  - Clue3
   layers:
   - Default
   - TransparentFX

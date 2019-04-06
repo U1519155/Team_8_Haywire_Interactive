@@ -60,7 +60,6 @@ public class GM_TriggerChoose : MonoBehaviour
     // Set active if interacts with the button, deactivate if it exits
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Inside");
         if (other.tag == "IdentityHolder")
         {
             go_ButtonHolder.SetActive(true);
