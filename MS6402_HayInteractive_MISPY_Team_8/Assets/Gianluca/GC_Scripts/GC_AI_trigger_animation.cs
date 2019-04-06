@@ -46,7 +46,7 @@ public class GC_AI_trigger_animation : MonoBehaviour
     void Start()
     {
         npc_agent = GetComponent<NavMeshAgent>();
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         Npc_patrol();
         go_alertsign.SetActive(false);
         go_searchsign.SetActive(false);
