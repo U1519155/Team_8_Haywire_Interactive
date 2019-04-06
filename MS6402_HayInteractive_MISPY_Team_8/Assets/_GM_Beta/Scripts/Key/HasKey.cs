@@ -22,6 +22,7 @@ public class HasKey : MonoBehaviour
         go_Rotated = GameObject.Find("KitchenDoorRotated");
         go_Key_Sprite = GameObject.Find("Key_Sprite");
         go_Rotated.SetActive(false);
+        go_NeedKey.SetActive(false);
     }
 
     // Update is called once per frame
