@@ -28,16 +28,17 @@ public class GM_TriggerChoose : MonoBehaviour
     public GameObject go_QuestionMeHolder;
     public GameObject[] go_Questions;
     private int in_IndexQuestion;
+    private bool bl_IDChosen = false;
 
-   // //More variables LoL
-   // private Quaternion Q_CameraPC;
-   // private Quaternion Q_Cameraparent;
-   // private bool bl_IsFixed = false;
-   // public Camera cam_Camera;
-   // public GameObject go_PC;
+    // //More variables LoL
+    // private Quaternion Q_CameraPC;
+    // private Quaternion Q_Cameraparent;
+    // private bool bl_IsFixed = false;
+    // public Camera cam_Camera;
+    // public GameObject go_PC;
 
     // Set the gameobjects that are parented to the buttons false at the start of the scene. Selects an initial index for the gamobject(parent of the buttons) that gets activated.
-    void Start ()
+    private void Start ()
     {
         go_ButtonHolder.SetActive(false);
         go_QuestionMeHolder.SetActive(false);
@@ -62,8 +63,17 @@ public class GM_TriggerChoose : MonoBehaviour
     {
         if (other.tag == "IdentityHolder")
         {
-            go_ButtonHolder.SetActive(true);
-            gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
+            if (bl_IDChosen == false)
+            {
+                go_ButtonHolder.SetActive(true);
+                gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
+                bl_IDChosen = true;
+            }
+
+            else if (bl_IDChosen == true)
+            {
+
+            }
             //Time.timeScale = 0;
             //bl_IsFixed = true;
             // Q_CameraPC = cam_Camera.transform.rotation;
