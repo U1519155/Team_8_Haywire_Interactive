@@ -11,7 +11,7 @@ namespace CaughtCounter
 
         [Header("--Bools--")]
         public bool metToni = false;
-        public bool hasEscaped;
+        public bool hasEscaped = false;
         public bool gotCaught;
 
         [Header("--Ints--")]
@@ -29,8 +29,11 @@ namespace CaughtCounter
         public GameObject ballRoomTeleport;
         [Tooltip("GameObject Must Be Named: Kicked_Out_Point")]
         public GameObject kickedOutPoint;
-        [Tooltip("GameObject Must Be Named: Toni")]
-        public GameObject Toni;
+        [Tooltip("GameObject Must Be Named: Prison_Toni")]
+        public GameObject prisonToni;
+
+        [Header("--Escape boxes GameObjects--")]
+        GameObject[] escapepoints;
 
 
         // Start is called before the first frame update
@@ -62,6 +65,11 @@ namespace CaughtCounter
             if (kickedOutPoint == null)
             {
                 kickedOutPoint = GameObject.Find("Kicked_Out_Point");
+            }
+
+            if(prisonToni == null)
+            {
+                prisonToni = GameObject.Find("Prison_Toni");
             }
            // playerJailPoint = GameObject.Find("Prison_Jail_Point");
            // escapePoint = GameObject.Find("Escape_Point");
@@ -104,8 +112,13 @@ namespace CaughtCounter
                             }
 
                             if (hasEscaped == true) //player escaped 
-                            { 
+                            {
                                 //player.transform.position = escapePoint.transform.position;
+                                foreach (GameObject escapeBox in escapepoints)
+                                {
+                                    Destroy(escapeBox);
+                                }
+                                
                                 escapeCounter++;
                             }
 
