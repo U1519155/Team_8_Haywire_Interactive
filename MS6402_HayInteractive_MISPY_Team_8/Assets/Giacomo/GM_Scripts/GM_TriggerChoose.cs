@@ -138,6 +138,14 @@ public class GM_TriggerChoose : MonoBehaviour
             GM_Suspicion.bl_GuardTalk = false;
             SetIndex();
         }
+
+        if (other.tag == "RandomQuestion")
+        {
+            go_QuestionMeHolder.SetActive(false);
+            go_Questions[in_IndexQuestion].SetActive(false);
+            GM_Suspicion.bl_GuardTalk = false;
+            SetIndex();
+        }
     }
 
     void SetIndex()
