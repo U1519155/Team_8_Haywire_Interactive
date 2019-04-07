@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Menus/Main_Menu.unity
+    guid: 745c76a90a915564bbe1722b7b4bb6f7
+  - enabled: 1
+    path: Assets/_Beta/Beta_Tutorial/Tutorial_Scene.unity
+    guid: ca279b5adc5e3f941a89ce3035c0adf2
+  - enabled: 1
+    path: Assets/_Beta/Beta_Scenes/Beta_Planning Phase.unity
+    guid: f6e11e0bb12efa748b34df06de37f842
+  - enabled: 1
     path: Assets/_Beta/Beta_Scenes/Beta_LevelMap.unity
     guid: cdb9e0660971c7942aa9f5192743bf5d
   m_configObjects: {}
