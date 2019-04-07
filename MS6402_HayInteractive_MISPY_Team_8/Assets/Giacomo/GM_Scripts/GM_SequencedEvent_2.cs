@@ -10,6 +10,7 @@ public class GM_SequencedEvent_2 : MonoBehaviour
     public AudioClip ac_Right;
     public AudioClip ac_OpenDoorSound;    
     public static GameObject go_PressE;
+    public GameObject pressE;
 
     [Header("----buttons----")]
     public GameObject go_1Button;
@@ -38,9 +39,9 @@ public class GM_SequencedEvent_2 : MonoBehaviour
 
     void Start()
     {
-        as_AudioSource = GetComponent<AudioSource>(); 
+        as_AudioSource = GetComponent<AudioSource>();
 
-        go_PressE = GameObject.Find("Press_E");
+        go_PressE = pressE;
 
         if (go_PressE == null)
         {
