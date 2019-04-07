@@ -22,6 +22,9 @@ TagManager:
   - Clue1
   - Clue2
   - Clue3
+  - Napkin
+  - Monitor
+  - Paperwork
   layers:
   - Default
   - TransparentFX
