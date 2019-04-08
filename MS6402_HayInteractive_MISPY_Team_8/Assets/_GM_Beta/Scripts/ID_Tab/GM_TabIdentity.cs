@@ -8,6 +8,7 @@ public class GM_TabIdentity : MonoBehaviour
     private bool bl_TabPressed = false;
     private bool bl_HPressed = true;
     private bool bl_FuckingFuck = false;
+    private bool bl_FuckingPressed = false;
     public GameObject Identity_K;
     public GameObject Identity_Kevin;
     public GameObject Identity_Richard;
@@ -27,6 +28,8 @@ public class GM_TabIdentity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(bl_FuckingFuck);
+
         if (Input.GetKeyDown(KeyCode.H))
         {
             if (bl_HPressed == true)
@@ -46,35 +49,38 @@ public class GM_TabIdentity : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.J))
             {
-                if (ClassChoose.bl_Kevin == true)
+                if (bl_FuckingPressed == false)
                 {
-                    go_NoQR_Kevin.SetActive(true);
+                    if (ClassChoose.bl_Kevin == true)
+                    {
+                        go_NoQR_Kevin.SetActive(true);
+                        bl_FuckingPressed = true;
+                    }
+
+                    if (ClassChoose.bl_Richard == true)
+                    {
+                        go_NoQR_Richard.SetActive(true);
+                        bl_FuckingPressed = true;
+                    }
+
+                    if (ClassChoose.bl_Kayode == true)
+                    {
+                        go_NoQR_K.SetActive(true);
+                        bl_FuckingPressed = true;
+                    }
+
+                    Identity_K.SetActive(false);
+                    Identity_Kevin.SetActive(false);
+                    Identity_Richard.SetActive(false); 
                 }
 
-                if (ClassChoose.bl_Richard == true)
+                else if (bl_FuckingPressed == true)
                 {
-                    go_NoQR_Richard.SetActive(true);
+                    go_NoQR_K.SetActive(false);
+                    go_NoQR_Kevin.SetActive(false);
+                    go_NoQR_Richard.SetActive(false);
+                    bl_FuckingPressed = false;
                 }
-
-                if (ClassChoose.bl_Kayode == true)
-                {
-                    go_NoQR_K.SetActive(true);
-                }
-
-                Identity_K.SetActive(false);
-                Identity_Kevin.SetActive(false);
-                Identity_Richard.SetActive(false);
-                bl_FuckingFuck = false;
-            }
-        }
-
-        if (bl_FuckingFuck == false)
-        {
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                go_NoQR_K.SetActive(false);
-                go_NoQR_Kevin.SetActive(false);
-                go_NoQR_Richard.SetActive(false);
             }
         }
 
