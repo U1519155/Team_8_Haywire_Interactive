@@ -56,7 +56,11 @@ public class GC_AI_trigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        go_grape = GameObject.Find("Screaming Ball(Clone)");
+        if (GM_GameManager.bl_grapeinscene)
+        {
+            go_grape = GameObject.Find("Screaming Ball(Clone)");
+        }
+
         //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * fl_RaycastLenght, Color.green);
         switch (states)
         {

@@ -162,7 +162,9 @@ public class CameraController : MonoBehaviour
                         {
                             Instantiate(GO_ScreamingGrape, hit.point, Quaternion.identity);
                             SpawnedGrapes++;
+                            GM_GameManager.bl_grapeinscene = true;
                             StartCoroutine(SpawntimerGrape());
+                            
                         }
                     }
                 }
@@ -223,7 +225,7 @@ public class CameraController : MonoBehaviour
         yield return new WaitForSeconds(3);
         SpawnedGrapes--;
         ScreamingGrape.GrapeDestroy();
-
+        GM_GameManager.bl_grapeinscene = false;
 
     }
 }

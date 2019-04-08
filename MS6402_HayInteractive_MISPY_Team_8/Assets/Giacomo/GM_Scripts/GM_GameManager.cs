@@ -13,6 +13,9 @@ public class GM_GameManager : MonoBehaviour
     //public static bool bl_EndLevel = false;
 
     // Use this for initialization
+    public static bool bl_grapeinscene;     //added to improve performance
+
+
     void Awake ()
     {
         DontDestroyOnLoad(gameObject);
