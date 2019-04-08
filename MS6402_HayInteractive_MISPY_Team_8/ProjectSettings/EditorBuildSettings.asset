@@ -5,16 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Menus/Main_Menu.unity
     guid: 745c76a90a915564bbe1722b7b4bb6f7
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Beta/Beta_Tutorial/Tutorial_Scene.unity
     guid: ca279b5adc5e3f941a89ce3035c0adf2
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Beta/Beta_Scenes/Beta_Planning Phase.unity
     guid: f6e11e0bb12efa748b34df06de37f842
   - enabled: 1
     path: Assets/_Beta/Beta_Scenes/Beta_LevelMap.unity
     guid: cdb9e0660971c7942aa9f5192743bf5d
+  - enabled: 1
+    path: Assets/Level_nodiamond.unity
+    guid: 50a922d885984fd4cb2f8e8948b7e090
+  - enabled: 1
+    path: Assets/Level_withdiamond.unity
+    guid: f97b25ce8b66a22458cb0564c40e4cbd
   m_configObjects: {}

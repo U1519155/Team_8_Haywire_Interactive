@@ -6675,6 +6675,8 @@ MonoBehaviour:
   metToni: 0
   hasEscaped: 0
   gotCaught: 0
+  stopSpamming: 1
+  stopSpammingAgin: 1
   caughtCounter: 0
   escapeCounter: 0
   player: {fileID: 0}
@@ -6682,6 +6684,7 @@ MonoBehaviour:
   ballRoomTeleport: {fileID: 0}
   kickedOutPoint: {fileID: 0}
   prisonToni: {fileID: 0}
+  escapepoints: []
 --- !u!1 &334898397
 GameObject:
   m_ObjectHideFlags: 0
@@ -6850,7 +6853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2069145316, guid: 728e52c52619142478d51aa7f90a4634, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2069145316, guid: 728e52c52619142478d51aa7f90a4634, type: 3}
       propertyPath: m_StaticEditorFlags

@@ -18,11 +18,13 @@ public class GC_Tonystuff : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other == go_player)
+        if (other.gameObject == go_player)
         {
             go_diamondtrigger.SetActive(false);
             go_takediamond.SetActive(true);
             go_endnodiamond.SetActive(true);
+
+            Destroy(this);
         }
     }
 }

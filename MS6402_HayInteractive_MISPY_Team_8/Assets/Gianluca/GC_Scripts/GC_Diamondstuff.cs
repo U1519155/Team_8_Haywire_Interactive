@@ -12,6 +12,7 @@ public class GC_Diamondstuff : MonoBehaviour
     public GameObject go_endnodiamond;
     public GameObject go_image;
 
+    public Text tx_take;
     [HideInInspector] public bool bl_doit;
 
     // Start is called before the first frame update
@@ -43,7 +44,8 @@ public class GC_Diamondstuff : MonoBehaviour
                 go_diamond.SetActive(false);
                 go_endnodiamond.SetActive(false);
                 go_endwithdiamond.SetActive(true);
-            go_image.SetActive(false);
+                Destroy(this);
+                go_image.SetActive(false);
             }
     }
 }

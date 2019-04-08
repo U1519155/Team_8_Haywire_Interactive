@@ -12,6 +12,7 @@ namespace CaughtCounter
         public bool hasEscaped = false;
         public bool gotCaught;
         public bool stopSpamming = true;
+        public bool stopSpammingAgin = true;
 
         [Header("--Ints--")]
         public int caughtCounter;
@@ -32,7 +33,7 @@ namespace CaughtCounter
         public GameObject prisonToni;
 
         [Header("--Escape boxes GameObjects--")]
-        GameObject[] escapepoints;
+        public GameObject[] escapepoints;
 
 
         // Start is called before the first frame update
@@ -126,10 +127,16 @@ namespace CaughtCounter
 
                         case 2: //player has already escaped
                             
-                                if (metToni == false)
+                                if (metToni == false && gotCaught == true)
                                 {
-                                    //"play cutscene"
+                                //"play cutscene"
+                                player.transform.position = playerJailPoint.transform.position;
+                                if (stopSpammingAgin == true)
+                                {
                                     StartCoroutine(MeetToni());
+                                    stopSpammingAgin = false;                                  
+                                }
+                                gotCaught = false;
                                 }
 
                             break;
@@ -161,7 +168,7 @@ namespace CaughtCounter
 
         IEnumerator ToniIsComming()
         { 
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(30);
                 StartCoroutine(MeetToni());
             Debug.Log("TONI IS COMMING");
             yield break;
