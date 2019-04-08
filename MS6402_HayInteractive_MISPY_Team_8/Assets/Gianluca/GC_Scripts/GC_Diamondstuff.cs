@@ -10,6 +10,7 @@ public class GC_Diamondstuff : MonoBehaviour
     public GameObject go_diamond;
     public GameObject go_endwithdiamond;
     public GameObject go_endnodiamond;
+    public GameObject go_image;
 
     public Text tx_take;
     [HideInInspector] public bool bl_doit;
@@ -18,7 +19,6 @@ public class GC_Diamondstuff : MonoBehaviour
     void Start()
     {
         go_player = GameObject.FindGameObjectWithTag("Player");
-        tx_take.text = "";
     }
 
 
@@ -26,14 +26,14 @@ public class GC_Diamondstuff : MonoBehaviour
     {
         if (other.gameObject == go_player)
         {
-            tx_take.text = "ok";
+            go_image.SetActive(true);
             bl_doit=true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        tx_take.text = "";
+        go_image.SetActive(false);
         bl_doit = false;
     }
 
@@ -44,7 +44,7 @@ public class GC_Diamondstuff : MonoBehaviour
                 go_diamond.SetActive(false);
                 go_endnodiamond.SetActive(false);
                 go_endwithdiamond.SetActive(true);
-                tx_take.text = "boi";
+            go_image.SetActive(false);
             }
     }
 }
