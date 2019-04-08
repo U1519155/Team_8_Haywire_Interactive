@@ -144,7 +144,7 @@ public class CameraController : MonoBehaviour
             {
                 Txt_Interaction.text = "";
                 //hit marker sleep dart sound for NPC
-                if (hit.collider.gameObject.GetComponent<Guard>() || hit.collider.gameObject.GetComponent<GC_AI_trigger>())
+                if (hit.collider.gameObject.GetComponent<GC_AI_trigger>())
                 {
                    
                     if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
