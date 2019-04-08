@@ -174,6 +174,8 @@ namespace CaughtCounter
             player.transform.position = ballRoomTeleport.transform.position;
             caughtCounter++;
             metToni = true;
+            yield break;
+
         }
 
 
