@@ -162,6 +162,7 @@ namespace CaughtCounter
             {
                 StartCoroutine(MeetToni());
             }
+            yield break;
         }
 
         IEnumerator MeetToni()
