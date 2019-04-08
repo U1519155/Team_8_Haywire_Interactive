@@ -26,6 +26,7 @@ TagManager:
   - Monitor
   - Paperwork
   - Prison_gameManger
+  - RandomQuestion
   layers:
   - Default
   - TransparentFX

@@ -7,8 +7,6 @@ namespace CaughtCounter
 {
     public class HH_Prison_GameManager : MonoBehaviour
     {
-
-
         [Header("--Bools--")]
         public bool metToni = false;
         public bool hasEscaped = false;
@@ -84,7 +82,6 @@ namespace CaughtCounter
         {
             switch (caughtCounter)
             {
-
                 case 0: //player has been caught
                     if (gotCaught == true && escapeCounter == 0)
                     {
@@ -135,7 +132,7 @@ namespace CaughtCounter
                     }
                     break;
 
-                case 2:
+                case 1:
                     if (gotCaught == true)
                     {
                         player.transform.position = ballRoomTeleport.transform.position;   
@@ -144,7 +141,7 @@ namespace CaughtCounter
                     }
                     break;
 
-                case 3:
+                case 2:
                     if (gotCaught == true)
                     {
                         player.transform.position = kickedOutPoint.transform.position;                   
@@ -152,12 +149,15 @@ namespace CaughtCounter
                         gotCaught = false;
                     }
                     break;
+                case 3:
+                    Debug.Log("game over");
+                        break;
             }
         }
 
         IEnumerator ToniIsComming()
         { 
-            yield return new WaitForSeconds(40);
+            yield return new WaitForSeconds(10);
             if (hasEscaped == false)
             {
                 StartCoroutine(MeetToni());
@@ -167,8 +167,10 @@ namespace CaughtCounter
         IEnumerator MeetToni()
         {
             //transform player infront of Toni
+            prisonToni.transform.position = player.transform.position + Vector3.forward;
 
             yield return new WaitForSeconds(10); // timer for dialog
+            prisonToni.gameObject.SetActive(false);
             player.transform.position = ballRoomTeleport.transform.position;
             caughtCounter++;
             metToni = true;
