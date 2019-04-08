@@ -25,6 +25,7 @@ TagManager:
   - Napkin
   - Monitor
   - Paperwork
+  - Prison_gameManger
   layers:
   - Default
   - TransparentFX

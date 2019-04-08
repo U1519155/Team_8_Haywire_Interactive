@@ -84,10 +84,8 @@ namespace CaughtCounter
         {
             switch (caughtCounter)
             {
-                case 0:                    
-                    break;
 
-                case 1: //player has been caught
+                case 0: //player has been caught
                     if (gotCaught == true && escapeCounter == 0)
                     {
                         player.transform.position = playerJailPoint.transform.position;
@@ -105,14 +103,15 @@ namespace CaughtCounter
                             
                             StartCoroutine(ToniIsComming());
 
-                            if (metToni == true) //toni met with player before he escaped
-                            {
-                                player.transform.position = ballRoomTeleport.transform.position;
-                                caughtCounter++;
-                            }
+                            //if (metToni == true) //toni met with player before he escaped
+                            //{
+                            //    player.transform.position = ballRoomTeleport.transform.position;
+                            //   // caughtCounter++;
+                            //}
 
                             if (hasEscaped == true) //player escaped 
                             {
+                                StopAllCoroutines();
                                 //player.transform.position = escapePoint.transform.position;
                                 foreach (GameObject escapeBox in escapepoints)
                                 {
@@ -157,8 +156,7 @@ namespace CaughtCounter
         }
 
         IEnumerator ToniIsComming()
-        {
-            
+        { 
             yield return new WaitForSeconds(40);
             if (hasEscaped == false)
             {
