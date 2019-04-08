@@ -11,6 +11,7 @@ namespace CaughtCounter
         public bool metToni = false;
         public bool hasEscaped = false;
         public bool gotCaught;
+        public bool stopSpamming = true;
 
         [Header("--Ints--")]
         public int caughtCounter;
@@ -96,9 +97,13 @@ namespace CaughtCounter
                     }
                     switch (escapeCounter)
                     {
-                        case 1: //player did not already escape
-                            
-                            StartCoroutine(ToniIsComming());
+                        case 1: //player did not already escape                
+
+                            if (stopSpamming == true)
+                            {
+                                StartCoroutine(ToniIsComming());
+                                stopSpamming = false;
+                            }
 
                             //if (metToni == true) //toni met with player before he escaped
                             //{
@@ -108,8 +113,7 @@ namespace CaughtCounter
 
                             if (hasEscaped == true) //player escaped 
                             {
-                                StopAllCoroutines();
-                                //player.transform.position = escapePoint.transform.position;
+                                StopAllCoroutines();                               
                                 foreach (GameObject escapeBox in escapepoints)
                                 {
                                     Destroy(escapeBox);
@@ -158,20 +162,20 @@ namespace CaughtCounter
         IEnumerator ToniIsComming()
         { 
             yield return new WaitForSeconds(10);
-            if (hasEscaped == false)
-            {
                 StartCoroutine(MeetToni());
-            }
+            Debug.Log("TONI IS COMMING");
+            yield break;
         }
 
         IEnumerator MeetToni()
         {
             //transform player infront of Toni
+            StopCoroutine(ToniIsComming());
             prisonToni.transform.position = player.transform.position + Vector3.forward;
-
             yield return new WaitForSeconds(10); // timer for dialog
             prisonToni.gameObject.SetActive(false);
             player.transform.position = ballRoomTeleport.transform.position;
+            Debug.Log("TONI IS hHERE");
             caughtCounter++;
             metToni = true;
             yield break;
