@@ -199,7 +199,7 @@ public class CameraController : MonoBehaviour
                     {
                         in_PCcurrentID = hit.collider.GetComponent<GC_GuardsID>().in_IDcode;
                         Debug.Log("id copied");
-
+                        fl_copytime = 0;
                         
                             Txt_Interaction.text = "ID copied";
                         
