@@ -149,7 +149,7 @@ public class CameraController : MonoBehaviour
                    
                     if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
                     {
-                        hit.collider.gameObject.GetComponent<GC_AI_Alpha>().states = GC_AI_Alpha.npc_states.sleeping;
+                        hit.collider.gameObject.GetComponent<GC_AI_trigger>().states = GC_AI_trigger.npc_states.sleeping;
                         //CHANGE guard state to sleep for 30 seconds
                     }
                 }
