@@ -190,22 +190,29 @@ public class CameraController : MonoBehaviour
                         Txt_Interaction.text = ""; 
                 }
 
-                if (hit.collider.gameObject.GetComponent<GC_GuardsID>() && hit.distance <= 5 )
+                if (hit.collider.gameObject.GetComponent<GC_GuardsID>() && hit.distance <= 5)
                 {
-                        Txt_Interaction.text = "Downloading ID...";
-                    
-                    fl_copytime += Time.deltaTime;
-                    if (fl_copytime >= fl_timetocopy)
+                    if (in_PCcurrentID != hit.collider.GetComponent<GC_GuardsID>().in_IDcode)
                     {
-                        in_PCcurrentID = hit.collider.GetComponent<GC_GuardsID>().in_IDcode;
-                        Debug.Log("id copied");
-                        fl_copytime = 0;
-                        
+                        Txt_Interaction.text = "Downloading ID...";
+
+                        fl_copytime += Time.deltaTime;
+                        if (fl_copytime >= fl_timetocopy)
+                        {
+
+                            in_PCcurrentID = hit.collider.GetComponent<GC_GuardsID>().in_IDcode;
+                            //Debug.Log("id copied");
+                            fl_copytime = 0;
                             Txt_Interaction.text = "ID copied";
-                        
+                        }
                     }
-                    //wow it actually works
+                    else
+                    {
+                        Txt_Interaction.text = "ID copied";
+                    }
                 }
+                    
+                    //wow it actually works
                 else
                 {
                     //fl_copytime = 0;            
