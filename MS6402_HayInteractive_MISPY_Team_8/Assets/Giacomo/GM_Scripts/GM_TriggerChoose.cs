@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using CaughtCounter;
 
 public class GM_TriggerChoose : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class GM_TriggerChoose : MonoBehaviour
     private int in_IndexQuestion;
     private bool bl_IDChosen = false;
 
+    public GameObject GameManager;
+
     // //More variables LoL
     // private Quaternion Q_CameraPC;
     // private Quaternion Q_Cameraparent;
@@ -43,6 +46,8 @@ public class GM_TriggerChoose : MonoBehaviour
         go_ButtonHolder.SetActive(false);
         go_QuestionMeHolder.SetActive(false);
         in_IndexQuestion = Random.Range(0, go_Questions.Length);
+
+        GameManager = GameObject.FindGameObjectWithTag("Prison_gameManger");
 	}
 
     private void Update()
@@ -213,9 +218,10 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("Dafuq");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
-       //     this.gameObject.SetActive(false);
+            //     this.gameObject.SetActive(false);
+            GameManager.GetComponent<HH_Prison_GameManager>().caughtCounter++;
             gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
-        }
+         }
         
     }
 
@@ -241,7 +247,8 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("Dafuq");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
-    //        this.gameObject.SetActive(false);
+            //        this.gameObject.SetActive(false);
+            GameManager.GetComponent<HH_Prison_GameManager>().caughtCounter++;
             gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
         }
 
@@ -270,7 +277,8 @@ public class GM_TriggerChoose : MonoBehaviour
             Debug.Log("Dafuq");
             GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
-       //     this.gameObject.SetActive(false);
+            //     this.gameObject.SetActive(false);
+            GameManager.GetComponent<HH_Prison_GameManager>().caughtCounter++;
             gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
         }
     }
