@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using CaughtCounter;
 
 public class GC_AI_trigger : MonoBehaviour
 {
@@ -37,6 +38,9 @@ public class GC_AI_trigger : MonoBehaviour
     public GameObject go_sleeptarget;
     public float fl_distace;
 
+    [Header("Prison Game Manager")]
+    public GameObject Go_GameManager;
+
 
     //raycast from trigger is ofset and doesn't look at player
     //also needs to add a case for npc going from search to investigate  SEE AAAAAAAAAAAAAA
@@ -50,7 +54,7 @@ public class GC_AI_trigger : MonoBehaviour
         go_alertsign.SetActive(false);
         go_searchsign.SetActive(false);
         go_sleepsign.SetActive(false);
-        
+        Go_GameManager = GameObject.FindGameObjectWithTag("Prison_gameManger");
     }
 
     // Update is called once per frame
@@ -60,7 +64,7 @@ public class GC_AI_trigger : MonoBehaviour
         {
             go_grape = GameObject.Find("Screaming Ball(Clone)");
         }
-
+        
         //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * fl_RaycastLenght, Color.green);
         switch (states)
         {
@@ -178,6 +182,13 @@ public class GC_AI_trigger : MonoBehaviour
                 if (hit.collider.gameObject.GetComponent<CharacterController>())
                 {
                     fl_losing = 0;
+                    if (npc_agent.remainingDistance <= 2.1f)
+                    {
+                        in_destpoint=0;
+                        states = npc_states.patrol;
+                        Go_GameManager.GetComponent<HH_Prison_GameManager>().gotCaught = true;
+
+                    }
                 }
             }
         }
