@@ -13,6 +13,7 @@ public class Vent_Move : MonoBehaviour
     private bool bl_InRangeStart = false;
     private GameObject go_Player = null;
     public GameObject go_Roof;
+    public float fl_Distance = 6f;
 
     private void Start()
     {
@@ -25,21 +26,27 @@ public class Vent_Move : MonoBehaviour
         {
             bl_InRangeStart = true;
             go_Player = other.gameObject;
+            go_Press_E.SetActive(true);
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        go_Press_E.SetActive(false);
-        bl_InRangeStart = false;
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    go_Press_E.SetActive(false);
+    //    bl_InRangeStart = false;
+    //}
 
     // Update is called once per frame
     void Update()
     {
         if (bl_InRangeStart == true)
         {
-            go_Press_E.SetActive(true);
+            if (Vector3.Distance(gameObject.transform.position, go_Player.transform.position) >= fl_Distance)
+            {
+                go_Press_E.SetActive(false);
+                bl_InRangeStart = false;
+            }
+            
             if (Input.GetKeyDown(KeyCode.E))
             {
                 go_Roof.SetActive(false);
