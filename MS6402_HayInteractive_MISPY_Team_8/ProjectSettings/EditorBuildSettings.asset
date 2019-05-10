@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Beta/Beta_Tutorial/Tutorial_Scene.unity
     guid: ca279b5adc5e3f941a89ce3035c0adf2
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Beta/Beta_Scenes/Beta_Planning Phase.unity
     guid: f6e11e0bb12efa748b34df06de37f842
+  - enabled: 1
+    path: Assets/_Beta/Beta_Scenes/Beta_Planning Phase 2.0.unity
+    guid: 13cdc6251f8cd7d40a62cf7f6a3feb2f
   - enabled: 1
     path: Assets/_Beta/Beta_Scenes/Beta_LevelMap.unity
     guid: cdb9e0660971c7942aa9f5192743bf5d
