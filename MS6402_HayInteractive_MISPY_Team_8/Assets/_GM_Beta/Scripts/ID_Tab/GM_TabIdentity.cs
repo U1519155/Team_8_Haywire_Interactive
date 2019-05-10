@@ -28,7 +28,7 @@ public class GM_TabIdentity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(bl_FuckingFuck);
+        //Debug.Log(bl_FuckingFuck);
 
         if (Input.GetKeyDown(KeyCode.H))
         {

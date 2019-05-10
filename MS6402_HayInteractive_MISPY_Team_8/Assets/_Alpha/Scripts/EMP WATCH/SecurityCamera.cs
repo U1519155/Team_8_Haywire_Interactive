@@ -5,14 +5,14 @@ using UnityEngine;
 public class SecurityCamera : MonoBehaviour
 {
     public GameObject Patricle;
-    Guard setlight;
+    GC_Camera_callguards setlight;
    
     
     // Start is called before the first frame update
     void Start()
     {
         Patricle.SetActive(false);
-        setlight = GetComponent<Guard>();
+        setlight = GetComponent<GC_Camera_callguards>();
 
 
     }

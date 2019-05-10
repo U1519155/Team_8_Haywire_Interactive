@@ -9,6 +9,7 @@ public class GC_Tonystuff : MonoBehaviour
     public GameObject go_takediamond;
     public GameObject go_endnodiamond;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,7 @@ public class GC_Tonystuff : MonoBehaviour
             go_takediamond.SetActive(true);
             go_endnodiamond.SetActive(true);
 
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
