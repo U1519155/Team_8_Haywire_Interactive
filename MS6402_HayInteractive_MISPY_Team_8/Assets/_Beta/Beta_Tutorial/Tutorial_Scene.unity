@@ -61738,8 +61738,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260748861}
   m_LocalRotation: {x: 0.50000054, y: 0.49999908, z: 0.49999967, w: 0.5000008}
-  m_LocalPosition: {x: -0.0015, y: 0.0004, z: 0.00307}
-  m_LocalScale: {x: 0.00004590422, y: 0.00004590422, z: 0.76507026}
+  m_LocalPosition: {x: -0.0015, y: 0.0004, z: 0.0054}
+  m_LocalScale: {x: 0.000047061283, y: 0.00003947763, z: 0.6579604}
   m_Children: []
   m_Father: {fileID: 1899544724}
   m_RootOrder: 1
@@ -61756,7 +61756,12 @@ TextMesh:
 
     his question correctly to
 
-    proceed to the next section'
+    proceed to the next section.
+
+
+    Only a few guards
+
+    will be this inquisitive.'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -89167,11 +89172,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 155919810, guid: 5835bbbccdfd9004084e3e0c8eeab172, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 155919810, guid: 5835bbbccdfd9004084e3e0c8eeab172, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0078
+      value: 0.0085
       objectReference: {fileID: 0}
     - target: {fileID: 155919810, guid: 5835bbbccdfd9004084e3e0c8eeab172, type: 3}
       propertyPath: m_LocalScale.x
