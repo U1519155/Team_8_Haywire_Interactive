@@ -7,6 +7,7 @@ public class Teleport : MonoBehaviour
     public GameObject destination;
     GameObject dialogueBox;
     public GameObject player;
+    public GameObject selftalk;
 
 
     // Start is called before the first frame update
@@ -21,7 +22,7 @@ public class Teleport : MonoBehaviour
         if (other.gameObject == player)
         {
             gameObject.transform.position = destination.transform.position;
-
+            selftalk.SetActive(true);
         }
     }
 

@@ -21,11 +21,12 @@ public class GC_Tonystuff : MonoBehaviour
     {
         if (other.gameObject == go_player)
         {
+            Destroy(gameObject);
             go_diamondtrigger.SetActive(false);
             go_takediamond.SetActive(true);
             go_endnodiamond.SetActive(true);
 
-            Destroy(gameObject);
+            
         }
     }
 }

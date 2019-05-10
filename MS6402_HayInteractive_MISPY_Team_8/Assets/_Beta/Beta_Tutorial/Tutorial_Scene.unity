@@ -57899,7 +57899,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go_PressE: {fileID: 741530589}
-  st_levelname: Beta_Planning Phase
+  st_levelname: Beta_Planning Phase 2.0
+  go_player: {fileID: 0}
 --- !u!65 &1166318300
 BoxCollider:
   m_ObjectHideFlags: 0

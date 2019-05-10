@@ -26,6 +26,7 @@ public class GC_Diamondstuff : MonoBehaviour
     {
         if (other.gameObject == go_player)
         {
+            
             go_image.SetActive(true);
             bl_doit=true;
         }
@@ -33,12 +34,15 @@ public class GC_Diamondstuff : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        
         go_image.SetActive(false);
         bl_doit = false;
     }
 
     private void Update()
     {
+        if (bl_doit == true)
+        {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 go_diamond.SetActive(false);
@@ -47,5 +51,6 @@ public class GC_Diamondstuff : MonoBehaviour
                 Destroy(this);
                 go_image.SetActive(false);
             }
+        }
     }
 }
