@@ -217,7 +217,7 @@ MonoBehaviour:
   - {fileID: 0}
   in_destpoint: 0
   fl_RaycastLenght: 60
-  fl_detecttime: 2.5
+  fl_detecttime: 1.5
   fl_detecting: 0
   tempdest: {fileID: 0}
   fl_losttime: 2.5

@@ -12,7 +12,7 @@ public class GC_AI_trigger : MonoBehaviour
     public GameObject go_sleepsign;
     public GameObject go_searchsign;
     public Transform[] destinations;
-    private NavMeshAgent npc_agent;
+    public NavMeshAgent npc_agent;
     public int in_destpoint;
     public RaycastHit hit;
     public float fl_RaycastLenght = 60.0f;
