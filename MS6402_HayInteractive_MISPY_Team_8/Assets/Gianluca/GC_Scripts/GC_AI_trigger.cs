@@ -269,7 +269,7 @@ public class GC_AI_trigger : MonoBehaviour
                     //go_wakeuptarget.SendMessage("Npc_Wakeupself", SendMessageOptions.DontRequireReceiver);
                     GetComponentInChildren<GC_TriggerAI>().go_guard = null;
                     go_wakeuptarget.SendMessageUpwards("Npc_Wakeupself", SendMessageOptions.DontRequireReceiver);   //
-                    go_wakeuptarget.GetComponent<GC_AI_trigger>().go_sleeptarget.SetActive(false);  //
+                    //go_wakeuptarget.GetComponent<GC_AI_trigger>().go_sleeptarget.SetActive(false);  //
                     go_wakeuptarget = null;
                 }
             }
@@ -280,6 +280,7 @@ public class GC_AI_trigger : MonoBehaviour
     {
         //Debug.Log("waking up");
         go_sleepsign.SetActive(false);
+        go_sleeptarget.SetActive(false);
         states = npc_states.search;
     }
 }
