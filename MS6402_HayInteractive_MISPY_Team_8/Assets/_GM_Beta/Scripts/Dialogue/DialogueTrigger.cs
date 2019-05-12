@@ -10,6 +10,8 @@ public class DialogueTrigger : MonoBehaviour
     //public float fl_Distance = 12f;
     public float fl_TimerNextSentence = 5f;
     public static bool bl_End = false;
+    private AudioSource as_Source;
+    public AudioClip ac_Clip;
     //private bool bl_InRadius = false;
 
     //private void Update()
@@ -20,6 +22,18 @@ public class DialogueTrigger : MonoBehaviour
 
     //    }
     //}
+
+    private void Start()
+    {
+        as_Source = gameObject.GetComponent<AudioSource>();
+
+        as_Source.clip = ac_Clip;
+
+        if (as_Source == null)
+        {
+            Debug.Log("GuardNeedsAudioSource!");
+        }
+    }
 
     //Finds and triggers the dialogue.
     public void TriggerDialogue()
@@ -32,24 +46,34 @@ public class DialogueTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(fl_TimerNextSentence);
         FindObjectOfType<DialogueManager>().DisplayNextSentence();
+        as_Source.PlayOneShot(ac_Clip);
         yield return new WaitForSeconds(fl_TimerNextSentence);
         FindObjectOfType<DialogueManager>().DisplayNextSentence();
+        as_Source.PlayOneShot(ac_Clip);
         yield return new WaitForSeconds(fl_TimerNextSentence);
         FindObjectOfType<DialogueManager>().DisplayNextSentence();
+        as_Source.PlayOneShot(ac_Clip);
         yield return new WaitForSeconds(fl_TimerNextSentence);
         FindObjectOfType<DialogueManager>().DisplayNextSentence();
+        as_Source.PlayOneShot(ac_Clip);
         yield return new WaitForSeconds(fl_TimerNextSentence);
         FindObjectOfType<DialogueManager>().DisplayNextSentence();
+        as_Source.PlayOneShot(ac_Clip);
         yield return new WaitForSeconds(fl_TimerNextSentence);
         FindObjectOfType<DialogueManager>().DisplayNextSentence();
+        as_Source.PlayOneShot(ac_Clip);
         yield return new WaitForSeconds(fl_TimerNextSentence);
         FindObjectOfType<DialogueManager>().DisplayNextSentence();
+        as_Source.PlayOneShot(ac_Clip);
         yield return new WaitForSeconds(fl_TimerNextSentence);
         FindObjectOfType<DialogueManager>().DisplayNextSentence();
+        as_Source.PlayOneShot(ac_Clip);
         yield return new WaitForSeconds(fl_TimerNextSentence);
         FindObjectOfType<DialogueManager>().DisplayNextSentence();
+        as_Source.PlayOneShot(ac_Clip);
         yield return new WaitForSeconds(fl_TimerNextSentence);
         FindObjectOfType<DialogueManager>().DisplayNextSentence();
+        as_Source.PlayOneShot(ac_Clip);
     }
 
     private void OnTriggerEnter(Collider other)
