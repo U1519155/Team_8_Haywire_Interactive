@@ -219,7 +219,7 @@ public class GM_TriggerChoose : MonoBehaviour
             //GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
             //     this.gameObject.SetActive(false);
-            GameManager.GetComponent<HH_Prison_GameManager>().caughtCounter++;
+            GameManager.GetComponent<HH_Prison_GameManager>().gotCaught = true;
             gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
          }
         
@@ -248,7 +248,7 @@ public class GM_TriggerChoose : MonoBehaviour
            // GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
             //        this.gameObject.SetActive(false);
-            GameManager.GetComponent<HH_Prison_GameManager>().caughtCounter++;
+            GameManager.GetComponent<HH_Prison_GameManager>().gotCaught = true;
             gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
         }
 
@@ -278,7 +278,7 @@ public class GM_TriggerChoose : MonoBehaviour
             //GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
             //     this.gameObject.SetActive(false);
-            GameManager.GetComponent<HH_Prison_GameManager>().caughtCounter++;
+            GameManager.GetComponent<HH_Prison_GameManager>().gotCaught = true;
             gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
         }
     }
