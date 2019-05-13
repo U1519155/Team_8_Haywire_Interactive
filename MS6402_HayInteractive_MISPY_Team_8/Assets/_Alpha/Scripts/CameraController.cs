@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
     float MaxRange = 2.0f;
     public float outlineSize = 1.3f;
     public Camera cam;
+    public GameObject GadgetSelected; 
 
     [Header("------TEXT-----")]
     public Text Txt_Interaction;
@@ -36,7 +37,10 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-
+        if(GadgetSelected == null)
+        {
+            GadgetSelected = GameObject.Find("SelectedGadgetManager");
+        }
         cam = Camera.main;
         SwapWeapon(4);
         if (Txt_Interaction != null)
@@ -69,28 +73,90 @@ public class CameraController : MonoBehaviour
                 weapons[i].gameObject.SetActive(false);
         }
     }
-
+    [Header("--Image For Gadget --")]
+    public Image Bowtie, Watch, Cigar;
     
     public void InputWeapon()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))//screw driver
+        if (GadgetSelected.GetComponent<GadgetManagerBehaviour>().bowtie == true)
         {
-            SwapWeapon(1);
-            Player_StateManager.pc_State = Player_StateManager.PC_different_states.pc_screwDriver;
-            Debug.Log(Player_StateManager.pc_State);
+            if (Input.GetKeyDown(KeyCode.Alpha1))//screw driver
+            {
+                SwapWeapon(1);
+                Player_StateManager.pc_State = Player_StateManager.PC_different_states.pc_screwDriver;
+                Debug.Log(Player_StateManager.pc_State);
+                
+            }
+            if(currentWeapon == 1)
+            {
+                Bowtie.color = Color.green;
+            }
+            else
+            {
+                Bowtie.color = Color.white;
+            }
+
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))//watch
+        else if(GadgetSelected.GetComponent<GadgetManagerBehaviour>().bowtie == false)
         {
-            SwapWeapon(2);
-            Player_StateManager.pc_State = Player_StateManager.PC_different_states.pc_Watch;
-            Debug.Log(Player_StateManager.pc_State);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))//cigar
+            Bowtie.color = new Color(0.5f, 0.5f, 0.5f, 0.7f);
+        }//-----------------------------------------------------------------------
+
+
+
+        if (GadgetSelected.GetComponent<GadgetManagerBehaviour>().watch == true)
         {
-            SwapWeapon(3);
-            Player_StateManager.pc_State = Player_StateManager.PC_different_states.pc_Cigar;
-            Debug.Log(Player_StateManager.pc_State);
+            
+            if (Input.GetKeyDown(KeyCode.Alpha2))//watch
+            {
+                SwapWeapon(2);
+                Player_StateManager.pc_State = Player_StateManager.PC_different_states.pc_Watch;
+                Debug.Log(Player_StateManager.pc_State);
+            }
+            if(currentWeapon == 2)
+            {
+                Watch.color = Color.green;
+            }
+            else
+            {
+                Watch.color = Color.white;
+            }
+
         }
+        else if (GadgetSelected.GetComponent<GadgetManagerBehaviour>().watch == false)
+        {
+            Watch.color = new Color(0.5f, 0.5f, 0.5f, 0.7f);
+        }//-------------------------------------------------------------
+
+
+
+        if (GadgetSelected.GetComponent<GadgetManagerBehaviour>().cigar == true)
+        {
+            Cigar.color = Color.white;
+
+            if (Input.GetKeyDown(KeyCode.Alpha3))//cigar
+            {
+                SwapWeapon(3);
+                Player_StateManager.pc_State = Player_StateManager.PC_different_states.pc_Cigar;
+                Debug.Log(Player_StateManager.pc_State);
+            }
+            if(currentWeapon == 3)
+            {
+                Cigar.color = Color.green;
+            }
+            else
+            {
+                Cigar.color = Color.white;
+            }
+
+        }
+        else if (GadgetSelected.GetComponent<GadgetManagerBehaviour>().cigar == false)
+        {
+            Cigar.color = new Color(0.5f, 0.5f, 0.5f, 0.7f);
+        }//-----------------------------------------------------------------
+
+
+
         if (Input.GetKeyDown(KeyCode.Alpha4))//normal
         {
             SwapWeapon(4);

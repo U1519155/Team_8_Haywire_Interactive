@@ -13,6 +13,7 @@ namespace CaughtCounter
         public bool gotCaught;
         public bool stopSpamming = true;
         public bool stopSpammingAgin = true;
+        public bool pleaseWork = true;
 
         [Header("--Ints--")]
         public int caughtCounter;
@@ -35,6 +36,21 @@ namespace CaughtCounter
         [Header("--Escape boxes GameObjects--")]
         public GameObject[] escapepoints;
 
+
+        IEnumerator ToniIsComming01;
+        IEnumerator ToniIsComming02;
+
+        IEnumerator MeetToni001;
+        IEnumerator MeetToni002;
+
+        void Start()
+        {
+            ToniIsComming01 = ToniIsComming();
+            ToniIsComming02 = ToniIsComming();
+
+            MeetToni001 = MeetToni();
+            MeetToni002 = MeetToni();
+        }
 
         // Start is called before the first frame update
 
@@ -91,18 +107,19 @@ namespace CaughtCounter
                         gotCaught = false;
                         escapeCounter++;
                     }
-                    if (gotCaught == true && escapeCounter >= 1)
+                    if (gotCaught == true && escapeCounter == 1)
                     {
                         player.transform.position = playerJailPoint.transform.position;
                         gotCaught = false;
                     }
+
                     switch (escapeCounter)
                     {
                         case 1: //player did not already escape                
 
                             if (stopSpamming == true)
                             {
-                                StartCoroutine(ToniIsComming());
+                                StartCoroutine(ToniIsComming01);
                                 stopSpamming = false;
                             }
 
@@ -114,7 +131,7 @@ namespace CaughtCounter
 
                             if (hasEscaped == true) //player escaped 
                             {
-                                StopAllCoroutines();                               
+                                
                                 foreach (GameObject escapeBox in escapepoints)
                                 {
                                     Destroy(escapeBox);
@@ -126,19 +143,30 @@ namespace CaughtCounter
                             break;
 
                         case 2: //player has already escaped
-                            
-                                if (metToni == false && gotCaught == true)
-                                {
+                            if (pleaseWork == true)
+                            {
+                                StopCoroutine(MeetToni001);
+                                StopCoroutine(ToniIsComming01);
+                                escapeCounter++;
+                                pleaseWork = false;
+                                
+                            }
+
+                            break;
+                        case 3:
+                            if (gotCaught == true)
+                            {
                                 //"play cutscene"
                                 player.transform.position = playerJailPoint.transform.position;
                                 if (stopSpammingAgin == true)
                                 {
-                                    StartCoroutine(MeetToni());
-                                    stopSpammingAgin = false;                                  
+
+                                    StartCoroutine(MeetToni002);
+
+                                    stopSpammingAgin = false;
                                 }
                                 gotCaught = false;
-                                }
-
+                            }
                             break;
                     }
                     break;
@@ -161,14 +189,16 @@ namespace CaughtCounter
                     }
                     break;
                 case 3:
-                    Debug.Log("game over");
+                    SceneManager.LoadScene("Level_failure");
                         break;
             }
         }
 
+
+
         IEnumerator ToniIsComming()
         { 
-            yield return new WaitForSeconds(30);
+            yield return new WaitForSeconds(20);
                 StartCoroutine(MeetToni());
             Debug.Log("TONI IS COMMING");
             yield break;
@@ -177,7 +207,8 @@ namespace CaughtCounter
         IEnumerator MeetToni()
         {
             //transform player infront of Toni
-            StopCoroutine(ToniIsComming());
+            //StopCoroutine(ToniIsComming());
+            Debug.Log("Mistic YOU FUCKING DID IT");
             prisonToni.transform.position = player.transform.position + Vector3.forward;
             yield return new WaitForSeconds(10); // timer for dialog
             prisonToni.gameObject.SetActive(false);
