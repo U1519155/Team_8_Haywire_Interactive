@@ -50,18 +50,18 @@ public class GM_TriggerChoose : MonoBehaviour
         GameManager = GameObject.FindGameObjectWithTag("Prison_gameManger");
 	}
 
-    private void Update()
-    {
-        if (GM_Suspicion.in_Suspicion <= 0)
-        {
-            GM_Suspicion.in_Suspicion = 0;
-        }
+  //  private void Update()
+  //  {
+        //if (GM_Suspicion.in_Suspicion <= 0)
+        //{
+        //    GM_Suspicion.in_Suspicion = 0;
+      //  }
        //if (bl_IsFixed == true)
        //{
        //    cam_Camera.transform.rotation = Q_CameraPC;
        //    go_PC.transform.rotation = Q_Cameraparent;
        //}
-    }
+  //  }
 
     // Set active if interacts with the button, deactivate if it exits
     public void OnTriggerEnter(Collider other)
@@ -202,7 +202,7 @@ public class GM_TriggerChoose : MonoBehaviour
          if (bl_Dhaka == true)
          {
             Debug.Log("You can pass");
-            GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion - in_IncreasedSuspicion;
+           // GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion - in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
             gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
 
@@ -216,7 +216,7 @@ public class GM_TriggerChoose : MonoBehaviour
          else if (bl_Dhaka == false)
          {
             Debug.Log("Dafuq");
-            GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
+            //GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
             //     this.gameObject.SetActive(false);
             GameManager.GetComponent<HH_Prison_GameManager>().caughtCounter++;
@@ -231,7 +231,7 @@ public class GM_TriggerChoose : MonoBehaviour
         if (bl_London == true)
         {
             Debug.Log("You can pass");
-            GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion - in_IncreasedSuspicion;
+            //GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion - in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
             gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
 
@@ -245,7 +245,7 @@ public class GM_TriggerChoose : MonoBehaviour
         else if (bl_London == false)
         {
             Debug.Log("Dafuq");
-            GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
+           // GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
             //        this.gameObject.SetActive(false);
             GameManager.GetComponent<HH_Prison_GameManager>().caughtCounter++;
@@ -260,7 +260,7 @@ public class GM_TriggerChoose : MonoBehaviour
         if (bl_Rome == true)
         {
             Debug.Log("You can pass");
-            GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion - in_IncreasedSuspicion;
+            //GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion - in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
             gameObject.GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
 
@@ -275,7 +275,7 @@ public class GM_TriggerChoose : MonoBehaviour
         else if (bl_Rome == false)
         {
             Debug.Log("Dafuq");
-            GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
+            //GM_Suspicion.in_Suspicion = GM_Suspicion.in_Suspicion + in_IncreasedSuspicion;
             go_QuestionMeHolder.SetActive(false);
             //     this.gameObject.SetActive(false);
             GameManager.GetComponent<HH_Prison_GameManager>().caughtCounter++;
