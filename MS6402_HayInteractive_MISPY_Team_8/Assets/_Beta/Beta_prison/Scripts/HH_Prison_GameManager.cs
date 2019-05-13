@@ -36,6 +36,7 @@ namespace CaughtCounter
         [Header("--Escape boxes GameObjects--")]
         public GameObject[] escapepoints;
 
+        public GameObject CantLeaveCube01, CantLeaveCube;
 
         IEnumerator ToniIsComming01;
         IEnumerator ToniIsComming02;
@@ -50,6 +51,8 @@ namespace CaughtCounter
 
             MeetToni001 = MeetToni();
             MeetToni002 = MeetToni();
+            CantLeaveCube01.SetActive(false);
+            CantLeaveCube.SetActive(false);
         }
 
         // Start is called before the first frame update
@@ -157,6 +160,8 @@ namespace CaughtCounter
                             if (gotCaught == true)
                             {
                                 //"play cutscene"
+                                CantLeaveCube01.SetActive(true);
+                                CantLeaveCube.SetActive(true);
                                 player.transform.position = playerJailPoint.transform.position;
                                 if (stopSpammingAgin == true)
                                 {
@@ -199,8 +204,7 @@ namespace CaughtCounter
         IEnumerator ToniIsComming()
         { 
             yield return new WaitForSeconds(20);
-                StartCoroutine(MeetToni());
-            Debug.Log("TONI IS COMMING");
+                StartCoroutine(MeetToni());       
             yield break;
         }
 
@@ -208,12 +212,10 @@ namespace CaughtCounter
         {
             //transform player infront of Toni
             //StopCoroutine(ToniIsComming());
-            Debug.Log("Mistic YOU FUCKING DID IT");
             prisonToni.transform.position = player.transform.position + Vector3.forward;
             yield return new WaitForSeconds(10); // timer for dialog
             prisonToni.gameObject.SetActive(false);
             player.transform.position = ballRoomTeleport.transform.position;
-            Debug.Log("TONI IS hHERE");
             caughtCounter++;
             metToni = true;
             yield break;

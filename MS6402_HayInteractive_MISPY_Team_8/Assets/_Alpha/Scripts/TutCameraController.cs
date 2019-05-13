@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CameraController : MonoBehaviour
+public class TutCameraController : MonoBehaviour
 {
     float MaxRange = 2.0f;
     public float outlineSize = 1.3f;
@@ -78,8 +78,7 @@ public class CameraController : MonoBehaviour
     
     public void InputWeapon()
     {
-        if (GadgetSelected.GetComponent<GadgetManagerBehaviour>().bowtie == true)
-        {
+
             if (Input.GetKeyDown(KeyCode.Alpha1))//screw driver
             {
                 SwapWeapon(1);
@@ -87,75 +86,21 @@ public class CameraController : MonoBehaviour
                 
                 
             }
-            if(currentWeapon == 1)
-            {
-                Bowtie.color = Color.green;
-            }
-            else
-            {
-                Bowtie.color = Color.white;
-            }
-
-        }
-        else if(GadgetSelected.GetComponent<GadgetManagerBehaviour>().bowtie == false)
-        {
-            Bowtie.color = new Color(0.5f, 0.5f, 0.5f, 0.7f);
-        }//-----------------------------------------------------------------------
-
-
-
-        if (GadgetSelected.GetComponent<GadgetManagerBehaviour>().watch == true)
-        {
-            
+ 
             if (Input.GetKeyDown(KeyCode.Alpha2))//watch
             {
                 SwapWeapon(2);
                 Player_StateManager.pc_State = Player_StateManager.PC_different_states.pc_Watch;
                 
             }
-            if(currentWeapon == 2)
-            {
-                Watch.color = Color.green;
-            }
-            else
-            {
-                Watch.color = Color.white;
-            }
 
-        }
-        else if (GadgetSelected.GetComponent<GadgetManagerBehaviour>().watch == false)
-        {
-            Watch.color = new Color(0.5f, 0.5f, 0.5f, 0.7f);
-        }//-------------------------------------------------------------
-
-
-
-        if (GadgetSelected.GetComponent<GadgetManagerBehaviour>().cigar == true)
-        {
-            Cigar.color = Color.white;
 
             if (Input.GetKeyDown(KeyCode.Alpha3))//cigar
             {
                 SwapWeapon(3);
                 Player_StateManager.pc_State = Player_StateManager.PC_different_states.pc_Cigar;
-                
+               
             }
-            if(currentWeapon == 3)
-            {
-                Cigar.color = Color.green;
-            }
-            else
-            {
-                Cigar.color = Color.white;
-            }
-
-        }
-        else if (GadgetSelected.GetComponent<GadgetManagerBehaviour>().cigar == false)
-        {
-            Cigar.color = new Color(0.5f, 0.5f, 0.5f, 0.7f);
-        }//-----------------------------------------------------------------
-
-
 
         if (Input.GetKeyDown(KeyCode.Alpha4))//normal
         {
