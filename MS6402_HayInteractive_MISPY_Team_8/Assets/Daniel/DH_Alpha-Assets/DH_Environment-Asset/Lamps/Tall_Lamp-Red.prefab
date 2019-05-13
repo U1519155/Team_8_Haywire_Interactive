@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7419137833029237885}
   - component: {fileID: 6753631608272438890}
   - component: {fileID: 889977424040881570}
-  - component: {fileID: 7672570407120025489}
+  - component: {fileID: 5187791489956688801}
   m_Layer: 0
   m_Name: Tall_Lamp-Red
   m_TagString: Untagged
@@ -79,8 +79,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &7672570407120025489
-MeshCollider:
+--- !u!65 &5187791489956688801
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -89,7 +89,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: d135c16fac7fdfe49a0ecbd8338e4e30, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.0032000002, y: 0.0031999997, z: 0.009761564}
+  m_Center: {x: 0, y: 0, z: 0.004896785}

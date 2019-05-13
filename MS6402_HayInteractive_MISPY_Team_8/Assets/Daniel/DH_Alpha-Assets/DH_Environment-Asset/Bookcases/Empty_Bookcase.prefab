@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1300035174624897306}
   - component: {fileID: 6320918018582253357}
   - component: {fileID: 8647858781147522269}
-  - component: {fileID: 3093244616962311296}
+  - component: {fileID: 2408125870621649210}
   m_Layer: 0
   m_Name: Empty_Bookcase
   m_TagString: Untagged
@@ -78,8 +78,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &3093244616962311296
-MeshCollider:
+--- !u!65 &2408125870621649210
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -88,7 +88,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 60f964b0ac9f7fd47bd036f70509f63c, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.12926885, y: 0.03573938, z: 0.17278172}
+  m_Center: {x: -0.0000000024108568, y: 0.0000000024108566, z: 0.080894925}

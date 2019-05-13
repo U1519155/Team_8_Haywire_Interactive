@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 259510372}
   - component: {fileID: 259510375}
   - component: {fileID: 259510374}
-  - component: {fileID: 259510373}
   m_Layer: 0
   m_Name: support
   m_TagString: Untagged
@@ -79,20 +78,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &259510373
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259510371}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300002, guid: 64226193aeb0e1740acd24608d217f6c, type: 3}
 --- !u!1 &356646367
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,6 +87,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 356646368}
+  - component: {fileID: 3211258383172751847}
   m_Layer: 0
   m_Name: Garden_Recliner-Orange
   m_TagString: Untagged
@@ -125,6 +111,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
+--- !u!65 &3211258383172751847
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356646367}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.58379316, z: 3.0888174}
+  m_Center: {x: 0, y: 0.20810342, z: -0.030242113}
 --- !u!1 &523371013
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +135,6 @@ GameObject:
   - component: {fileID: 523371014}
   - component: {fileID: 523371017}
   - component: {fileID: 523371016}
-  - component: {fileID: 523371015}
   m_Layer: 0
   m_Name: mattress
   m_TagString: Untagged
@@ -203,17 +201,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &523371015
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 523371013}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 64226193aeb0e1740acd24608d217f6c, type: 3}

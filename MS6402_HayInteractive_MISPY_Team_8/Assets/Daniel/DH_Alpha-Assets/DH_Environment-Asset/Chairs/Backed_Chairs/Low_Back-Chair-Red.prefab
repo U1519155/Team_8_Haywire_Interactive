@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6670643630558403746}
   - component: {fileID: 9068993590470685714}
   - component: {fileID: 4399334460485999277}
-  - component: {fileID: 3806094630620903498}
+  - component: {fileID: 2404136917841875185}
   m_Layer: 0
   m_Name: Low_Back-Chair-Red
   m_TagString: Untagged
@@ -79,8 +79,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &3806094630620903498
-MeshCollider:
+--- !u!65 &2404136917841875185
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -89,7 +89,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: aee6cd66f55852c4da7492ef0dfc1d59, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.033220578, y: 0.031028925, z: 0.17950766}
+  m_Center: {x: -0.002799723, y: 0, z: 0.016325673}

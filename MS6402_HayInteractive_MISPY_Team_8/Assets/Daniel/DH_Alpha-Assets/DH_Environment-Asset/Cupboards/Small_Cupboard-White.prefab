@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2914026464388931747}
   - component: {fileID: 4726611911188564262}
   - component: {fileID: 4054943409440725599}
-  - component: {fileID: 287884608275903398}
+  - component: {fileID: 4945386335231827383}
   m_Layer: 0
   m_Name: Small_Cupboard-White
   m_TagString: Untagged
@@ -79,8 +79,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &287884608275903398
-MeshCollider:
+--- !u!65 &4945386335231827383
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -89,7 +89,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 0c3b011e5cb17e94dbb169a21b3f7b0d, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.0056124907, y: 0.007999999, z: 0.0074999975}
+  m_Center: {x: 0.000104012084, y: 0, z: 0.0037499988}

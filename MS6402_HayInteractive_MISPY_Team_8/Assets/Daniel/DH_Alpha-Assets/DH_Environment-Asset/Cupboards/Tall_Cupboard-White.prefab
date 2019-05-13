@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8587307718240599162}
   - component: {fileID: 4756617170336310645}
   - component: {fileID: 8369787217717401459}
-  - component: {fileID: 8088939734177954916}
+  - component: {fileID: 7276150495036821825}
   m_Layer: 0
   m_Name: Tall_Cupboard-White
   m_TagString: Untagged
@@ -79,8 +79,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &8088939734177954916
-MeshCollider:
+--- !u!65 &7276150495036821825
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -89,7 +89,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 2a7419ad908861442b6a92ce36c05f87, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.0066124895, y: 0.009999997, z: 0.018499995}
+  m_Center: {x: 0.0006040119, y: 0, z: 0.009249997}
